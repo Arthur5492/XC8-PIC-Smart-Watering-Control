@@ -10,7 +10,7 @@
 
 extern unsigned int timerCounter;
 
-// Defina o protótipo esperado para o callback
+// Defina o protï¿½tipo esperado para o callback
 //typedef void (*TimerCallback)(void); // Ponteiro de funcao que nao recebe nem retorna nada
 
 typedef struct {

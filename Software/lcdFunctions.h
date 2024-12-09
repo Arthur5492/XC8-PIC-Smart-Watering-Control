@@ -28,8 +28,8 @@ unsigned char lcd_index = 1;
 //Para debounce dos botoes
 __bit leftButtonPressed = 0;
 __bit rightButtonPressed = 0;
-unsigned char lastLeftButtonState = 1;  // Estado anterior do botão esquerdo 
-unsigned char lastRightButtonState = 1; // Estado anterior do botão direito 
+unsigned char lastLeftButtonState = 1;  // Estado anterior do botï¿½o esquerdo 
+unsigned char lastRightButtonState = 1; // Estado anterior do botï¿½o direito 
 
 extern virtualTimer timer_lcdButtons;
 
@@ -84,14 +84,14 @@ void lcd_debounceButtons()
     // Reseta o timer para debounce
     timer_lcdButtons.reached = 0;
 
-    // Checa se houve transição de estado no botao esquerdo
+    // Checa se houve transicao de estado no botao esquerdo
     if (pin_leftButton == 0 && lastLeftButtonState != 0) {
-        lcd_turnLeft(); // Ação para o botao esquerdo
+        lcd_turnLeft(); // Acao para o botao esquerdo
     }
 
     // Checa se houve transicao de estado no botao direito
     if (pin_rightButton == 0 && lastRightButtonState != 0) {
-        lcd_turnRight(); // Ação para o botao direito
+        lcd_turnRight(); // Acao para o botao direito
     }
 
     // Atualiza os estados anteriores dos botoes

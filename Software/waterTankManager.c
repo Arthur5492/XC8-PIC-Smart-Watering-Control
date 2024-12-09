@@ -20,7 +20,7 @@ void check_TankStatus(void)
   if(tankState == WTANK_ERROR)
     tankState = WTANK_ERROR;
   
-  //topo ativado e fundo desativado é fisicamente impossivel
+  //topo ativado e fundo desativado ï¿½ fisicamente impossivel
   else if((top == 1 && bot == 0))
     tankState = WTANK_ERROR;
   
@@ -51,7 +51,7 @@ void run_waterTankLogic(void)
     pin_alarm = 0;
     break;
      
-  case WTANK_LOW: //Começa a encher e inicia o timeout
+  case WTANK_LOW: //Comeca a encher e inicia o timeout
     startFilling();
     break;
     
@@ -62,7 +62,7 @@ void run_waterTankLogic(void)
   case WTANK_MID: //Nada a fazer
     break;
     
-  default: //Caso qualquer outra coisa aconteça, eh um erro com certeza
+  default: //Caso qualquer outra coisa aconteï¿½a, eh um erro com certeza
     stopFilling();
     pin_alarm = 0;
   }; 
