@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/Arthur/Documents/Microcontroladores/PIC16F877A/xc8_trabalho_final/Software/_build/final/default",
+  "command": "c:\\PROGRA~1\\MICROC~1\\xc8\\v2.50\\bin\\xc8-cc.exe -mcpu=16F877A -c -mdfp=C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8 -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -mwarn=-3 -Wa,-a -DXPRJ_default=default -msummary=-psect,-class,+mem,-hex,-file -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -moscval=0x3400 -mno-download -mno-stackcall -mdefault-config-bits -std=c99 -gcoff -mstack=compiled:auto:auto:auto -o CMakeFiles\\final_default_compile.dir\\C_\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\main.c.p1 -c C:\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\main.c",
+  "file": "C:\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\main.c",
+  "output": "CMakeFiles\\final_default_compile.dir\\C_\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\main.c.p1"
+},
+{
+  "directory": "C:/Users/Arthur/Documents/Microcontroladores/PIC16F877A/xc8_trabalho_final/Software/_build/final/default",
+  "command": "c:\\PROGRA~1\\MICROC~1\\xc8\\v2.50\\bin\\xc8-cc.exe -mcpu=16F877A -c -mdfp=C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8 -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -mwarn=-3 -Wa,-a -DXPRJ_default=default -msummary=-psect,-class,+mem,-hex,-file -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -moscval=0x3400 -mno-download -mno-stackcall -mdefault-config-bits -std=c99 -gcoff -mstack=compiled:auto:auto:auto -o CMakeFiles\\final_default_compile.dir\\C_\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\waterTankManager.c.p1 -c C:\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\waterTankManager.c",
+  "file": "C:\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\waterTankManager.c",
+  "output": "CMakeFiles\\final_default_compile.dir\\C_\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\waterTankManager.c.p1"
+},
+{
+  "directory": "C:/Users/Arthur/Documents/Microcontroladores/PIC16F877A/xc8_trabalho_final/Software/_build/final/default",
+  "command": "c:\\PROGRA~1\\MICROC~1\\xc8\\v2.50\\bin\\xc8-cc.exe -mcpu=16F877A -c -mdfp=C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8 -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -mwarn=-3 -Wa,-a -DXPRJ_default=default -msummary=-psect,-class,+mem,-hex,-file -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -moscval=0x3400 -mno-download -mno-stackcall -mdefault-config-bits -std=c99 -gcoff -mstack=compiled:auto:auto:auto -o CMakeFiles\\final_default_compile.dir\\C_\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\virtualTimer.c.p1 -c C:\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\virtualTimer.c",
+  "file": "C:\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\virtualTimer.c",
+  "output": "CMakeFiles\\final_default_compile.dir\\C_\\Users\\Arthur\\Documents\\Microcontroladores\\PIC16F877A\\xc8_trabalho_final\\Software\\virtualTimer.c.p1"
+}
+]

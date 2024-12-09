@@ -1,0 +1,4 @@
+C:/Users/Arthur/Documents/Microcontroladores/PIC16F877A/xc8_trabalho_final/Software/_build/final/default/CMakeFiles/final_default_compile.dir
+C:/Users/Arthur/Documents/Microcontroladores/PIC16F877A/xc8_trabalho_final/Software/_build/final/default/CMakeFiles/final_default_default.elf.dir
+C:/Users/Arthur/Documents/Microcontroladores/PIC16F877A/xc8_trabalho_final/Software/_build/final/default/CMakeFiles/edit_cache.dir
+C:/Users/Arthur/Documents/Microcontroladores/PIC16F877A/xc8_trabalho_final/Software/_build/final/default/CMakeFiles/rebuild_cache.dir
