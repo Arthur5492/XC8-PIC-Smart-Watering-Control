@@ -1915,7 +1915,8 @@ typedef struct {
     unsigned int targetTime;
     unsigned int elapsedTime;
     char active;
-    void (*callback)(void);
+
+    char reached;
 } virtualTimer;
 
 
@@ -1933,6 +1934,7 @@ void runTimer(virtualTimer *timer);
 
 typedef enum
 {
+  WTANK_UNDEFINED = -1,
   WTANK_FULL,
   WTANK_MID,
   WTANK_LOW,
@@ -1940,7 +1942,7 @@ typedef enum
 }TankState;
 
 extern TankState tankState;
-
+extern TankState lastTankState;
 
 extern virtualTimer timer_WTANK_timeout;
 
@@ -1968,19 +1970,23 @@ virtualTimer timer_WTANK_timeout =
   .targetTime = 15000,
   .elapsedTime = 0,
   .active = 0,
-  .callback = &interrupt_stopFilling
+  .reached = 0
 };
 
 TankState tankState = WTANK_MID;
+TankState lastTankState = WTANK_UNDEFINED;
 
-void check_TankStatus()
+void check_TankStatus(void)
 {
 
-  unsigned char top = PORTAbits.RA3;
-  unsigned char bot = PORTAbits.RA4;
+  unsigned char top = PORTCbits.RC6;
+  unsigned char bot = PORTCbits.RC7;
+
+  if(tankState == WTANK_ERROR)
+    tankState = WTANK_ERROR;
 
 
-  if((top == 1 && bot == 0) || tankState == WTANK_ERROR)
+  else if((top == 1 && bot == 0))
     tankState = WTANK_ERROR;
 
 
@@ -2007,7 +2013,7 @@ void run_waterTankLogic(void)
   {
   case WTANK_ERROR:
     stopFilling();
-    PORTCbits.RC2 = 1;
+    PORTCbits.RC2 = 0;
     break;
 
   case WTANK_LOW:
@@ -2023,7 +2029,7 @@ void run_waterTankLogic(void)
 
   default:
     stopFilling();
-    PORTCbits.RC2 = 1;
+    PORTCbits.RC2 = 0;
   };
 }
 
@@ -2037,10 +2043,3 @@ void stopFilling(void)
   PORTCbits.RC0 = 1;
   stopTimer(&timer_WTANK_timeout);
 };
-
-
-
-
-
-
-void interrupt_stopFilling(void){ tankState = WTANK_ERROR; };

@@ -22,14 +22,16 @@ const char* TankStateString[] =
 };
 
 //Para rotar entre as paginas do LCD
-unsigned char lcd_index      = 1;
-unsigned char lcd_lastIndex  = 1;
+unsigned char lcd_index = 1;
+
 
 //Para debounce dos botoes
-unsigned char lastLeftButtonState = 1;  // Estado anterior do botão esquerdo (assumindo HIGH como padrão)
-unsigned char lastRightButtonState = 1; // Estado anterior do botão direito (assumindo HIGH como padrão)
+__bit leftButtonPressed = 0;
+__bit rightButtonPressed = 0;
+unsigned char lastLeftButtonState = 1;  // Estado anterior do botão esquerdo 
+unsigned char lastRightButtonState = 1; // Estado anterior do botão direito 
 
-
+extern virtualTimer timer_lcdButtons;
 
 void print_TankState(void);
 void print_Index(void);
@@ -42,6 +44,13 @@ void interrupt_checkButton(void);
 //Printa Tank State no LCD
 void print_TankState(void)
 {
+  
+  if(tankState == lastTankState)
+    return;
+  
+  lastTankState = tankState;
+  
+  Lcd_Clear();
   char buffer[20];
   
   Lcd_Set_Cursor(1,1);
@@ -53,10 +62,11 @@ void print_TankState(void)
   Lcd_Write_String(buffer);
 }
 
+//so um teste
 void print_Index(void)
 {
-  char buffer[20];
   Lcd_Clear();
+  char buffer[20];
   
   Lcd_Set_Cursor(1,1);
   sprintf(buffer, "%d", lcd_index);
@@ -64,19 +74,40 @@ void print_Index(void)
   Lcd_Write_String(buffer);
 }
 
-void lcd_run(void)
+void lcd_debounceButtons()
 {
-    // Verifica se o indice mudou
-  if (lcd_index == lcd_lastIndex)
-    return; 
+  // Aguarda o tempo do debounce antes de verificar os botoes
+    if (timer_lcdButtons.reached == 0) {
+        return; // Sai se o timer ainda nao alcancou o tempo alvo
+    }
+
+    // Reseta o timer para debounce
+    timer_lcdButtons.reached = 0;
+
+    // Checa se houve transição de estado no botao esquerdo
+    if (pin_leftButton == 0 && lastLeftButtonState != 0) {
+        lcd_turnLeft(); // Ação para o botao esquerdo
+    }
+
+    // Checa se houve transicao de estado no botao direito
+    if (pin_rightButton == 0 && lastRightButtonState != 0) {
+        lcd_turnRight(); // Ação para o botao direito
+    }
+
+    // Atualiza os estados anteriores dos botoes
+    lastLeftButtonState = pin_leftButton;
+    lastRightButtonState = pin_rightButton;
+}
+
+void lcd_run(void)
+{  
   
-  lcd_lastIndex = lcd_index;
+  lcd_debounceButtons();
   
   switch(lcd_index)
   {
   case 1:
-    //print_TankState();
-    print_Index();
+    print_TankState();
     break;
   case 2:
     //irrigation();
@@ -113,32 +144,12 @@ void lcd_turnLeft(void)
     lcd_index--;
 };
 
-void interrupt_checkButton(void)
-{
-  unsigned char leftButtonState = pin_leftButton;  // Leia o estado atual do botão esquerdo
-  unsigned char rightButtonState = pin_rightButton; // Leia o estado atual do botão direito
-
-  // Verifica se o estado do botao esquerdo mudou e estabilizou
-  if (leftButtonState != lastLeftButtonState && leftButtonState == 0) {
-      lcd_turnLeft();  // Ação ao pressionar o botão esquerdo
-  }
-
-  // Verifica se o estado do botao direito mudou e estabilizou
-  if (rightButtonState != lastRightButtonState && rightButtonState == 0) {
-      lcd_turnRight(); // Ação ao pressionar o botão direito
-  }
-
-  // Atualiza o estado anterior dos botões
-  lastLeftButtonState = leftButtonState;
-  lastRightButtonState = rightButtonState;
-}
-
 virtualTimer timer_lcdButtons = 
 {
-  .targetTime  = 50,
+  .targetTime  = 10,
   .elapsedTime = 0,
-  .active = 0,
-  .callback = interrupt_checkButton
+  .active = 1,
+  .reached = 0
 };
 
 #endif

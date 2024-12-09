@@ -2070,12 +2070,49 @@ char *tempnam(const char *, const char *);
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
-# 75 "./config.h"
-void setCounter_Timer1()
-{
 
-  TMR1H = 0xFF;
-  TMR1L = 0x67;
+void ADC_init() {
+
+   ADCON1bits.PCFG0=0;
+   ADCON1bits.PCFG1=0;
+   ADCON1bits.PCFG2=1;
+   ADCON1bits.PCFG3=1;
+
+
+   ADCON1bits.ADFM = 1;
+
+
+   ADCON0bits.ADCS0 = 0 ;
+   ADCON0bits.ADCS1 = 0 ;
+}
+
+int ADC_Read(unsigned char channel) {
+
+    ADCON0bits.CHS = channel;
+
+
+    _delay((unsigned long)((20)*(4000000/4000000.0)));
+
+
+    GO_nDONE = 1;
+
+
+    while (GO_nDONE);
+
+
+    return ((ADRESH << 8) + ADRESL);
+}
+
+void WDT_init()
+{
+  OPTION_REGbits.PSA = 1;
+
+
+  OPTION_REGbits.PS0 = 1;
+  OPTION_REGbits.PS1 = 1;
+  OPTION_REGbits.PS2 = 1;
+
+  __asm("clrwdt");
 }
 
 void timer1_1ms_init(void)
@@ -2086,11 +2123,13 @@ void timer1_1ms_init(void)
   T1CONbits.T1CKPS0 = 1;
   T1CONbits.T1CKPS1 = 1;
 
-  setCounter_Timer1();
+
+  TMR1H = 0xFF;
+  TMR1L = 0x83;
 
   T1CONbits.TMR1ON = 1;
 }
-# 116 "./config.h"
+# 110 "./config.h"
 void pins_init(unsigned char _TRISA, unsigned char _TRISB, unsigned char _TRISC, unsigned char _TRISD) {
   TRISA = _TRISA;
   TRISB = _TRISB;
@@ -2099,6 +2138,8 @@ void pins_init(unsigned char _TRISA, unsigned char _TRISB, unsigned char _TRISC,
 
   OPTION_REGbits.nRBPU = 0;
 
+  TRISCbits.TRISC6 = 1;
+  TRISCbits.TRISC7 = 1;
 }
 
 void interruption_init(void)
@@ -2237,7 +2278,8 @@ typedef struct {
     unsigned int targetTime;
     unsigned int elapsedTime;
     char active;
-    void (*callback)(void);
+
+    char reached;
 } virtualTimer;
 
 
@@ -2255,6 +2297,7 @@ void runTimer(virtualTimer *timer);
 
 typedef enum
 {
+  WTANK_UNDEFINED = -1,
   WTANK_FULL,
   WTANK_MID,
   WTANK_LOW,
@@ -2262,7 +2305,7 @@ typedef enum
 }TankState;
 
 extern TankState tankState;
-
+extern TankState lastTankState;
 
 extern virtualTimer timer_WTANK_timeout;
 
@@ -2296,13 +2339,15 @@ const char* TankStateString[] =
 
 
 unsigned char lcd_index = 1;
-unsigned char lcd_lastIndex = 1;
 
 
+
+__bit leftButtonPressed = 0;
+__bit rightButtonPressed = 0;
 unsigned char lastLeftButtonState = 1;
 unsigned char lastRightButtonState = 1;
 
-
+extern virtualTimer timer_lcdButtons;
 
 void print_TankState(void);
 void print_Index(void);
@@ -2315,6 +2360,13 @@ void interrupt_checkButton(void);
 
 void print_TankState(void)
 {
+
+  if(tankState == lastTankState)
+    return;
+
+  lastTankState = tankState;
+
+  Lcd_Clear();
   char buffer[20];
 
   Lcd_Set_Cursor(1,1);
@@ -2326,10 +2378,11 @@ void print_TankState(void)
   Lcd_Write_String(buffer);
 }
 
+
 void print_Index(void)
 {
-  char buffer[20];
   Lcd_Clear();
+  char buffer[20];
 
   Lcd_Set_Cursor(1,1);
   sprintf(buffer, "%d", lcd_index);
@@ -2337,19 +2390,40 @@ void print_Index(void)
   Lcd_Write_String(buffer);
 }
 
+void lcd_debounceButtons()
+{
+
+    if (timer_lcdButtons.reached == 0) {
+        return;
+    }
+
+
+    timer_lcdButtons.reached = 0;
+
+
+    if (PORTBbits.RB1 == 0 && lastLeftButtonState != 0) {
+        lcd_turnLeft();
+    }
+
+
+    if (PORTBbits.RB2 == 0 && lastRightButtonState != 0) {
+        lcd_turnRight();
+    }
+
+
+    lastLeftButtonState = PORTBbits.RB1;
+    lastRightButtonState = PORTBbits.RB2;
+}
+
 void lcd_run(void)
 {
 
-  if (lcd_index == lcd_lastIndex)
-    return;
-
-  lcd_lastIndex = lcd_index;
+  lcd_debounceButtons();
 
   switch(lcd_index)
   {
   case 1:
-
-    print_Index();
+    print_TankState();
     break;
   case 2:
 
@@ -2386,36 +2460,37 @@ void lcd_turnLeft(void)
     lcd_index--;
 };
 
-void interrupt_checkButton(void)
-{
-  unsigned char leftButtonState = PORTBbits.RB1;
-  unsigned char rightButtonState = PORTBbits.RB2;
-
-
-  if (leftButtonState != lastLeftButtonState && leftButtonState == 0) {
-      lcd_turnLeft();
-  }
-
-
-  if (rightButtonState != lastRightButtonState && rightButtonState == 0) {
-      lcd_turnRight();
-  }
-
-
-  lastLeftButtonState = leftButtonState;
-  lastRightButtonState = rightButtonState;
-}
-
 virtualTimer timer_lcdButtons =
 {
-  .targetTime = 1,
+  .targetTime = 10,
   .elapsedTime = 0,
-  .active = 0,
-  .callback = interrupt_checkButton
+  .active = 1,
+  .reached = 0
 };
 # 10 "main.c" 2
 
 
+
+
+# 1 "./irrigation.h" 1
+# 12 "./irrigation.h"
+typedef enum
+{
+  IRRIG_UNDEFINED = -1,
+  IRRIG_ON,
+  IRRIG_OFF,
+  IRRIG_ERROR
+}IrrigationState;
+
+extern IrrigationState irrigationState;
+extern IrrigationState lastIrrigationState;
+
+extern virtualTimer timer_WTANK_timeout;
+
+extern unsigned char temperature;
+extern unsigned char maxTemperature;
+extern __bit flag_airConditioner;
+# 14 "main.c" 2
 
 
 void __attribute__((picinterrupt(("")))) interruptionHandler(void)
@@ -2423,13 +2498,16 @@ void __attribute__((picinterrupt(("")))) interruptionHandler(void)
   if(INTCONbits.INTF)
   {
     INTCONbits.INTF = 0;
-    tankState = WTANK_MID;
+    tankState = WTANK_ERROR;
+    irrigationState = IRRIG_ERROR;
   }
   else if(PIR1bits.TMR1IF)
   {
     PIR1bits.TMR1IF = 0;
 
-    setCounter_Timer1();
+
+    TMR1H = 0xFF;
+    TMR1L = 0x67;
 
     runTimer(&timer_WTANK_timeout);
     runTimer(&timer_lcdButtons);
@@ -2439,19 +2517,22 @@ void __attribute__((picinterrupt(("")))) interruptionHandler(void)
 void main()
 {
 
+
   PORTCbits.RC0 = 1;
   PORTCbits.RC1 = 1;
   PORTCbits.RC4 = 1;
   PORTCbits.RC2 = 1;
+
   PORTCbits.RC3 = 0;
 
 
 
   pins_init(0xFF ,0xFF ,0x00 ,0x00);
+  WDT_init();
   interruption_init();
   timer1_1ms_init();
+  ADC_init();
   Lcd_Init();
-  print_Index();
 
   while(1)
   {
@@ -2459,7 +2540,6 @@ void main()
 
     run_waterTankLogic();
     lcd_run();
-
 
   }
 

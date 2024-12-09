@@ -11,18 +11,23 @@
 #include "virtualTimer.h"
 #include "waterTankManager.h"
 
+#include "irrigation.h"
+
 void __interrupt() interruptionHandler(void)
 {
   if(INTCONbits.INTF) //RB0 
   {
     INTCONbits.INTF = 0;
-    tankState = WTANK_MID;
+    tankState = WTANK_ERROR;
+    irrigationState = IRRIG_ERROR;
   }
   else if(PIR1bits.TMR1IF)//Timer 1
   {
     PIR1bits.TMR1IF = 0;
     
-    setCounter_Timer1();
+//    Reseta timer ao valor desejado
+    TMR1H = 0xFF; //Most significative
+    TMR1L = 0x67; //Less significative 
     
     runTimer(&timer_WTANK_timeout);
     runTimer(&timer_lcdButtons);
@@ -31,20 +36,23 @@ void __interrupt() interruptionHandler(void)
 
 void main()
 {
-  ///OUTPUT SETUP
-  pin_solenoid        = 1; //Acionados em LOW
+  ///INICIALIZACAO
+  //Acionados em LOW
+  pin_solenoid        = 1; 
   pin_waterPump       = 1; 
   pin_airConditioner  = 1;
   pin_alarm           = 1;
+  //
   pin_artificialLight = 0;
-  //END OUTPUT SETUP
+  //END INICIALIZACAO
   
   //       {TRISA,TRISB,TRISC,TRISD}
   pins_init(0xFF ,0xFF ,0x00 ,0x00);
+  WDT_init();
   interruption_init();
   timer1_1ms_init();
+  ADC_init();
   Lcd_Init();
-  print_Index();
   
   while(1)
   {
@@ -52,8 +60,7 @@ void main()
     
     run_waterTankLogic();
     lcd_run();
-
-      
+    
   }
   
   return;

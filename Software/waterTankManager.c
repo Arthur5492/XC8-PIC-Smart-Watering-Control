@@ -5,19 +5,23 @@ virtualTimer timer_WTANK_timeout =
   .targetTime = 15000,
   .elapsedTime  = 0,
   .active   = 0,
-  .callback = &interrupt_stopFilling
+  .reached = 0
 };
 
 TankState tankState = WTANK_MID;
+TankState lastTankState = WTANK_UNDEFINED;
 
-void check_TankStatus()
+void check_TankStatus(void)
 {
   
   unsigned char top = pin_waterLevel_TOP;
   unsigned char bot = pin_waterLevel_BOT;
   
+  if(tankState == WTANK_ERROR)
+    tankState = WTANK_ERROR;
+  
   //topo ativado e fundo desativado é fisicamente impossivel
-  if((top == 1 && bot == 0) || tankState == WTANK_ERROR)
+  else if((top == 1 && bot == 0))
     tankState = WTANK_ERROR;
   
   //Se nao esta cheio e ainda tem agua no fundo
@@ -37,14 +41,14 @@ void check_TankStatus()
 
 void run_waterTankLogic(void)
 {
-  
+    
   check_TankStatus();   
-  
+   
   switch (tankState)
   {
   case WTANK_ERROR: //Para de encher e aciona alarme
     stopFilling();
-    pin_alarm = 1;
+    pin_alarm = 0;
     break;
      
   case WTANK_LOW: //Começa a encher e inicia o timeout
@@ -60,7 +64,7 @@ void run_waterTankLogic(void)
     
   default: //Caso qualquer outra coisa aconteça, eh um erro com certeza
     stopFilling();
-    pin_alarm = 1;
+    pin_alarm = 0;
   }; 
 }
 
@@ -80,4 +84,3 @@ void stopFilling(void)
  * Caso chamar uma funcao que altera uma variavel global(sem reentrancia), seja usada tanto na main quanto em uma interrupcao, o compilador xc8 duplica a funcao(talvez por medo de acontecer multipla )
  * saiba mais em: https://cwe.mitre.org/data/definitions/479.html#:~:text=Non-reentrant%20functions%20are%20functions,without%20resulting%20in%20memory%20corruption.
 */
-void interrupt_stopFilling(void){ tankState = WTANK_ERROR; };

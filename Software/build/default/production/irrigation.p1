@@ -1,0 +1,48 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"3 irrigation.c
+[; ;irrigation.c: 3: IrrigationState irrigationState = IRRIG_OFF;
+[c E17 -1 0 1 2 .. ]
+[n E17 . IRRIG_UNDEFINED IRRIG_ON IRRIG_OFF IRRIG_ERROR  ]
+"16 ./virtualTimer.h
+[; ;./virtualTimer.h: 16: typedef struct {
+[s S1 `ui 1 `ui 1 `uc 1 `uc 1 ]
+[n S1 . targetTime elapsedTime active reached ]
+"3 irrigation.c
+[; ;irrigation.c: 3: IrrigationState irrigationState = IRRIG_OFF;
+[v _irrigationState `E17 ~T0 @X0 1 e ]
+[i _irrigationState
+. `E17 2
+]
+"4
+[; ;irrigation.c: 4: IrrigationState lastIrrigationState = IRRIG_UNDEFINED;
+[v _lastIrrigationState `E17 ~T0 @X0 1 e ]
+[i _lastIrrigationState
+. `E17 0
+]
+"6
+[; ;irrigation.c: 6: virtualTimer timer_WTANK_timeout;
+[v _timer_WTANK_timeout `S1 ~T0 @X0 1 e ]
+"8
+[; ;irrigation.c: 8: unsigned char temperature = 0;
+[v _temperature `uc ~T0 @X0 1 e ]
+[i _temperature
+-> -> 0 `i `uc
+]
+"9
+[; ;irrigation.c: 9: __bit flag_airConditioner = 0;
+[v _flag_airConditioner `b ~T0 @X0 1 e ]
+[i _flag_airConditioner
+-> -> 0 `i `b
+]
+"11
+[; ;irrigation.c: 11: void run_IrrigationLogic()
+[v _run_IrrigationLogic `(v ~T0 @X0 1 ef ]
+"12
+[; ;irrigation.c: 12: {
+{
+[e :U _run_IrrigationLogic ]
+[f ]
+"14
+[; ;irrigation.c: 14: }
+[e :UE 2 ]
+}

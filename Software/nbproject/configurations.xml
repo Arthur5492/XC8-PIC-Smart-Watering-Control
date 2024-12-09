@@ -22,6 +22,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>waterTankManager.c</itemPath>
       <itemPath>virtualTimer.c</itemPath>
+      <itemPath>irrigation.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

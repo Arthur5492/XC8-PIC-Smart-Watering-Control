@@ -14,6 +14,7 @@
 
 typedef enum
 {
+  WTANK_UNDEFINED = -1,
   WTANK_FULL,
   WTANK_MID,
   WTANK_LOW,
@@ -21,7 +22,7 @@ typedef enum
 }TankState;
 
 extern TankState tankState;
-
+extern TankState lastTankState;
 //timeout para desligar solenoide
 extern virtualTimer timer_WTANK_timeout;
 

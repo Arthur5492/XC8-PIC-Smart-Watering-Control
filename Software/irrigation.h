@@ -6,3 +6,25 @@
  * @note Logic prioritizes soil moisture, with additional safeguards for temperature limits.
  */
 
+#include "pins.h"
+#include "virtualTimer.h"
+
+typedef enum
+{
+  IRRIG_UNDEFINED = -1,
+  IRRIG_ON,
+  IRRIG_OFF,
+  IRRIG_ERROR
+}IrrigationState;
+
+extern IrrigationState irrigationState;
+extern IrrigationState lastIrrigationState;
+
+extern virtualTimer timer_WTANK_timeout;
+
+extern unsigned char temperature;
+extern unsigned char maxTemperature;
+extern __bit flag_airConditioner;
+
+
+

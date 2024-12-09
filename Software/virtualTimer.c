@@ -4,15 +4,17 @@ unsigned int timerCounter = 0;
 
 void runTimer(virtualTimer *timer)
 {
+  if(timer->active == 0)
+    return;
+    
   if(timer->elapsedTime >= timer->targetTime)
   {
+    timer->reached = 1;
+    
     timer->elapsedTime = 0;
-    
-    if(timer->callback != 0)
-      timer->callback();
-    
     return;
   }
+  
   timer->elapsedTime++;
 }
 

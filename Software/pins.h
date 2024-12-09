@@ -2,16 +2,15 @@
 #define PINS_H
 
 ///INPUTS
-//PORTA
+
 #define pin_soilMoisture   PORTAbits.RA0
 #define pin_temperature    PORTAbits.RA1
 #define pin_light          PORTAbits.RA2
-#define pin_waterLevel_TOP PORTAbits.RA3
-#define pin_waterLevel_BOT PORTAbits.RA4
-
-//PORTB
 #define pin_leftButton     PORTBbits.RB1
 #define pin_rightButton    PORTBbits.RB2
+
+#define pin_waterLevel_TOP PORTCbits.RC6
+#define pin_waterLevel_BOT PORTCbits.RC7
 //END INPUTS
 
 ///OUTPUTS

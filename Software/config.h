@@ -27,56 +27,48 @@
 #pragma config WRT = OFF        // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
-//void ADC_init() {
-//   //define todas as entradas como analogicas
-//   ADCON1bits.PCFG0=0;
-//   ADCON1bits.PCFG1=0;
-//   ADCON1bits.PCFG2=0;
-//   ADCON1bits.PCFG3=0;
-//
-//   //10 bits
-//   ADCON1bits.ADFM = 1;
-//
-//   //define o clock de conversao
-//   ADCON0bits.ADCS0 = 0  ;   //confirmando default Fosc/2
-//   ADCON0bits.ADCS1 = 0  ;   //confirmando default Fosc/2
-//}
-//
-//int ADC_read(unsigned char adcChannel){   
-//    ADCON0bits.ADON=1;
-//
-//    //inicializar valor analogico com 0
-//    ADRESL = 0x00;          
-//    ADRESH = 0x00; 
-//
-//    ADCON0bits.CHS0=adcChannel;
-//    ADCON0bits.CHS1=0;
-//    ADCON0bits.CHS2=0;
-//
-//    __delay_ms(1000); //Acquisition Time(Wait for Charge Hold Capacitor to get charged )
-//
-//    ADCON0bits.GO=1;
-//    __delay_us(10);
-//    return((ADRESH<<8) + ADRESL); //return right justified 10-bit result
-//}
-//
-//void    WDT_init() // 8 bits, 18 - 2304 ms
-//{
-//  OPTION_REGbits.PSA = 1;  //0: Timer0 / 1:WDT
-//
-//  //Pre Scaler 8bits 1:1 to 1:128, period: 18ms
-//  OPTION_REGbits.PS0 = 1;
-//  OPTION_REGbits.PS1 = 1;
-//  OPTION_REGbits.PS2 = 1;
-//
-//  CLRWDT();  
-//}
+void ADC_init() {
+   //define as entradas como analogicas
+   ADCON1bits.PCFG0=0;
+   ADCON1bits.PCFG1=0;
+   ADCON1bits.PCFG2=1;
+   ADCON1bits.PCFG3=1;
 
-void setCounter_Timer1()
+   //10 bits
+   ADCON1bits.ADFM = 1;
+
+   //define o clock de conversao
+   ADCON0bits.ADCS0 = 0  ;   //confirmando default Fosc/2
+   ADCON0bits.ADCS1 = 0  ;   //confirmando default Fosc/2
+}
+
+int ADC_Read(unsigned char channel) {
+    // Seleciona o canal
+    ADCON0bits.CHS = channel;
+
+    // Aguarda o tempo de aquisicao para carregar o capacitor
+    __delay_us(20);
+
+    // Inicia a conversao A/D
+    GO_nDONE = 1;
+
+    // Aguarda ate que a conversao seja concluida
+    while (GO_nDONE);
+
+    // Retorna o resultado da conversao (10 bits)
+    return ((ADRESH << 8) + ADRESL);
+}
+
+void    WDT_init() // 8 bits, 18 - 2304 ms
 {
-  // 1000us/8us = 125, thus, start timer value at 65535 - 125 = 65383, so starts at 65383
-  TMR1H = 0xFF; //Most significative
-  TMR1L = 0x67; //Less significativ
+  OPTION_REGbits.PSA = 1;  //0: Timer0 / 1:WDT
+
+  //Pre Scaler 8bits 1:1 to 1:128, period: 18ms
+  OPTION_REGbits.PS0 = 1;
+  OPTION_REGbits.PS1 = 1;
+  OPTION_REGbits.PS2 = 1;
+
+  CLRWDT();  
 }
 
 void timer1_1ms_init(void) //16 bits 
@@ -87,7 +79,9 @@ void timer1_1ms_init(void) //16 bits
   T1CONbits.T1CKPS0 = 1;  
   T1CONbits.T1CKPS1 = 1;  
 
-  setCounter_Timer1();   
+  // 1000us/8us = 125, thus, start timer value at 65536 - 125 = 65411, so starts at 65411
+  TMR1H = 0xFF; //Most significative
+  TMR1L = 0x83; //Less significative  
   
   T1CONbits.TMR1ON = 1;   //turn on timer
 }
@@ -121,6 +115,8 @@ void pins_init(unsigned char _TRISA, unsigned char _TRISB, unsigned char _TRISC,
 
   OPTION_REGbits.nRBPU = 0; // 0: enable pull up PORTB / 1: Disable pull up PORTB:
 
+  TRISCbits.TRISC6 = 1; //sensores de nivel de agua
+  TRISCbits.TRISC7 = 1;
 }
 
 void interruption_init(void)

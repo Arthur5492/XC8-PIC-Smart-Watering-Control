@@ -17,7 +17,8 @@ typedef struct {
     unsigned int targetTime;    // Intervalo desejado (em ms)
     unsigned int elapsedTime;     // Tempo decorrido (em ms)
     char active;              // Flag para ativar/desativar timer
-    void (*callback)(void);       // Ponteiro para a funcao de callback
+//    void (*callback)(void);       // Ponteiro para a funcao de callback  Muito custoso
+    char reached;
 } virtualTimer;
 
 
