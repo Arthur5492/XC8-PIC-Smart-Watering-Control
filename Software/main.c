@@ -54,7 +54,7 @@ void main()
   pin_airConditioner  = 1;
   pin_alarm           = 1;
   //
-  pin_artificialLight = 0;
+  pin_artificialLight = 1;
   //END INICIALIZACAO
   
   

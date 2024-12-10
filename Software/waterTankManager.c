@@ -73,6 +73,7 @@ void startFilling(void)
   if(isFilling)
     return;
   
+  isFilling = 1;
   pin_solenoid = 0; 
   startTimer(&timer_WTANK_Timeout);
 };
@@ -81,6 +82,7 @@ void stopFilling(void)
   if(!isFilling)
     return;
   
+  isFilling = 0;
   pin_solenoid = 1; 
   stopTimer(&timer_WTANK_Timeout);
 };
@@ -93,4 +95,5 @@ void stopFilling(void)
 void interrupt_WTANK_timeout(void)
 {
   stopFilling();
+  tankState = WTANK_ERROR;
 }
