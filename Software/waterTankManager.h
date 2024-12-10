@@ -24,7 +24,9 @@ typedef enum
 extern TankState tankState;
 extern TankState lastTankState;
 //timeout para desligar solenoide
-extern virtualTimer timer_WTANK_timeout;
+extern virtualTimer timer_WTANK_Timeout;
+
+extern __bit isFilling;
 
 //Verifica com base nos sensores de nivel de agua o status do tanque de agua
 void check_TankStatus(void);
@@ -41,6 +43,6 @@ void startFilling(void);
 //Desliga solenoide
 void stopFilling(void);
 
-void interrupt_stopFilling(void);
+void interrupt_WTANK_timeout(void);
 
 #endif

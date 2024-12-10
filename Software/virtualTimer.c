@@ -1,25 +1,31 @@
 #include "virtualTimer.h"
 
-unsigned int timerCounter = 0;
+volatile unsigned int timerCounter = 0;
 
 void runTimer(virtualTimer *timer)
 {
   if(timer->active == 0)
     return;
-    
-  if(timer->elapsedTime >= timer->targetTime)
+  
+  //Se tempo definido foi alcancado
+  if(timerCounter >= timer->targetTime)
   {
-    timer->reached = 1;
+//    timer->elapsedTime = 0;
     
-    timer->elapsedTime = 0;
+    if(timer->callback != 0)
+      timer->callback();
+    
     return;
   }
   
-  timer->elapsedTime++;
+//  timer->elapsedTime++;
 }
 
 void startTimer(virtualTimer *timer)
 {
+  if(timer->active)
+    return;
+  
   timer->active = 1;
   timer->elapsedTime = 0;
 }
@@ -27,10 +33,12 @@ void startTimer(virtualTimer *timer)
 
 void stopTimer(virtualTimer *timer)
 {
+  if(timer->active == 0)
+    return;
+  
   timer->active = 0;
   timer->elapsedTime = 0;
 }
-
 
 /*
 void configTimer(virtualTimer *timer, unsigned int t_targetTime, unsigned int t_elapsedTime, void (*t_callback)() )

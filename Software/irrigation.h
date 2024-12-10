@@ -1,13 +1,9 @@
-/**
- * @file irrigation.h
- * @brief Controls the irrigation system, managing water pump activation and integrating data from various sensors.
- * @details Implements thresholds for soil moisture, temperature, and humidity to ensure efficient irrigation.
- *          Handles critical errors and provides overrides for testing and forced operation.
- * @note Logic prioritizes soil moisture, with additional safeguards for temperature limits.
- */
+#ifndef IRRIGATION_H
+#define IRRIGATION_H
 
 #include "pins.h"
 #include "virtualTimer.h"
+#include "waterTankManager.h"
 
 typedef enum
 {
@@ -20,11 +16,19 @@ typedef enum
 extern IrrigationState irrigationState;
 extern IrrigationState lastIrrigationState;
 
-extern virtualTimer timer_WTANK_timeout;
+extern virtualTimer timer_IRRIG_Timeout;
 
-extern unsigned char temperature;
-extern unsigned char maxTemperature;
-extern __bit flag_airConditioner;
+//PARAMETERS
+extern unsigned char minHumidity;
+extern unsigned char idealHumidity;
+extern __bit isIrrigating;
+//
 
 
+void run_IrrigationLogic(int soilMoistureValue);
+void interrupt_IRRIG_timeout(void);
 
+void startIrrigation(void);
+void stopIrrigation(void);
+
+#endif

@@ -14,7 +14,6 @@
 #define SBIT_CHS0     3
 #define SBIT_ADFM     7
 
-
 //CRYSTAL FREQ
 #define _XTAL_FREQ 4000000
 
@@ -27,37 +26,15 @@
 #pragma config WRT = OFF        // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
-void ADC_init() {
-   //define as entradas como analogicas
-   ADCON1bits.PCFG0=0;
-   ADCON1bits.PCFG1=0;
-   ADCON1bits.PCFG2=1;
-   ADCON1bits.PCFG3=1;
+//GLOBAL VARIABLES
+int soilMoisture = 0;
+int temperature = 0;
+int light = 0;
 
-   //10 bits
-   ADCON1bits.ADFM = 1;
-
-   //define o clock de conversao
-   ADCON0bits.ADCS0 = 0  ;   //confirmando default Fosc/2
-   ADCON0bits.ADCS1 = 0  ;   //confirmando default Fosc/2
-}
-
-int ADC_Read(unsigned char channel) {
-    // Seleciona o canal
-    ADCON0bits.CHS = channel;
-
-    // Aguarda o tempo de aquisicao para carregar o capacitor
-    __delay_us(20);
-
-    // Inicia a conversao A/D
-    GO_nDONE = 1;
-
-    // Aguarda ate que a conversao seja concluida
-    while (GO_nDONE);
-
-    // Retorna o resultado da conversao (10 bits)
-    return ((ADRESH << 8) + ADRESL);
-}
+int old_soilMoisture = -1;
+int old_temperature = -1;
+int old_light = -1;
+//END GLOBAL VARIABLES
 
 void    WDT_init() // 8 bits, 18 - 2304 ms
 {
@@ -80,8 +57,11 @@ void timer1_1ms_init(void) //16 bits
   T1CONbits.T1CKPS1 = 1;  
 
   // 1000us/8us = 125, thus, start timer value at 65536 - 125 = 65411, so starts at 65411
-  TMR1H = 0xFF; //Most significative
-  TMR1L = 0x83; //Less significative  
+//  TMR1H = 0xFF; //Most significative
+//  TMR1L = 0x83; //Less significative  
+  
+  TMR1L = 0xDC;          //carga do valor inicial no contador (65536-62500)
+  TMR1H = 0x0B;          //3036. Quando estourar contou 62500, passou 0,5s
   
   T1CONbits.TMR1ON = 1;   //turn on timer
 }
@@ -129,8 +109,85 @@ void interruption_init(void)
   INTCONbits.PEIE = 1;        //int Perifericals 
   
   PIE1bits.TMR1IE = 1;        //int timer1
+};
+
+void ADC_init() {
+   //define as entradas como analogicas
+   ADCON1bits.PCFG0=0;
+   ADCON1bits.PCFG1=0;
+   ADCON1bits.PCFG2=0;
+   ADCON1bits.PCFG3=0;
+
+   //10 bits
+   ADCON1bits.ADFM = 1;
+   
+   //define o clock de conversao
+   ADCON0bits.ADCS0 = 0  ;   //confirmando default Fosc/2
+   ADCON0bits.ADCS1 = 0  ;   //confirmando default Fosc/2
+   
+   ADCON0bits.ADON = 1;
 }
 
+int ADC_Read(unsigned char channel) {
+  
+  // Seleciona o canal
+  ADCON0bits.CHS = channel;
+    
+  // Aguarda o tempo de aquisicao para carregar o capacitor
+  __delay_us(20);
 
+  while (ADCON0bits.nDONE) {}; /* wait for any previous conversion to finish */
+  
+  // Inicia a conversao A/D
+  ADCON0bits.GO = 1;
+  // Aguarda ate que a conversao seja concluida
+  while (ADCON0bits.nDONE)
+    {};
 
+  return((ADRESH<<8) + ADRESL); //return right justified 10-bit result
+}
+
+// Funcao map sem acentos nos comentarios
+long map(int x, int in_min, int in_max, int out_min, int out_max) {
+    // Declarar variaveis locais evita conflitos
+    long run = (long)in_max - (long)in_min;
+    
+    if (run == 0) // Se in_max == in_min, evita divisao por zero retornando out_min
+        return out_min;
+    
+    long rise = (long)out_max - (long)out_min;
+    long delta = (long)x - (long)in_min;
+    // Multiplicacao e divisao em long para evitar overflow
+    return (delta * rise) / run + out_min;
+}
+
+void readSoilMoisture(void)
+{
+  soilMoisture = ADC_Read(0);
+  soilMoisture = (int)map(soilMoisture,0,1023,0,100);
+}
+
+/*Sensor de temperatura - LM35 - usando de 0ºC a 150ºC
+* PIC Recebe tensao em V, 0V a 1.5V pois o LM35 a cada 1ºC aumenta 0.01V 0.01V * 150ºC = 1.5V
+* variavel recebe valor  de 0-1023
+* Convertendo novamente para V para deduzir a temperatura e entao
+* multiplicar (temperature*100) ex: 0.05V*100 = 5ºC
+*/
+void readTemperature(void)
+{
+  temperature = ADC_Read(1);
+  temperature = (int)map(temperature,0,1023,0,500);
+}
+
+void readLight(void)
+{
+  light = ADC_Read(2);
+}
+
+void ADC_readAll(void)
+{
+  readTemperature();
+  readSoilMoisture();
+  readLight();
+}
 #endif

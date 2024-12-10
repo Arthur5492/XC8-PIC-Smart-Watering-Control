@@ -1,15 +1,16 @@
 #include "waterTankManager.h"
 
-virtualTimer timer_WTANK_timeout = 
+virtualTimer timer_WTANK_Timeout = 
 {
-  .targetTime = 15000,
+  .targetTime = 30,
   .elapsedTime  = 0,
   .active   = 0,
-  .reached = 0
+  .callback = interrupt_WTANK_timeout
 };
 
 TankState tankState = WTANK_MID;
 TankState lastTankState = WTANK_UNDEFINED;
+__bit isFilling = 0;
 
 void check_TankStatus(void)
 {
@@ -64,23 +65,32 @@ void run_waterTankLogic(void)
     
   default: //Caso qualquer outra coisa aconte�a, eh um erro com certeza
     stopFilling();
-    pin_alarm = 0;
   }; 
 }
 
 void startFilling(void) 
 {
+  if(isFilling)
+    return;
+  
   pin_solenoid = 0; 
-  startTimer(&timer_WTANK_timeout);
+  startTimer(&timer_WTANK_Timeout);
 };
 void stopFilling(void)  
 {
+  if(!isFilling)
+    return;
+  
   pin_solenoid = 1; 
-  stopTimer(&timer_WTANK_timeout);
+  stopTimer(&timer_WTANK_Timeout);
 };
 
-/**
- * Boa pratica ter uma funcao exclusiva para interrupcao
- * Caso chamar uma funcao que altera uma variavel global(sem reentrancia), seja usada tanto na main quanto em uma interrupcao, o compilador xc8 duplica a funcao(talvez por medo de acontecer multipla )
+/** nn precisei mais.
+ * Boa pratica ter uma funcao exclusiva para interrupcao e
+ * Caso chamar uma funcao que altera uma variavel global(sem reentrancia), seja usada tanto na main quanto em uma interrupcao, o compilador xc8 duplica a funcao
  * saiba mais em: https://cwe.mitre.org/data/definitions/479.html#:~:text=Non-reentrant%20functions%20are%20functions,without%20resulting%20in%20memory%20corruption.
 */
+void interrupt_WTANK_timeout(void)
+{
+  stopFilling();
+}

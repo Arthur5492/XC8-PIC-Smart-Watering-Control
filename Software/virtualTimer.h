@@ -8,7 +8,7 @@
 #ifndef VIRTUALTIMER_H
 #define VIRTUALTIMER_H
 
-extern unsigned int timerCounter;
+volatile unsigned int timerCounter;
 
 // Defina o prot�tipo esperado para o callback
 //typedef void (*TimerCallback)(void); // Ponteiro de funcao que nao recebe nem retorna nada
@@ -17,8 +17,8 @@ typedef struct {
     unsigned int targetTime;    // Intervalo desejado (em ms)
     unsigned int elapsedTime;     // Tempo decorrido (em ms)
     char active;              // Flag para ativar/desativar timer
-//    void (*callback)(void);       // Ponteiro para a funcao de callback  Muito custoso
-    char reached;
+    void (*callback)(void);       // Ponteiro para a funcao de callback  Muito custoso
+//    char reached;
 } virtualTimer;
 
 
