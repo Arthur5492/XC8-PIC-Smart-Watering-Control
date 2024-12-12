@@ -923,36 +923,6 @@ vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
 
   }
-# 1656 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\sources\\c99\\common\\doprnt.c"
-  done = 0;
-  if ((*fmt)[0] == 's') {
-   ++*fmt;
-   done = 1;
-  }
-  else if ((*fmt)[0] == 'l' && (*fmt)[1] == 'l' && (*fmt)[2] == 's') {
-   *fmt += 3;
-   done = 1;
-  }
-  if (done) {
-
-
-
-   for (char * cp = (*(char * *)__va_arg(*(char * **)ap, (char *)0)); *cp != '\0'; cp++) {
-    fputc(*cp, fp);
-
-
-
-   }
-
-
-
-   return;
-
-
-
-
-
-  }
 # 1806 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\sources\\c99\\common\\doprnt.c"
         ++*fmt;
         return (void) 0;

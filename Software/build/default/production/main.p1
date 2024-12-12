@@ -1,56 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"2235 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2235:     struct {
-[s S95 :4 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S95 . PCFG . ADCS2 ADFM ]
-"2241
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2241:     struct {
-[s S96 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S96 . PCFG0 PCFG1 PCFG2 PCFG3 ]
-"2234
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2234: typedef union {
-[u S94 `S95 1 `S96 1 ]
-[n S94 . . . ]
-"2248
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2248: extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0x09F)));
-[v _ADCON1bits `VS94 ~T0 @X0 0 e@159 ]
-"1165
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1165:     struct {
-[s S50 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :2 `uc 1 ]
-[n S50 . ADON . GO_nDONE CHS ADCS ]
-"1172
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1172:     struct {
-[s S51 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S51 . . GO CHS0 CHS1 CHS2 ADCS0 ADCS1 ]
-"1181
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1181:     struct {
-[s S52 :2 `uc 1 :1 `uc 1 ]
-[n S52 . . nDONE ]
-"1185
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1185:     struct {
-[s S53 :2 `uc 1 :1 `uc 1 ]
-[n S53 . . GO_DONE ]
-"1164
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1164: typedef union {
-[u S49 `S50 1 `S51 1 `S52 1 `S53 1 ]
-[n S49 . . . . . ]
-"1190
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1190: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
-[v _ADCON0bits `VS49 ~T0 @X0 0 e@31 ]
-[v F164 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.50\pic\include\builtins.h
-[v __delay `JF164 ~T0 @X0 0 e ]
-[p i __delay ]
-"2582 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2582: extern volatile __bit GO_nDONE __attribute__((address(0xFA)));
-[v _GO_nDONE `Vb ~T0 @X0 0 e@250 ]
-"1152
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1152: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
-[v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
-"2222
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2222: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
-[v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
-"1261
+"1261 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1261:     struct {
 [s S55 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S55 . PS PSA T0SE T0CS INTEDG nRBPU ]
@@ -139,6 +88,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1635
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1635: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
 [v _PIE1bits `VS67 ~T0 @X0 0 e@140 ]
+"2235
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2235:     struct {
+[s S95 :4 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S95 . PCFG . ADCS2 ADFM ]
+"2241
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2241:     struct {
+[s S96 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S96 . PCFG0 PCFG1 PCFG2 PCFG3 ]
+"2234
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2234: typedef union {
+[u S94 `S95 1 `S96 1 ]
+[n S94 . . . ]
+"2248
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2248: extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0x09F)));
+[v _ADCON1bits `VS94 ~T0 @X0 0 e@159 ]
+"1165
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1165:     struct {
+[s S50 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :2 `uc 1 ]
+[n S50 . ADON . GO_nDONE CHS ADCS ]
+"1172
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1172:     struct {
+[s S51 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S51 . . GO CHS0 CHS1 CHS2 ADCS0 ADCS1 ]
+"1181
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1181:     struct {
+[s S52 :2 `uc 1 :1 `uc 1 ]
+[n S52 . . nDONE ]
+"1185
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1185:     struct {
+[s S53 :2 `uc 1 :1 `uc 1 ]
+[n S53 . . GO_DONE ]
+"1164
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1164: typedef union {
+[u S49 `S50 1 `S51 1 `S52 1 `S53 1 ]
+[n S49 . . . . . ]
+"1190
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1190: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
+[v _ADCON0bits `VS49 ~T0 @X0 0 e@31 ]
+[v F164 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.50\pic\include\builtins.h
+[v __delay `JF164 ~T0 @X0 0 e ]
+[p i __delay ]
+"1152 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1152: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
+[v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
+"2222
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2222: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
+[v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
 "2765
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2765: extern volatile __bit RD4 __attribute__((address(0x44)));
 [v _RD4 `Vb ~T0 @X0 0 e@68 ]
@@ -157,70 +154,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2762
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2762: extern volatile __bit RD3 __attribute__((address(0x43)));
 [v _RD3 `Vb ~T0 @X0 0 e@67 ]
-"48 ./lcdFunctions.h
-[; ;./lcdFunctions.h: 48:   if(tankState == lastTankState)
-[c E1372 -1 0 1 2 3 .. ]
-[n E1372 . WTANK_UNDEFINED WTANK_FULL WTANK_MID WTANK_LOW WTANK_ERROR  ]
+"67 ./lcdFunctions.h
+[; ;./lcdFunctions.h: 67:   if(tankState == lastTankState && lcd_lastIndex == lcd_index)
+[c E1391 -1 0 1 2 3 .. ]
+[n E1391 . WTANK_UNDEFINED WTANK_FULL WTANK_MID WTANK_LOW WTANK_ERROR  ]
 "24 ./waterTankManager.h
 [; ;./waterTankManager.h: 24: extern TankState tankState;
-[v _tankState `E1372 ~T0 @X0 0 e ]
+[v _tankState `E1391 ~T0 @X0 0 e ]
 "25
 [; ;./waterTankManager.h: 25: extern TankState lastTankState;
-[v _lastTankState `E1372 ~T0 @X0 0 e ]
+[v _lastTankState `E1391 ~T0 @X0 0 e ]
+"86 ./lcdFunctions.h
+[; ;./lcdFunctions.h: 86:   if(irrigationState == lastIrrigationState && lcd_lastIndex == lcd_index)
+[c E1407 -1 0 1 2 .. ]
+[n E1407 . IRRIG_UNDEFINED IRRIG_ON IRRIG_OFF IRRIG_ERROR  ]
+"16 ./irrigation.h
+[; ;./irrigation.h: 16: extern IrrigationState irrigationState;
+[v _irrigationState `E1407 ~T0 @X0 0 e ]
+"17
+[; ;./irrigation.h: 17: extern IrrigationState lastIrrigationState;
+[v _lastIrrigationState `E1407 ~T0 @X0 0 e ]
 "121 C:\Program Files\Microchip\xc8\v2.50\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.50\pic\include\c99\stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"16 ./virtualTimer.h
-[; ;./virtualTimer.h: 16: typedef struct {
-[s S132 `ui 1 `ui 1 `uc 1 `uc 1 ]
-[n S132 . targetTime elapsedTime active reached ]
-"34 ./lcdFunctions.h
-[; ;./lcdFunctions.h: 34: extern virtualTimer timer_lcdButtons;
-[v _timer_lcdButtons `S132 ~T0 @X0 0 e ]
-"222 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 222:     struct {
-[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S12 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"221
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 221: typedef union {
-[u S11 `S12 1 ]
-[n S11 . . ]
-"233
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 233: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
-[v _PORTBbits `VS11 ~T0 @X0 0 e@6 ]
-"40 ./lcdFunctions.h
-[; ;./lcdFunctions.h: 40: void lcd_turnLeft(void);
-[v _lcd_turnLeft `(v ~T0 @X0 0 ef ]
-"39
-[; ;./lcdFunctions.h: 39: void lcd_turnRight(void);
-[v _lcd_turnRight `(v ~T0 @X0 0 ef ]
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
-"22 main.c
-[; ;main.c: 22:     irrigationState = IRRIG_ERROR;
-[c E1410 -1 0 1 2 .. ]
-[n E1410 . IRRIG_UNDEFINED IRRIG_ON IRRIG_OFF IRRIG_ERROR  ]
-"20 ./irrigation.h
-[; ;./irrigation.h: 20: extern IrrigationState irrigationState;
-[v _irrigationState `E1410 ~T0 @X0 0 e ]
-"538 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 538:     struct {
-[s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S25 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
-"537
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 537: typedef union {
-[u S24 `S25 1 ]
-[n S24 . . ]
-"549
-[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 549: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
-[v _PIR1bits `VS24 ~T0 @X0 0 e@12 ]
-"33 ./virtualTimer.h
-[; ;./virtualTimer.h: 33: void runTimer(virtualTimer *timer);
-[v _runTimer `(v ~T0 @X0 0 ef1`*S132 ]
-"23 ./irrigation.h
-[; ;./irrigation.h: 23: extern virtualTimer timer_WTANK_timeout;
-[v _timer_WTANK_timeout `S132 ~T0 @X0 0 e ]
-[p mainexit ]
 "284 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 284:     struct {
 [s S14 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -232,9 +188,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 "295
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 295: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
 [v _PORTCbits `VS13 ~T0 @X0 0 e@7 ]
-"33 ./waterTankManager.h
-[; ;./waterTankManager.h: 33: void run_waterTankLogic(void);
+"222
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 222:     struct {
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"221
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 221: typedef union {
+[u S11 `S12 1 ]
+[n S11 . . ]
+"233
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 233: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS11 ~T0 @X0 0 e@6 ]
+"53 ./lcdFunctions.h
+[; ;./lcdFunctions.h: 53: void lcd_turnLeft(void);
+[v _lcd_turnLeft `(v ~T0 @X0 0 ef ]
+"52
+[; ;./lcdFunctions.h: 52: void lcd_turnRight(void);
+[v _lcd_turnRight `(v ~T0 @X0 0 ef ]
+[v F1381 `(v ~T0 @X0 0 tf ]
+"13 ./virtualTimer.h
+[; ;./virtualTimer.h: 13: typedef struct {
+[s S141 `ui 1 `uc 1 `*F1381 1 ]
+[n S141 . targetTime active callback ]
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"538 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 538:     struct {
+[s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S25 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
+"537
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 537: typedef union {
+[u S24 `S25 1 ]
+[n S24 . . ]
+"549
+[; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 549: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
+[v _PIR1bits `VS24 ~T0 @X0 0 e@12 ]
+[p mainexit ]
+"35 ./waterTankManager.h
+[; ;./waterTankManager.h: 35: void run_waterTankLogic(void);
 [v _run_waterTankLogic `(v ~T0 @X0 0 ef ]
+"28 ./irrigation.h
+[; ;./irrigation.h: 28: void run_IrrigationLogic(int soilMoistureValue);
+[v _run_IrrigationLogic `(v ~T0 @X0 0 ef1`i ]
+"14 ./analogValues.h
+[; ;./analogValues.h: 14: extern int soilMoisture;
+[v _soilMoisture `i ~T0 @X0 0 e ]
+"27 ./virtualTimer.h
+[; ;./virtualTimer.h: 27: void runTimer(virtualTimer *timer);
+[v _runTimer `(v ~T0 @X0 0 ef1`*S141 ]
+"27 ./waterTankManager.h
+[; ;./waterTankManager.h: 27: extern virtualTimer timer_WTANK_Timeout;
+[v _timer_WTANK_Timeout `S141 ~T0 @X0 0 e ]
+"19 ./irrigation.h
+[; ;./irrigation.h: 19: extern virtualTimer timer_IRRIG_Timeout;
+[v _timer_IRRIG_Timeout `S141 ~T0 @X0 0 e ]
+"16 ./analogValues.h
+[; ;./analogValues.h: 16: extern int light;
+[v _light `i ~T0 @X0 0 e ]
+"15
+[; ;./analogValues.h: 15: extern int temperature;
+[v _temperature `i ~T0 @X0 0 e ]
 "54 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -415,132 +428,110 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2363
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2363: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"21 ./config.h
-[; ;./config.h: 21: 
+"20 ./config.h
+[; ;./config.h: 20: }
 [p x FOSC  =  HS         ]
-"22
-[; ;./config.h: 22: 
+"21
+[; ;./config.h: 21: 
 [p x WDTE  =  ON         ]
-"23
-[; ;./config.h: 23:     GO_nDONE = 1;
+"22
+[; ;./config.h: 22: void timer1_1ms_init(void)
 [p x PWRTE  =  ON        ]
-"24
-[; ;./config.h: 24: 
+"23
+[; ;./config.h: 23: {
 [p x BOREN  =  ON        ]
+"24
+[; ;./config.h: 24:   T1CONbits.TMR1CS = 0;
+[p x LVP  =  OFF         ]
 "25
 [; ;./config.h: 25: 
-[p x LVP  =  OFF         ]
-"26
-[; ;./config.h: 26:     while (GO_nDONE);
 [p x CPD  =  OFF         ]
+"26
+[; ;./config.h: 26: 
+[p x WRT  =  OFF         ]
 "27
 [; ;./config.h: 27: 
-[p x WRT  =  OFF         ]
-"28
-[; ;./config.h: 28: 
 [p x CP  =  OFF          ]
 "30
-[; ;./config.h: 30: }
-[v _ADC_init `(v ~T0 @X0 1 ef ]
-{
-[e :U _ADC_init ]
-[f ]
+[; ;./config.h: 30:   T1CONbits.T1CKPS0 = 1;
+[v _soilMoisture `i ~T0 @X0 1 e ]
+[i _soilMoisture
+-> 0 `i
+]
+"31
+[; ;./config.h: 31:   T1CONbits.T1CKPS1 = 1;
+[v _temperature `i ~T0 @X0 1 e ]
+[i _temperature
+-> 0 `i
+]
 "32
-[; ;./config.h: 32: void WDT_init()
-[e = . . _ADCON1bits 1 0 -> -> 0 `i `uc ]
-"33
-[; ;./config.h: 33: {
-[e = . . _ADCON1bits 1 1 -> -> 0 `i `uc ]
+[; ;./config.h: 32: 
+[v _light `i ~T0 @X0 1 e ]
+[i _light
+-> 0 `i
+]
 "34
-[; ;./config.h: 34:   OPTION_REGbits.PSA = 1;
-[e = . . _ADCON1bits 1 2 -> -> 1 `i `uc ]
+[; ;./config.h: 34: 
+[v _old_soilMoisture `i ~T0 @X0 1 e ]
+[i _old_soilMoisture
+-U -> 1 `i
+]
 "35
-[; ;./config.h: 35: 
-[e = . . _ADCON1bits 1 3 -> -> 1 `i `uc ]
-"38
-[; ;./config.h: 38:   OPTION_REGbits.PS1 = 1;
-[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
-"41
-[; ;./config.h: 41:   __asm("clrwdt");
-[e = . . _ADCON0bits 1 5 -> -> 0 `i `uc ]
-"42
-[; ;./config.h: 42: }
-[e = . . _ADCON0bits 1 6 -> -> 0 `i `uc ]
-"43
-[; ;./config.h: 43: 
-[e :UE 101 ]
-}
-"45
-[; ;./config.h: 45: {
-[v _ADC_Read `(i ~T0 @X0 1 ef1`uc ]
-{
-[e :U _ADC_Read ]
-[v _channel `uc ~T0 @X0 1 r1 ]
-[f ]
-"47
-[; ;./config.h: 47: 
-[e = . . _ADCON0bits 0 3 _channel ]
-"50
-[; ;./config.h: 50:   T1CONbits.T1CKPS1 = 1;
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"53
-[; ;./config.h: 53:   TMR1H = 0xFF;
-[e = _GO_nDONE -> -> 1 `i `b ]
-"56
-[; ;./config.h: 56:   T1CONbits.TMR1ON = 1;
-[e $U 103  ]
-[e :U 104 ]
-[e :U 103 ]
-[e $ _GO_nDONE 104  ]
-[e :U 105 ]
-"59
-[e ) + << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
-[e $UE 102  ]
-"60
-[e :UE 102 ]
-}
-"62
+[; ;./config.h: 35:     TMR1H = 0x0B;
+[v _old_temperature `i ~T0 @X0 1 e ]
+[i _old_temperature
+-U -> 1 `i
+]
+"36
+[; ;./config.h: 36:     TMR1L = 0xDB;
+[v _old_light `i ~T0 @X0 1 e ]
+[i _old_light
+-U -> 1 `i
+]
+"39
 [v _WDT_init `(v ~T0 @X0 1 ef ]
-"63
+"40
 {
 [e :U _WDT_init ]
 [f ]
-"64
+"41
 [e = . . _OPTION_REGbits 0 1 -> -> 1 `i `uc ]
-"67
+"44
 [e = . . _OPTION_REGbits 1 0 -> -> 1 `i `uc ]
-"68
+"45
 [e = . . _OPTION_REGbits 1 1 -> -> 1 `i `uc ]
-"69
+"46
 [e = . . _OPTION_REGbits 1 2 -> -> 1 `i `uc ]
-"71
+"48
 [; <" clrwdt ;# ">
-"72
-[e :UE 106 ]
+"49
+[e :UE 101 ]
 }
-"74
+"51
 [v _timer1_1ms_init `(v ~T0 @X0 1 ef ]
-"75
+"52
 {
 [e :U _timer1_1ms_init ]
 [f ]
-"76
+"53
 [e = . . _T1CONbits 0 1 -> -> 0 `i `uc ]
-"79
+"59
 [e = . . _T1CONbits 1 3 -> -> 1 `i `uc ]
-"80
+"60
 [e = . . _T1CONbits 1 4 -> -> 1 `i `uc ]
-"83
-[e = _TMR1H -> -> 255 `i `uc ]
-"84
-[e = _TMR1L -> -> 131 `i `uc ]
-"86
+"64
+[e = _TMR1H -> -> 11 `i `uc ]
+"65
+[e = _TMR1L -> -> 219 `i `uc ]
+"75
+[; ;./config.h: 75:   T1CONbits.TMR1ON = 1;
 [e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
-"87
-[e :UE 107 ]
+"76
+[; ;./config.h: 76: }
+[e :UE 102 ]
 }
-"110
-[; ;./config.h: 110: void pins_init(unsigned char _TRISA, unsigned char _TRISB, unsigned char _TRISC, unsigned char _TRISD) {
+"99
+[; ;./config.h: 99: void pins_init(unsigned char _TRISA, unsigned char _TRISB, unsigned char _TRISC, unsigned char _TRISD) {
 [v _pins_init `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
 {
 [e :U _pins_init ]
@@ -549,57 +540,248 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v __TRISC `uc ~T0 @X0 1 r3 ]
 [v __TRISD `uc ~T0 @X0 1 r4 ]
 [f ]
-"111
-[; ;./config.h: 111:   TRISA = _TRISA;
+"100
+[; ;./config.h: 100:   TRISA = _TRISA;
 [e = _TRISA __TRISA ]
-"112
-[; ;./config.h: 112:   TRISB = _TRISB;
+"101
+[; ;./config.h: 101:   TRISB = _TRISB;
 [e = _TRISB __TRISB ]
-"113
-[; ;./config.h: 113:   TRISC = _TRISC;
+"102
+[; ;./config.h: 102:   TRISC = _TRISC;
 [e = _TRISC __TRISC ]
-"114
-[; ;./config.h: 114:   TRISD = _TRISD;
+"103
+[; ;./config.h: 103:   TRISD = _TRISD;
 [e = _TRISD __TRISD ]
-"116
-[; ;./config.h: 116:   OPTION_REGbits.nRBPU = 0;
+"105
+[; ;./config.h: 105:   OPTION_REGbits.nRBPU = 0;
 [e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
-"118
-[; ;./config.h: 118:   TRISCbits.TRISC6 = 1;
+"107
+[; ;./config.h: 107:   TRISCbits.TRISC6 = 1;
 [e = . . _TRISCbits 0 6 -> -> 1 `i `uc ]
-"119
-[; ;./config.h: 119:   TRISCbits.TRISC7 = 1;
+"108
+[; ;./config.h: 108:   TRISCbits.TRISC7 = 1;
 [e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
-"120
-[; ;./config.h: 120: }
-[e :UE 108 ]
+"109
+[; ;./config.h: 109: }
+[e :UE 103 ]
 }
-"122
-[; ;./config.h: 122: void interruption_init(void)
+"111
+[; ;./config.h: 111: void interruption_init(void)
 [v _interruption_init `(v ~T0 @X0 1 ef ]
-"123
-[; ;./config.h: 123: {
+"112
+[; ;./config.h: 112: {
 {
 [e :U _interruption_init ]
 [f ]
-"124
-[; ;./config.h: 124:   INTCONbits.GIE=1;
+"113
+[; ;./config.h: 113:   INTCONbits.GIE=1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"125
-[; ;./config.h: 125:   OPTION_REGbits.INTEDG = 1;
+"114
+[; ;./config.h: 114:   OPTION_REGbits.INTEDG = 1;
 [e = . . _OPTION_REGbits 0 4 -> -> 1 `i `uc ]
-"127
-[; ;./config.h: 127:   INTCONbits.INTE = 1;
+"116
+[; ;./config.h: 116:   INTCONbits.INTE = 1;
 [e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-"129
-[; ;./config.h: 129:   INTCONbits.PEIE = 1;
+"118
+[; ;./config.h: 118:   INTCONbits.PEIE = 1;
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"131
-[; ;./config.h: 131:   PIE1bits.TMR1IE = 1;
+"120
+[; ;./config.h: 120:   PIE1bits.TMR1IE = 1;
 [e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-"132
-[; ;./config.h: 132: }
-[e :UE 109 ]
+"121
+[; ;./config.h: 121: };
+[e :UE 104 ]
+}
+"123
+[; ;./config.h: 123: void ADC_init() {
+[v _ADC_init `(v ~T0 @X0 1 ef ]
+{
+[e :U _ADC_init ]
+[f ]
+"125
+[; ;./config.h: 125:    ADCON1bits.PCFG0=0;
+[e = . . _ADCON1bits 1 0 -> -> 0 `i `uc ]
+"126
+[; ;./config.h: 126:    ADCON1bits.PCFG1=0;
+[e = . . _ADCON1bits 1 1 -> -> 0 `i `uc ]
+"127
+[; ;./config.h: 127:    ADCON1bits.PCFG2=0;
+[e = . . _ADCON1bits 1 2 -> -> 0 `i `uc ]
+"128
+[; ;./config.h: 128:    ADCON1bits.PCFG3=0;
+[e = . . _ADCON1bits 1 3 -> -> 0 `i `uc ]
+"131
+[; ;./config.h: 131:    ADCON1bits.ADFM = 1;
+[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
+"134
+[; ;./config.h: 134:    ADCON0bits.ADCS0 = 0 ;
+[e = . . _ADCON0bits 1 5 -> -> 0 `i `uc ]
+"135
+[; ;./config.h: 135:    ADCON0bits.ADCS1 = 0 ;
+[e = . . _ADCON0bits 1 6 -> -> 0 `i `uc ]
+"137
+[; ;./config.h: 137:    ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+"138
+[; ;./config.h: 138: }
+[e :UE 105 ]
+}
+"140
+[; ;./config.h: 140: int ADC_Read(unsigned char channel) {
+[v _ADC_Read `(i ~T0 @X0 1 ef1`uc ]
+{
+[e :U _ADC_Read ]
+[v _channel `uc ~T0 @X0 1 r1 ]
+[f ]
+"143
+[; ;./config.h: 143:   ADCON0bits.CHS = channel;
+[e = . . _ADCON0bits 0 3 _channel ]
+"146
+[; ;./config.h: 146:   _delay((unsigned long)((20)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"148
+[; ;./config.h: 148:   while (ADCON0bits.nDONE) {};
+[e $U 107  ]
+[e :U 108 ]
+{
+}
+[e :U 107 ]
+[e $ != -> . . _ADCON0bits 2 1 `i -> 0 `i 108  ]
+[e :U 109 ]
+"151
+[; ;./config.h: 151:   ADCON0bits.GO = 1;
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+"153
+[; ;./config.h: 153:   while (ADCON0bits.nDONE)
+[e $U 110  ]
+[e :U 111 ]
+"154
+[; ;./config.h: 154:     {};
+{
+}
+[e :U 110 ]
+"153
+[; ;./config.h: 153:   while (ADCON0bits.nDONE)
+[e $ != -> . . _ADCON0bits 2 1 `i -> 0 `i 111  ]
+[e :U 112 ]
+"156
+[; ;./config.h: 156:   return((ADRESH<<8) + ADRESL);
+[e ) + << -> _ADRESH `i -> 8 `i -> _ADRESL `i ]
+[e $UE 106  ]
+"157
+[; ;./config.h: 157: }
+[e :UE 106 ]
+}
+"160
+[; ;./config.h: 160: long map(int x, int in_min, int in_max, int out_min, int out_max) {
+[v _map `(l ~T0 @X0 1 ef5`i`i`i`i`i ]
+{
+[e :U _map ]
+[v _x `i ~T0 @X0 1 r1 ]
+[v _in_min `i ~T0 @X0 1 r2 ]
+[v _in_max `i ~T0 @X0 1 r3 ]
+[v _out_min `i ~T0 @X0 1 r4 ]
+[v _out_max `i ~T0 @X0 1 r5 ]
+[f ]
+"162
+[; ;./config.h: 162:     long run = (long)in_max - (long)in_min;
+[v _run `l ~T0 @X0 1 a ]
+[e = _run - -> _in_max `l -> _in_min `l ]
+"164
+[; ;./config.h: 164:     if (run == 0)
+[e $ ! == _run -> -> 0 `i `l 114  ]
+"165
+[; ;./config.h: 165:         return out_min;
+[e ) -> _out_min `l ]
+[e $UE 113  ]
+[e :U 114 ]
+"167
+[; ;./config.h: 167:     long rise = (long)out_max - (long)out_min;
+[v _rise `l ~T0 @X0 1 a ]
+[e = _rise - -> _out_max `l -> _out_min `l ]
+"168
+[; ;./config.h: 168:     long delta = (long)x - (long)in_min;
+[v _delta `l ~T0 @X0 1 a ]
+[e = _delta - -> _x `l -> _in_min `l ]
+"170
+[; ;./config.h: 170:     return (delta * rise) / run + out_min;
+[e ) + / * _delta _rise _run -> _out_min `l ]
+[e $UE 113  ]
+"171
+[; ;./config.h: 171: }
+[e :UE 113 ]
+}
+"173
+[; ;./config.h: 173: void readSoilMoisture(void)
+[v _readSoilMoisture `(v ~T0 @X0 1 ef ]
+"174
+[; ;./config.h: 174: {
+{
+[e :U _readSoilMoisture ]
+[f ]
+"175
+[; ;./config.h: 175:   soilMoisture = ADC_Read(0);
+[e = _soilMoisture ( _ADC_Read (1 -> -> 0 `i `uc ]
+"176
+[; ;./config.h: 176:   soilMoisture = (int)map(soilMoisture,0,1023,0,100);
+[e = _soilMoisture -> ( _map (4 , , , , _soilMoisture -> 0 `i -> 1023 `i -> 0 `i -> 100 `i `i ]
+"177
+[; ;./config.h: 177: }
+[e :UE 115 ]
+}
+"185
+[; ;./config.h: 185: void readTemperature(void)
+[v _readTemperature `(v ~T0 @X0 1 ef ]
+"186
+[; ;./config.h: 186: {
+{
+[e :U _readTemperature ]
+[f ]
+"187
+[; ;./config.h: 187:   temperature = ADC_Read(1);
+[e = _temperature ( _ADC_Read (1 -> -> 1 `i `uc ]
+"188
+[; ;./config.h: 188:   temperature = (int)map(temperature,0,1023,0,500);
+[e = _temperature -> ( _map (4 , , , , _temperature -> 0 `i -> 1023 `i -> 0 `i -> 500 `i `i ]
+"189
+[; ;./config.h: 189: }
+[e :UE 116 ]
+}
+"191
+[; ;./config.h: 191: void readLight(void)
+[v _readLight `(v ~T0 @X0 1 ef ]
+"192
+[; ;./config.h: 192: {
+{
+[e :U _readLight ]
+[f ]
+"193
+[; ;./config.h: 193:   light = ADC_Read(2);
+[e = _light ( _ADC_Read (1 -> -> 2 `i `uc ]
+"194
+[; ;./config.h: 194: }
+[e :UE 117 ]
+}
+"196
+[; ;./config.h: 196: void ADC_readAll(void)
+[v _ADC_readAll `(v ~T0 @X0 1 ef ]
+"197
+[; ;./config.h: 197: {
+{
+[e :U _ADC_readAll ]
+[f ]
+"198
+[; ;./config.h: 198:   readTemperature();
+[e ( _readTemperature ..  ]
+"199
+[; ;./config.h: 199:   readSoilMoisture();
+[e ( _readSoilMoisture ..  ]
+"200
+[; ;./config.h: 200:   readLight();
+[e ( _readLight ..  ]
+"201
+[; ;./config.h: 201: }
+[e :UE 118 ]
 }
 "12 ./lcd.h
 [; ;./lcd.h: 12: void Lcd_Port(char a)
@@ -616,63 +798,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "14
 [; ;./lcd.h: 14:  if(a & 1)
-[e $ ! != & -> _a `i -> 1 `i -> 0 `i 111  ]
+[e $ ! != & -> _a `i -> 1 `i -> 0 `i 120  ]
 "15
 [; ;./lcd.h: 15:   RD4 = 1;
 [e = _RD4 -> -> 1 `i `b ]
-[e $U 112  ]
+[e $U 121  ]
 "16
 [; ;./lcd.h: 16:  else
-[e :U 111 ]
+[e :U 120 ]
 "17
 [; ;./lcd.h: 17:   RD4 = 0;
 [e = _RD4 -> -> 0 `i `b ]
-[e :U 112 ]
+[e :U 121 ]
 "19
 [; ;./lcd.h: 19:  if(a & 2)
-[e $ ! != & -> _a `i -> 2 `i -> 0 `i 113  ]
+[e $ ! != & -> _a `i -> 2 `i -> 0 `i 122  ]
 "20
 [; ;./lcd.h: 20:   RD5 = 1;
 [e = _RD5 -> -> 1 `i `b ]
-[e $U 114  ]
+[e $U 123  ]
 "21
 [; ;./lcd.h: 21:  else
-[e :U 113 ]
+[e :U 122 ]
 "22
 [; ;./lcd.h: 22:   RD5 = 0;
 [e = _RD5 -> -> 0 `i `b ]
-[e :U 114 ]
+[e :U 123 ]
 "24
 [; ;./lcd.h: 24:  if(a & 4)
-[e $ ! != & -> _a `i -> 4 `i -> 0 `i 115  ]
+[e $ ! != & -> _a `i -> 4 `i -> 0 `i 124  ]
 "25
 [; ;./lcd.h: 25:   RD6 = 1;
 [e = _RD6 -> -> 1 `i `b ]
-[e $U 116  ]
+[e $U 125  ]
 "26
 [; ;./lcd.h: 26:  else
-[e :U 115 ]
+[e :U 124 ]
 "27
 [; ;./lcd.h: 27:   RD6 = 0;
 [e = _RD6 -> -> 0 `i `b ]
-[e :U 116 ]
+[e :U 125 ]
 "29
 [; ;./lcd.h: 29:  if(a & 8)
-[e $ ! != & -> _a `i -> 8 `i -> 0 `i 117  ]
+[e $ ! != & -> _a `i -> 8 `i -> 0 `i 126  ]
 "30
 [; ;./lcd.h: 30:   RD7 = 1;
 [e = _RD7 -> -> 1 `i `b ]
-[e $U 118  ]
+[e $U 127  ]
 "31
 [; ;./lcd.h: 31:  else
-[e :U 117 ]
+[e :U 126 ]
 "32
 [; ;./lcd.h: 32:   RD7 = 0;
 [e = _RD7 -> -> 0 `i `b ]
-[e :U 118 ]
+[e :U 127 ]
 "33
 [; ;./lcd.h: 33: }
-[e :UE 110 ]
+[e :UE 119 ]
 }
 "34
 [; ;./lcd.h: 34: void Lcd_Cmd(char a)
@@ -704,7 +886,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RD3 -> -> 0 `i `b ]
 "41
 [; ;./lcd.h: 41: }
-[e :UE 119 ]
+[e :UE 128 ]
 }
 "43
 [; ;./lcd.h: 43: void Lcd_Clear()
@@ -722,7 +904,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Lcd_Cmd (1 -> -> 1 `i `uc ]
 "47
 [; ;./lcd.h: 47: }
-[e :UE 120 ]
+[e :UE 129 ]
 }
 "49
 [; ;./lcd.h: 49: void Lcd_Set_Cursor(char a, char b)
@@ -745,7 +927,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _y `uc ~T0 @X0 1 a ]
 "52
 [; ;./lcd.h: 52:  if(a == 1)
-[e $ ! == -> _a `i -> 1 `i 122  ]
+[e $ ! == -> _a `i -> 1 `i 131  ]
 "53
 [; ;./lcd.h: 53:  {
 {
@@ -767,11 +949,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "59
 [; ;./lcd.h: 59:  }
 }
-[e $U 123  ]
+[e $U 132  ]
 "60
 [; ;./lcd.h: 60:  else if(a == 2)
-[e :U 122 ]
-[e $ ! == -> _a `i -> 2 `i 124  ]
+[e :U 131 ]
+[e $ ! == -> _a `i -> 2 `i 133  ]
 "61
 [; ;./lcd.h: 61:  {
 {
@@ -793,11 +975,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "67
 [; ;./lcd.h: 67:  }
 }
-[e :U 124 ]
-[e :U 123 ]
+[e :U 133 ]
+[e :U 132 ]
 "68
 [; ;./lcd.h: 68: }
-[e :UE 121 ]
+[e :UE 130 ]
 }
 "70
 [; ;./lcd.h: 70: void Lcd_Init()
@@ -851,7 +1033,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Lcd_Cmd (1 -> -> 6 `i `uc ]
 "87
 [; ;./lcd.h: 87: }
-[e :UE 125 ]
+[e :UE 134 ]
 }
 "89
 [; ;./lcd.h: 89: void Lcd_Write_Char(char a)
@@ -905,7 +1087,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RD3 -> -> 0 `i `b ]
 "103
 [; ;./lcd.h: 103: }
-[e :UE 126 ]
+[e :UE 135 ]
 }
 "105
 [; ;./lcd.h: 105: void Lcd_Write_String(char *a)
@@ -927,23 +1109,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./lcd.h: 108:  for(i=0;a[i]!='\0';i++)
 {
 [e = _i -> 0 `i ]
-[e $U 131  ]
-[e :U 128 ]
+[e $U 140  ]
+[e :U 137 ]
 "109
 [; ;./lcd.h: 109:     Lcd_Write_Char(a[i]);
 [e ( _Lcd_Write_Char (1 *U + _a * -> _i `x -> -> # *U _a `i `x ]
 [e ++ _i -> 1 `i ]
-[e :U 131 ]
-[e $ != -> *U + _a * -> _i `x -> -> # *U _a `i `x `ui -> 0 `ui 128  ]
-[e :U 129 ]
+[e :U 140 ]
+[e $ != -> *U + _a * -> _i `x -> -> # *U _a `i `x `ui -> 0 `ui 137  ]
+[e :U 138 ]
 }
 "110
 [; ;./lcd.h: 110: }
-[e :UE 127 ]
+[e :UE 136 ]
 }
-"16 ./lcdFunctions.h
-[; ;./lcdFunctions.h: 16: const char* TankStateString[] =
-[v _TankStateString `*Cuc ~T0 @X0 -> 4 `i e ]
+"11 ./virtualTimer.h
+[; ;./virtualTimer.h: 11: volatile unsigned int timerCounter;
+[v _timerCounter `Vui ~T0 @X0 1 e ]
+"17 ./lcdFunctions.h
+[; ;./lcdFunctions.h: 17: char* TankStateString[] =
+[v _TankStateString `*uc ~T0 @X0 -> 4 `i e ]
 [i _TankStateString
 :U ..
 :s 1C
@@ -953,438 +1138,691 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "25
-[; ;./lcdFunctions.h: 25: unsigned char lcd_index = 1;
+[; ;./lcdFunctions.h: 25: char* IrrigationStateString[] =
+[v _IrrigationStateString `*uc ~T0 @X0 -> 3 `i e ]
+[i _IrrigationStateString
+:U ..
+:s 5C
+:s 6C
+:s 7C
+..
+]
+"33
+[; ;./lcdFunctions.h: 33: unsigned char lcd_maxIndex = 5;
+[v _lcd_maxIndex `uc ~T0 @X0 1 e ]
+[i _lcd_maxIndex
+-> -> 5 `i `uc
+]
+"34
+[; ;./lcdFunctions.h: 34: unsigned char lcd_index = 1;
 [v _lcd_index `uc ~T0 @X0 1 e ]
 [i _lcd_index
 -> -> 1 `i `uc
 ]
-"29
-[; ;./lcdFunctions.h: 29: __bit leftButtonPressed = 0;
+"35
+[; ;./lcdFunctions.h: 35: unsigned char lcd_lastIndex = 0;
+[v _lcd_lastIndex `uc ~T0 @X0 1 e ]
+[i _lcd_lastIndex
+-> -> 0 `i `uc
+]
+"39
+[; ;./lcdFunctions.h: 39: __bit leftButtonPressed = 0;
 [v _leftButtonPressed `b ~T0 @X0 1 e ]
 [i _leftButtonPressed
 -> -> 0 `i `b
 ]
-"30
-[; ;./lcdFunctions.h: 30: __bit rightButtonPressed = 0;
+"40
+[; ;./lcdFunctions.h: 40: __bit rightButtonPressed = 0;
 [v _rightButtonPressed `b ~T0 @X0 1 e ]
 [i _rightButtonPressed
 -> -> 0 `i `b
 ]
-"31
-[; ;./lcdFunctions.h: 31: unsigned char lastLeftButtonState = 1;
+"41
+[; ;./lcdFunctions.h: 41: unsigned char lastLeftButtonState = 1;
 [v _lastLeftButtonState `uc ~T0 @X0 1 e ]
 [i _lastLeftButtonState
 -> -> 1 `i `uc
 ]
-"32
-[; ;./lcdFunctions.h: 32: unsigned char lastRightButtonState = 1;
+"42
+[; ;./lcdFunctions.h: 42: unsigned char lastRightButtonState = 1;
 [v _lastRightButtonState `uc ~T0 @X0 1 e ]
 [i _lastRightButtonState
 -> -> 1 `i `uc
 ]
-"45
-[; ;./lcdFunctions.h: 45: void print_TankState(void)
+"56
+[; ;./lcdFunctions.h: 56: void draw_Index()
+[v _draw_Index `(v ~T0 @X0 1 ef ]
+"57
+[; ;./lcdFunctions.h: 57: {
+{
+[e :U _draw_Index ]
+[f ]
+[v F1443 `uc ~T0 @X0 -> 3 `i s ]
+[i F1443
+:U ..
+"58
+[; ;./lcdFunctions.h: 58:   char temp_index[3] = {lcd_index + '0' , '/' , lcd_maxIndex + '0' };
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+[v _temp_index `uc ~T0 @X0 -> 3 `i a ]
+[e = _temp_index F1443 ]
+[e ; = *U + &U _temp_index * -> -> -> 0 `i `ui `ux -> -> # *U &U _temp_index `ui `ux -> + -> _lcd_index `ui -> 48 `ui `uc ; = *U + &U _temp_index * -> -> -> 1 `i `ui `ux -> -> # *U &U _temp_index `ui `ux -> -> 47 `ui `uc = *U + &U _temp_index * -> -> -> 2 `i `ui `ux -> -> # *U &U _temp_index `ui `ux -> + -> _lcd_maxIndex `ui -> 48 `ui `uc ]
+"59
+[; ;./lcdFunctions.h: 59:   Lcd_Set_Cursor(2,14);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 14 `i `uc ]
+"60
+[; ;./lcdFunctions.h: 60:   Lcd_Write_String(temp_index);
+[e ( _Lcd_Write_String (1 &U _temp_index ]
+"61
+[; ;./lcdFunctions.h: 61: }
+[e :UE 142 ]
+}
+"64
+[; ;./lcdFunctions.h: 64: void print_TankState(void)
 [v _print_TankState `(v ~T0 @X0 1 ef ]
-"46
-[; ;./lcdFunctions.h: 46: {
+"65
+[; ;./lcdFunctions.h: 65: {
 {
 [e :U _print_TankState ]
 [f ]
-"48
-[; ;./lcdFunctions.h: 48:   if(tankState == lastTankState)
-[e $ ! == -> _tankState `i -> _lastTankState `i 134  ]
-"49
-[; ;./lcdFunctions.h: 49:     return;
-[e $UE 133  ]
-[e :U 134 ]
-"51
-[; ;./lcdFunctions.h: 51:   lastTankState = tankState;
-[e = _lastTankState _tankState ]
-"53
-[; ;./lcdFunctions.h: 53:   Lcd_Clear();
-[e ( _Lcd_Clear ..  ]
-"54
-[; ;./lcdFunctions.h: 54:   char buffer[20];
-[v _buffer `uc ~T0 @X0 -> 20 `i a ]
-"56
-[; ;./lcdFunctions.h: 56:   Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"57
-[; ;./lcdFunctions.h: 57:   Lcd_Write_String("Tank State:");
-[e ( _Lcd_Write_String (1 :s 5C ]
-"59
-[; ;./lcdFunctions.h: 59:   sprintf(buffer, "%s" ,TankStateString[tankState]);
-[e ( _sprintf (1 , (. , &U _buffer :s 6C *U + &U _TankStateString * -> _tankState `ux -> -> # *U &U _TankStateString `ui `ux ]
-"61
-[; ;./lcdFunctions.h: 61:   Lcd_Set_Cursor(2,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"62
-[; ;./lcdFunctions.h: 62:   Lcd_Write_String(buffer);
-[e ( _Lcd_Write_String (1 &U _buffer ]
-"63
-[; ;./lcdFunctions.h: 63: }
-[e :UE 133 ]
-}
-"66
-[; ;./lcdFunctions.h: 66: void print_Index(void)
-[v _print_Index `(v ~T0 @X0 1 ef ]
 "67
-[; ;./lcdFunctions.h: 67: {
-{
-[e :U _print_Index ]
-[f ]
+[; ;./lcdFunctions.h: 67:   if(tankState == lastTankState && lcd_lastIndex == lcd_index)
+[e $ ! && == -> _tankState `i -> _lastTankState `i == -> _lcd_lastIndex `i -> _lcd_index `i 144  ]
 "68
-[; ;./lcdFunctions.h: 68:   Lcd_Clear();
-[e ( _Lcd_Clear ..  ]
-"69
-[; ;./lcdFunctions.h: 69:   char buffer[20];
-[v _buffer `uc ~T0 @X0 -> 20 `i a ]
-"71
-[; ;./lcdFunctions.h: 71:   Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;./lcdFunctions.h: 68:     return;
+[e $UE 143  ]
+[e :U 144 ]
+"70
+[; ;./lcdFunctions.h: 70:   lastTankState = tankState;
+[e = _lastTankState _tankState ]
 "72
-[; ;./lcdFunctions.h: 72:   sprintf(buffer, "%d", lcd_index);
-[e ( _sprintf (1 , (. , &U _buffer :s 7C -> _lcd_index `i ]
+[; ;./lcdFunctions.h: 72:   Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
 "74
-[; ;./lcdFunctions.h: 74:   Lcd_Write_String(buffer);
-[e ( _Lcd_Write_String (1 &U _buffer ]
+[; ;./lcdFunctions.h: 74:   Lcd_Set_Cursor(1,2);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
 "75
-[; ;./lcdFunctions.h: 75: }
-[e :UE 135 ]
-}
+[; ;./lcdFunctions.h: 75:   Lcd_Write_String("ESTADO TANQUE");
+[e ( _Lcd_Write_String (1 :s 8C ]
 "77
-[; ;./lcdFunctions.h: 77: void lcd_debounceButtons()
-[v _lcd_debounceButtons `(v ~T0 @X0 1 ef ]
+[; ;./lcdFunctions.h: 77:   Lcd_Set_Cursor(2,6);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
 "78
-[; ;./lcdFunctions.h: 78: {
-{
-[e :U _lcd_debounceButtons ]
-[f ]
+[; ;./lcdFunctions.h: 78:   Lcd_Write_String( TankStateString[tankState] );
+[e ( _Lcd_Write_String (1 *U + &U _TankStateString * -> _tankState `ux -> -> # *U &U _TankStateString `ui `ux ]
 "80
-[; ;./lcdFunctions.h: 80:     if (timer_lcdButtons.reached == 0) {
-[e $ ! == -> . _timer_lcdButtons 3 `i -> 0 `i 137  ]
-{
+[; ;./lcdFunctions.h: 80:   draw_Index();
+[e ( _draw_Index ..  ]
 "81
-[; ;./lcdFunctions.h: 81:         return;
-[e $UE 136  ]
-"82
-[; ;./lcdFunctions.h: 82:     }
+[; ;./lcdFunctions.h: 81: }
+[e :UE 143 ]
 }
-[e :U 137 ]
-"85
-[; ;./lcdFunctions.h: 85:     timer_lcdButtons.reached = 0;
-[e = . _timer_lcdButtons 3 -> -> 0 `i `uc ]
-"88
-[; ;./lcdFunctions.h: 88:     if (PORTBbits.RB1 == 0 && lastLeftButtonState != 0) {
-[e $ ! && == -> . . _PORTBbits 0 1 `i -> 0 `i != -> _lastLeftButtonState `i -> 0 `i 138  ]
+"83
+[; ;./lcdFunctions.h: 83: void print_Irrigation(void)
+[v _print_Irrigation `(v ~T0 @X0 1 ef ]
+"84
+[; ;./lcdFunctions.h: 84: {
 {
+[e :U _print_Irrigation ]
+[f ]
+"86
+[; ;./lcdFunctions.h: 86:   if(irrigationState == lastIrrigationState && lcd_lastIndex == lcd_index)
+[e $ ! && == -> _irrigationState `i -> _lastIrrigationState `i == -> _lcd_lastIndex `i -> _lcd_index `i 146  ]
+"87
+[; ;./lcdFunctions.h: 87:     return;
+[e $UE 145  ]
+[e :U 146 ]
 "89
-[; ;./lcdFunctions.h: 89:         lcd_turnLeft();
-[e ( _lcd_turnLeft ..  ]
-"90
-[; ;./lcdFunctions.h: 90:     }
-}
-[e :U 138 ]
+[; ;./lcdFunctions.h: 89:   lastIrrigationState = irrigationState;
+[e = _lastIrrigationState _irrigationState ]
+"91
+[; ;./lcdFunctions.h: 91:   Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
 "93
-[; ;./lcdFunctions.h: 93:     if (PORTBbits.RB2 == 0 && lastRightButtonState != 0) {
-[e $ ! && == -> . . _PORTBbits 0 2 `i -> 0 `i != -> _lastRightButtonState `i -> 0 `i 139  ]
-{
+[; ;./lcdFunctions.h: 93:   Lcd_Set_Cursor(1,2);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
 "94
-[; ;./lcdFunctions.h: 94:         lcd_turnRight();
-[e ( _lcd_turnRight ..  ]
-"95
-[; ;./lcdFunctions.h: 95:     }
-}
-[e :U 139 ]
-"98
-[; ;./lcdFunctions.h: 98:     lastLeftButtonState = PORTBbits.RB1;
-[e = _lastLeftButtonState . . _PORTBbits 0 1 ]
+[; ;./lcdFunctions.h: 94:   Lcd_Write_String("IRRIGACAO:");
+[e ( _Lcd_Write_String (1 :s 9C ]
+"96
+[; ;./lcdFunctions.h: 96:   Lcd_Set_Cursor(2,4);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
+"97
+[; ;./lcdFunctions.h: 97:   Lcd_Write_String( IrrigationStateString[irrigationState] );
+[e ( _Lcd_Write_String (1 *U + &U _IrrigationStateString * -> _irrigationState `ux -> -> # *U &U _IrrigationStateString `ui `ux ]
 "99
-[; ;./lcdFunctions.h: 99:     lastRightButtonState = PORTBbits.RB2;
-[e = _lastRightButtonState . . _PORTBbits 0 2 ]
+[; ;./lcdFunctions.h: 99:   draw_Index();
+[e ( _draw_Index ..  ]
 "100
 [; ;./lcdFunctions.h: 100: }
-[e :UE 136 ]
+[e :UE 145 ]
 }
 "102
-[; ;./lcdFunctions.h: 102: void lcd_run(void)
-[v _lcd_run `(v ~T0 @X0 1 ef ]
+[; ;./lcdFunctions.h: 102: void print_SoilMoisture()
+[v _print_SoilMoisture `(v ~T0 @X0 1 ef ]
 "103
 [; ;./lcdFunctions.h: 103: {
 {
+[e :U _print_SoilMoisture ]
+[f ]
+"104
+[; ;./lcdFunctions.h: 104:   if(soilMoisture == old_soilMoisture && lcd_lastIndex == lcd_index)
+[e $ ! && == _soilMoisture _old_soilMoisture == -> _lcd_lastIndex `i -> _lcd_index `i 148  ]
+"105
+[; ;./lcdFunctions.h: 105:     return;
+[e $UE 147  ]
+[e :U 148 ]
+"107
+[; ;./lcdFunctions.h: 107:   old_soilMoisture = soilMoisture;
+[e = _old_soilMoisture _soilMoisture ]
+"109
+[; ;./lcdFunctions.h: 109:   Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
+"111
+[; ;./lcdFunctions.h: 111:   char buffer[16];
+[v _buffer `uc ~T0 @X0 -> 16 `i a ]
+"114
+[; ;./lcdFunctions.h: 114:   Lcd_Set_Cursor(1,2);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
+"115
+[; ;./lcdFunctions.h: 115:   Lcd_Write_String("UMIDADE SOLO");
+[e ( _Lcd_Write_String (1 :s 10C ]
+"117
+[; ;./lcdFunctions.h: 117:   Lcd_Set_Cursor(2,6);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
+"118
+[; ;./lcdFunctions.h: 118:   sprintf(buffer,"%d",soilMoisture);
+[e ( _sprintf (1 , (. , &U _buffer :s 11C _soilMoisture ]
+"119
+[; ;./lcdFunctions.h: 119:   Lcd_Write_String(buffer);
+[e ( _Lcd_Write_String (1 &U _buffer ]
+"120
+[; ;./lcdFunctions.h: 120:   Lcd_Write_Char('%');
+[e ( _Lcd_Write_Char (1 -> -> 37 `ui `uc ]
+"122
+[; ;./lcdFunctions.h: 122:   draw_Index();
+[e ( _draw_Index ..  ]
+"123
+[; ;./lcdFunctions.h: 123: }
+[e :UE 147 ]
+}
+"124
+[; ;./lcdFunctions.h: 124: void print_ArtificialLight(void)
+[v _print_ArtificialLight `(v ~T0 @X0 1 ef ]
+"125
+[; ;./lcdFunctions.h: 125: {
+{
+[e :U _print_ArtificialLight ]
+[f ]
+"126
+[; ;./lcdFunctions.h: 126:   if(light == old_light && lcd_lastIndex == lcd_index )
+[e $ ! && == _light _old_light == -> _lcd_lastIndex `i -> _lcd_index `i 150  ]
+"127
+[; ;./lcdFunctions.h: 127:     return;
+[e $UE 149  ]
+[e :U 150 ]
+"129
+[; ;./lcdFunctions.h: 129:   old_light = light;
+[e = _old_light _light ]
+"131
+[; ;./lcdFunctions.h: 131:   Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
+"133
+[; ;./lcdFunctions.h: 133:   Lcd_Set_Cursor(1,2);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 2 `i `uc ]
+"134
+[; ;./lcdFunctions.h: 134:   Lcd_Write_String("LUZ ARTIFICIAL");
+[e ( _Lcd_Write_String (1 :s 12C ]
+"136
+[; ;./lcdFunctions.h: 136:   Lcd_Set_Cursor(2,4);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 4 `i `uc ]
+"137
+[; ;./lcdFunctions.h: 137:   if(PORTCbits.RC3 == 0)
+[e $ ! == -> . . _PORTCbits 0 3 `i -> 0 `i 151  ]
+"138
+[; ;./lcdFunctions.h: 138:     Lcd_Write_String("LIGADA");
+[e ( _Lcd_Write_String (1 :s 13C ]
+[e $U 152  ]
+"139
+[; ;./lcdFunctions.h: 139:   else
+[e :U 151 ]
+"140
+[; ;./lcdFunctions.h: 140:     Lcd_Write_String("DESLIGADA");
+[e ( _Lcd_Write_String (1 :s 14C ]
+[e :U 152 ]
+"142
+[; ;./lcdFunctions.h: 142:   draw_Index();
+[e ( _draw_Index ..  ]
+"143
+[; ;./lcdFunctions.h: 143: }
+[e :UE 149 ]
+}
+"145
+[; ;./lcdFunctions.h: 145: void print_Temperature()
+[v _print_Temperature `(v ~T0 @X0 1 ef ]
+"146
+[; ;./lcdFunctions.h: 146: {
+{
+[e :U _print_Temperature ]
+[f ]
+"147
+[; ;./lcdFunctions.h: 147:   if(temperature == old_temperature && lcd_lastIndex == lcd_index)
+[e $ ! && == _temperature _old_temperature == -> _lcd_lastIndex `i -> _lcd_index `i 154  ]
+"148
+[; ;./lcdFunctions.h: 148:     return;
+[e $UE 153  ]
+[e :U 154 ]
+"150
+[; ;./lcdFunctions.h: 150:   old_temperature = temperature;
+[e = _old_temperature _temperature ]
+"152
+[; ;./lcdFunctions.h: 152:   Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
+"154
+[; ;./lcdFunctions.h: 154:   char buffer[16];
+[v _buffer `uc ~T0 @X0 -> 16 `i a ]
+"156
+[; ;./lcdFunctions.h: 156:   Lcd_Set_Cursor(1,3);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
+"157
+[; ;./lcdFunctions.h: 157:   Lcd_Write_String("TEMPERATURA:");
+[e ( _Lcd_Write_String (1 :s 15C ]
+"159
+[; ;./lcdFunctions.h: 159:   Lcd_Set_Cursor(2,7);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 7 `i `uc ]
+"161
+[; ;./lcdFunctions.h: 161:   sprintf(buffer,"%d",temperature);
+[e ( _sprintf (1 , (. , &U _buffer :s 16C _temperature ]
+"162
+[; ;./lcdFunctions.h: 162:   Lcd_Write_String(buffer);
+[e ( _Lcd_Write_String (1 &U _buffer ]
+"163
+[; ;./lcdFunctions.h: 163:   Lcd_Write_Char((char)223);
+[e ( _Lcd_Write_Char (1 -> -> 223 `i `uc ]
+"164
+[; ;./lcdFunctions.h: 164:   Lcd_Write_Char('C');
+[e ( _Lcd_Write_Char (1 -> -> 67 `ui `uc ]
+"167
+[; ;./lcdFunctions.h: 167:   draw_Index();
+[e ( _draw_Index ..  ]
+"168
+[; ;./lcdFunctions.h: 168: }
+[e :UE 153 ]
+}
+"170
+[; ;./lcdFunctions.h: 170: void lcd_debounceButtons()
+[v _lcd_debounceButtons `(v ~T0 @X0 1 ef ]
+"171
+[; ;./lcdFunctions.h: 171: {
+{
+[e :U _lcd_debounceButtons ]
+[f ]
+"174
+[; ;./lcdFunctions.h: 174:   if (PORTBbits.RB1 == 0 && lastLeftButtonState != 0) {
+[e $ ! && == -> . . _PORTBbits 0 1 `i -> 0 `i != -> _lastLeftButtonState `i -> 0 `i 156  ]
+{
+"175
+[; ;./lcdFunctions.h: 175:       lcd_turnLeft();
+[e ( _lcd_turnLeft ..  ]
+"176
+[; ;./lcdFunctions.h: 176:   }
+}
+[e :U 156 ]
+"179
+[; ;./lcdFunctions.h: 179:   if (PORTBbits.RB2 == 0 && lastRightButtonState != 0) {
+[e $ ! && == -> . . _PORTBbits 0 2 `i -> 0 `i != -> _lastRightButtonState `i -> 0 `i 157  ]
+{
+"180
+[; ;./lcdFunctions.h: 180:       lcd_turnRight();
+[e ( _lcd_turnRight ..  ]
+"181
+[; ;./lcdFunctions.h: 181:   }
+}
+[e :U 157 ]
+"184
+[; ;./lcdFunctions.h: 184:   lastLeftButtonState = PORTBbits.RB1;
+[e = _lastLeftButtonState . . _PORTBbits 0 1 ]
+"185
+[; ;./lcdFunctions.h: 185:   lastRightButtonState = PORTBbits.RB2;
+[e = _lastRightButtonState . . _PORTBbits 0 2 ]
+"186
+[; ;./lcdFunctions.h: 186: }
+[e :UE 155 ]
+}
+"188
+[; ;./lcdFunctions.h: 188: void lcd_run(void)
+[v _lcd_run `(v ~T0 @X0 1 ef ]
+"189
+[; ;./lcdFunctions.h: 189: {
+{
 [e :U _lcd_run ]
 [f ]
-"105
-[; ;./lcdFunctions.h: 105:   lcd_debounceButtons();
+"191
+[; ;./lcdFunctions.h: 191:   lcd_debounceButtons();
 [e ( _lcd_debounceButtons ..  ]
-"107
-[; ;./lcdFunctions.h: 107:   switch(lcd_index)
-[e $U 142  ]
-"108
-[; ;./lcdFunctions.h: 108:   {
+"193
+[; ;./lcdFunctions.h: 193:   switch(lcd_index)
+[e $U 160  ]
+"194
+[; ;./lcdFunctions.h: 194:   {
 {
-"109
-[; ;./lcdFunctions.h: 109:   case 1:
-[e :U 143 ]
-"110
-[; ;./lcdFunctions.h: 110:     print_TankState();
+"195
+[; ;./lcdFunctions.h: 195:   case 1:
+[e :U 161 ]
+"196
+[; ;./lcdFunctions.h: 196:     print_TankState();
 [e ( _print_TankState ..  ]
-"111
-[; ;./lcdFunctions.h: 111:     break;
-[e $U 141  ]
-"112
-[; ;./lcdFunctions.h: 112:   case 2:
-[e :U 144 ]
-"114
-[; ;./lcdFunctions.h: 114:     print_Index();
-[e ( _print_Index ..  ]
-"115
-[; ;./lcdFunctions.h: 115:     break;
-[e $U 141  ]
-"116
-[; ;./lcdFunctions.h: 116:   case 3:
-[e :U 145 ]
-"117
-[; ;./lcdFunctions.h: 117:     print_Index();
-[e ( _print_Index ..  ]
-"118
-[; ;./lcdFunctions.h: 118:     break;
-[e $U 141  ]
-"119
-[; ;./lcdFunctions.h: 119:   case 4:
-[e :U 146 ]
-"120
-[; ;./lcdFunctions.h: 120:     print_Index();
-[e ( _print_Index ..  ]
-"121
-[; ;./lcdFunctions.h: 121:     break;
-[e $U 141  ]
-"122
-[; ;./lcdFunctions.h: 122:   default:
-[e :U 147 ]
-"123
-[; ;./lcdFunctions.h: 123:     print_Index();
-[e ( _print_Index ..  ]
-"124
-[; ;./lcdFunctions.h: 124:     break;
-[e $U 141  ]
-"125
-[; ;./lcdFunctions.h: 125:   };
+"197
+[; ;./lcdFunctions.h: 197:     break;
+[e $U 159  ]
+"198
+[; ;./lcdFunctions.h: 198:   case 2:
+[e :U 162 ]
+"199
+[; ;./lcdFunctions.h: 199:     print_Irrigation();
+[e ( _print_Irrigation ..  ]
+"200
+[; ;./lcdFunctions.h: 200:     break;
+[e $U 159  ]
+"201
+[; ;./lcdFunctions.h: 201:   case 3:
+[e :U 163 ]
+"202
+[; ;./lcdFunctions.h: 202:     print_SoilMoisture();
+[e ( _print_SoilMoisture ..  ]
+"203
+[; ;./lcdFunctions.h: 203:     break;
+[e $U 159  ]
+"204
+[; ;./lcdFunctions.h: 204:   case 4:
+[e :U 164 ]
+"205
+[; ;./lcdFunctions.h: 205:     print_Temperature();
+[e ( _print_Temperature ..  ]
+"206
+[; ;./lcdFunctions.h: 206:     break;
+[e $U 159  ]
+"207
+[; ;./lcdFunctions.h: 207:   case 5:
+[e :U 165 ]
+"208
+[; ;./lcdFunctions.h: 208:     print_ArtificialLight();
+[e ( _print_ArtificialLight ..  ]
+"209
+[; ;./lcdFunctions.h: 209:   default:
+[e :U 166 ]
+"210
+[; ;./lcdFunctions.h: 210:     break;
+[e $U 159  ]
+"211
+[; ;./lcdFunctions.h: 211:   };
 }
-[e $U 141  ]
-[e :U 142 ]
-[e [\ _lcd_index , $ -> 1 `i 143
- , $ -> 2 `i 144
- , $ -> 3 `i 145
- , $ -> 4 `i 146
- 147 ]
-[e :U 141 ]
-"126
-[; ;./lcdFunctions.h: 126:   return;
-[e $UE 140  ]
-"127
-[; ;./lcdFunctions.h: 127: }
-[e :UE 140 ]
+[e $U 159  ]
+[e :U 160 ]
+[e [\ _lcd_index , $ -> 1 `i 161
+ , $ -> 2 `i 162
+ , $ -> 3 `i 163
+ , $ -> 4 `i 164
+ , $ -> 5 `i 165
+ 166 ]
+[e :U 159 ]
+"213
+[; ;./lcdFunctions.h: 213:   lcd_lastIndex = lcd_index;
+[e = _lcd_lastIndex _lcd_index ]
+"214
+[; ;./lcdFunctions.h: 214: }
+[e :UE 158 ]
 }
-"129
-[; ;./lcdFunctions.h: 129: void lcd_turnRight(void)
+"216
+[; ;./lcdFunctions.h: 216: void lcd_turnRight(void)
 [v _lcd_turnRight `(v ~T0 @X0 1 ef ]
-"130
-[; ;./lcdFunctions.h: 130: {
+"217
+[; ;./lcdFunctions.h: 217: {
 {
 [e :U _lcd_turnRight ]
 [f ]
-"132
-[; ;./lcdFunctions.h: 132:   if(lcd_index >= 4)
-[e $ ! >= -> _lcd_index `i -> 4 `i 149  ]
-"133
-[; ;./lcdFunctions.h: 133:     lcd_index = 1;
+"219
+[; ;./lcdFunctions.h: 219:   if(lcd_index >= lcd_maxIndex)
+[e $ ! >= -> _lcd_index `i -> _lcd_maxIndex `i 168  ]
+"220
+[; ;./lcdFunctions.h: 220:     lcd_index = 1;
 [e = _lcd_index -> -> 1 `i `uc ]
-[e $U 150  ]
-"134
-[; ;./lcdFunctions.h: 134:   else
-[e :U 149 ]
-"135
-[; ;./lcdFunctions.h: 135:     lcd_index++;
+[e $U 169  ]
+"221
+[; ;./lcdFunctions.h: 221:   else
+[e :U 168 ]
+"222
+[; ;./lcdFunctions.h: 222:     lcd_index++;
 [e ++ _lcd_index -> -> 1 `i `uc ]
-[e :U 150 ]
-"136
-[; ;./lcdFunctions.h: 136: };
-[e :UE 148 ]
+[e :U 169 ]
+"223
+[; ;./lcdFunctions.h: 223: };
+[e :UE 167 ]
 }
-"138
-[; ;./lcdFunctions.h: 138: void lcd_turnLeft(void)
+"225
+[; ;./lcdFunctions.h: 225: void lcd_turnLeft(void)
 [v _lcd_turnLeft `(v ~T0 @X0 1 ef ]
-"139
-[; ;./lcdFunctions.h: 139: {
+"226
+[; ;./lcdFunctions.h: 226: {
 {
 [e :U _lcd_turnLeft ]
 [f ]
-"141
-[; ;./lcdFunctions.h: 141:   if(lcd_index <= 1)
-[e $ ! <= -> _lcd_index `i -> 1 `i 152  ]
-"142
-[; ;./lcdFunctions.h: 142:     lcd_index = 4;
-[e = _lcd_index -> -> 4 `i `uc ]
-[e $U 153  ]
-"143
-[; ;./lcdFunctions.h: 143:   else
-[e :U 152 ]
-"144
-[; ;./lcdFunctions.h: 144:     lcd_index--;
+"228
+[; ;./lcdFunctions.h: 228:   if(lcd_index <= 1)
+[e $ ! <= -> _lcd_index `i -> 1 `i 171  ]
+"229
+[; ;./lcdFunctions.h: 229:     lcd_index = lcd_maxIndex;
+[e = _lcd_index _lcd_maxIndex ]
+[e $U 172  ]
+"230
+[; ;./lcdFunctions.h: 230:   else
+[e :U 171 ]
+"231
+[; ;./lcdFunctions.h: 231:     lcd_index--;
 [e -- _lcd_index -> -> 1 `i `uc ]
-[e :U 153 ]
-"145
-[; ;./lcdFunctions.h: 145: };
-[e :UE 151 ]
+[e :U 172 ]
+"232
+[; ;./lcdFunctions.h: 232: };
+[e :UE 170 ]
 }
-"147
-[; ;./lcdFunctions.h: 147: virtualTimer timer_lcdButtons =
-[v _timer_lcdButtons `S132 ~T0 @X0 1 e ]
-[i _timer_lcdButtons
+"18 main.c
+[; ;main.c: 18: virtualTimer timer_ADCReadAll =
+[v _timer_ADCReadAll `S141 ~T0 @X0 1 e ]
+[i _timer_ADCReadAll
 :U ..
 :U ..
--> -> 10 `i `ui
--> -> 0 `i `ui
+-> -> 2 `i `ui
 -> -> 1 `i `uc
--> -> 0 `i `uc
+&U _ADC_readAll
 ..
 ..
 ]
 [v $root$_interruptionHandler `(v ~T0 @X0 0 e ]
-"16 main.c
-[; ;main.c: 16: void __attribute__((picinterrupt(("")))) interruptionHandler(void)
+"25
+[; ;main.c: 25: void __attribute__((picinterrupt(("")))) interruptionHandler(void)
 [v _interruptionHandler `(v ~T1 @X0 1 ef ]
-"17
-[; ;main.c: 17: {
+"26
+[; ;main.c: 26: {
 {
 [e :U _interruptionHandler ]
 [f ]
-"18
-[; ;main.c: 18:   if(INTCONbits.INTF)
-[e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 155  ]
-"19
-[; ;main.c: 19:   {
+"27
+[; ;main.c: 27:   if(INTCONbits.INTF)
+[e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 174  ]
+"28
+[; ;main.c: 28:   {
 {
-"20
-[; ;main.c: 20:     INTCONbits.INTF = 0;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"21
-[; ;main.c: 21:     tankState = WTANK_ERROR;
-[e = _tankState . `E1372 4 ]
-"22
-[; ;main.c: 22:     irrigationState = IRRIG_ERROR;
-[e = _irrigationState . `E1410 3 ]
-"23
-[; ;main.c: 23:   }
-}
-[e $U 156  ]
-"24
-[; ;main.c: 24:   else if(PIR1bits.TMR1IF)
-[e :U 155 ]
-[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 157  ]
-"25
-[; ;main.c: 25:   {
-{
-"26
-[; ;main.c: 26:     PIR1bits.TMR1IF = 0;
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
 "29
-[; ;main.c: 29:     TMR1H = 0xFF;
-[e = _TMR1H -> -> 255 `i `uc ]
+[; ;main.c: 29:     INTCONbits.INTF = 0;
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
 "30
-[; ;main.c: 30:     TMR1L = 0x67;
-[e = _TMR1L -> -> 103 `i `uc ]
+[; ;main.c: 30:     tankState = WTANK_ERROR;
+[e = _tankState . `E1391 4 ]
+"31
+[; ;main.c: 31:     irrigationState = IRRIG_ERROR;
+[e = _irrigationState . `E1407 3 ]
 "32
-[; ;main.c: 32:     runTimer(&timer_WTANK_timeout);
-[e ( _runTimer (1 &U _timer_WTANK_timeout ]
-"33
-[; ;main.c: 33:     runTimer(&timer_lcdButtons);
-[e ( _runTimer (1 &U _timer_lcdButtons ]
-"34
-[; ;main.c: 34:   }
+[; ;main.c: 32:   }
 }
-[e :U 157 ]
-[e :U 156 ]
+[e $U 175  ]
+"33
+[; ;main.c: 33:   else if(PIR1bits.TMR1IF)
+[e :U 174 ]
+[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 176  ]
+"34
+[; ;main.c: 34:   {
+{
 "35
-[; ;main.c: 35: }
-[e :UE 154 ]
+[; ;main.c: 35:     PIR1bits.TMR1IF = 0;
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"38
+[; ;main.c: 38:     TMR1L = 0xDC;
+[e = _TMR1L -> -> 220 `i `uc ]
+"39
+[; ;main.c: 39:     TMR1H = 0x0B;
+[e = _TMR1H -> -> 11 `i `uc ]
+"41
+[; ;main.c: 41:     timerCounter++;
+[e ++ _timerCounter -> -> 1 `i `Vui ]
+"42
+[; ;main.c: 42:   }
+}
+[e :U 176 ]
+[e :U 175 ]
+"43
+[; ;main.c: 43: }
+[e :UE 173 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"37
-[; ;main.c: 37: void main()
+"45
+[; ;main.c: 45: void main()
 [v _main `(v ~T0 @X0 1 ef ]
-"38
-[; ;main.c: 38: {
+"46
+[; ;main.c: 46: {
 {
 [e :U _main ]
 [f ]
-"41
-[; ;main.c: 41:   PORTCbits.RC0 = 1;
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"42
-[; ;main.c: 42:   PORTCbits.RC1 = 1;
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"43
-[; ;main.c: 43:   PORTCbits.RC4 = 1;
-[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
-"44
-[; ;main.c: 44:   PORTCbits.RC2 = 1;
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"46
-[; ;main.c: 46:   PORTCbits.RC3 = 0;
-[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"50
-[; ;main.c: 50:   pins_init(0xFF ,0xFF ,0x00 ,0x00);
+"48
+[; ;main.c: 48:   pins_init(0xFF ,0xFF ,0x00 ,0x00);
 [e ( _pins_init (4 , , , -> -> 255 `i `uc -> -> 255 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-"51
-[; ;main.c: 51:   WDT_init();
-[e ( _WDT_init ..  ]
 "52
-[; ;main.c: 52:   interruption_init();
-[e ( _interruption_init ..  ]
+[; ;main.c: 52:   PORTCbits.RC0 = 1;
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
 "53
-[; ;main.c: 53:   timer1_1ms_init();
-[e ( _timer1_1ms_init ..  ]
+[; ;main.c: 53:   PORTCbits.RC1 = 1;
+[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
 "54
-[; ;main.c: 54:   ADC_init();
-[e ( _ADC_init ..  ]
+[; ;main.c: 54:   PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
 "55
-[; ;main.c: 55:   Lcd_Init();
-[e ( _Lcd_Init ..  ]
+[; ;main.c: 55:   PORTCbits.RC2 = 1;
+[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
 "57
-[; ;main.c: 57:   while(1)
-[e :U 160 ]
-"58
-[; ;main.c: 58:   {
-{
-"59
-[; ;main.c: 59:     __asm("clrwdt");
-[; <" clrwdt ;# ">
+[; ;main.c: 57:   PORTCbits.RC3 = 1;
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
 "61
-[; ;main.c: 61:     run_waterTankLogic();
-[e ( _run_waterTankLogic ..  ]
+[; ;main.c: 61:   WDT_init();
+[e ( _WDT_init ..  ]
 "62
-[; ;main.c: 62:     lcd_run();
-[e ( _lcd_run ..  ]
+[; ;main.c: 62:   interruption_init();
+[e ( _interruption_init ..  ]
+"63
+[; ;main.c: 63:   timer1_1ms_init();
+[e ( _timer1_1ms_init ..  ]
 "64
-[; ;main.c: 64:   }
+[; ;main.c: 64:   ADC_init();
+[e ( _ADC_init ..  ]
+"65
+[; ;main.c: 65:   Lcd_Init();
+[e ( _Lcd_Init ..  ]
+"68
+[; ;main.c: 68:   ADC_readAll();
+[e ( _ADC_readAll ..  ]
+"70
+[; ;main.c: 70:   while(1)
+[e :U 179 ]
+"71
+[; ;main.c: 71:   {
+{
+"72
+[; ;main.c: 72:     __asm("clrwdt");
+[; <" clrwdt ;# ">
+"73
+[; ;main.c: 73:     run_waterTankLogic();
+[e ( _run_waterTankLogic ..  ]
+"74
+[; ;main.c: 74:     run_IrrigationLogic(soilMoisture);
+[e ( _run_IrrigationLogic (1 _soilMoisture ]
+"75
+[; ;main.c: 75:     lcd_run();
+[e ( _lcd_run ..  ]
+"78
+[; ;main.c: 78:     runTimer(&timer_WTANK_Timeout);
+[e ( _runTimer (1 &U _timer_WTANK_Timeout ]
+"79
+[; ;main.c: 79:     runTimer(&timer_IRRIG_Timeout);
+[e ( _runTimer (1 &U _timer_IRRIG_Timeout ]
+"80
+[; ;main.c: 80:     runTimer(&timer_ADCReadAll);
+[e ( _runTimer (1 &U _timer_ADCReadAll ]
+"84
+[; ;main.c: 84:     if(light >= 900)
+[e $ ! >= _light -> 900 `i 181  ]
+"85
+[; ;main.c: 85:       PORTCbits.RC3 = 0;
+[e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
+[e $U 182  ]
+"86
+[; ;main.c: 86:     else
+[e :U 181 ]
+"87
+[; ;main.c: 87:       PORTCbits.RC3 = 1;
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
+[e :U 182 ]
+"89
+[; ;main.c: 89:     if(temperature >= 30)
+[e $ ! >= _temperature -> 30 `i 183  ]
+"90
+[; ;main.c: 90:       PORTCbits.RC4 = 0;
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+[e $U 184  ]
+"91
+[; ;main.c: 91:     else
+[e :U 183 ]
+"92
+[; ;main.c: 92:       PORTCbits.RC4 = 1;
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+[e :U 184 ]
+"93
+[; ;main.c: 93:   }
 }
-[e :U 159 ]
-[e $U 160  ]
-[e :U 161 ]
-"66
-[; ;main.c: 66:   return;
-[e $UE 158  ]
-"67
-[; ;main.c: 67: }
-[e :UE 158 ]
+[e :U 178 ]
+[e $U 179  ]
+[e :U 180 ]
+"95
+[; ;main.c: 95:   return;
+[e $UE 177  ]
+"96
+[; ;main.c: 96: }
+[e :UE 177 ]
 }
-[p f _sprintf 8650880 ]
-[a 6C 37 115 0 ]
-[a 7C 37 100 0 ]
+[p f _sprintf 8388736 ]
+[a 11C 37 100 0 ]
+[a 16C 37 100 0 ]
+[a 7C 69 82 82 79 82 0 ]
 [a 4C 69 82 82 79 0 ]
+[a 10C 85 77 73 68 65 68 69 32 83 79 76 79 0 ]
 [a 3C 86 65 90 73 79 0 ]
 [a 2C 77 69 73 79 0 ]
 [a 1C 67 72 69 73 79 0 ]
-[a 5C 84 97 110 107 32 83 116 97 116 101 58 0 ]
+[a 5C 79 78 0 ]
+[a 12C 76 85 90 32 65 82 84 73 70 73 67 73 65 76 0 ]
+[a 6C 79 70 70 0 ]
+[a 8C 69 83 84 65 68 79 32 84 65 78 81 85 69 0 ]
+[a 14C 68 69 83 76 73 71 65 68 65 0 ]
+[a 13C 76 73 71 65 68 65 0 ]
+[a 9C 73 82 82 73 71 65 67 65 79 58 0 ]
+[a 15C 84 69 77 80 69 82 65 84 85 82 65 58 0 ]

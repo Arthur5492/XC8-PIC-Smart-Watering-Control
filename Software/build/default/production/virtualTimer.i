@@ -9,19 +9,13 @@
 # 1 "virtualTimer.c" 2
 # 1 "./virtualTimer.h" 1
 # 11 "./virtualTimer.h"
-extern unsigned int timerCounter;
-
-
-
+volatile unsigned int timerCounter;
 
 typedef struct {
     unsigned int targetTime;
-    unsigned int elapsedTime;
     char active;
-
-    char reached;
+    void (*callback)(void);
 } virtualTimer;
-
 
 
 void stopTimer (virtualTimer *timer);
@@ -35,33 +29,40 @@ void runTimer(virtualTimer *timer);
 # 1 "virtualTimer.c" 2
 
 
-unsigned int timerCounter = 0;
+volatile unsigned int timerCounter = 0;
 
 void runTimer(virtualTimer *timer)
 {
   if(timer->active == 0)
     return;
 
-  if(timer->elapsedTime >= timer->targetTime)
-  {
-    timer->reached = 1;
 
-    timer->elapsedTime = 0;
+  if(timerCounter >= timer->targetTime)
+  {
+
+
+    if(timer->callback != 0)
+      timer->callback();
+
     return;
   }
 
-  timer->elapsedTime++;
+
 }
 
 void startTimer(virtualTimer *timer)
 {
+  if(timer->active)
+    return;
+
   timer->active = 1;
-  timer->elapsedTime = 0;
 }
 
 
 void stopTimer(virtualTimer *timer)
 {
+  if(timer->active == 0)
+    return;
+
   timer->active = 0;
-  timer->elapsedTime = 0;
 }

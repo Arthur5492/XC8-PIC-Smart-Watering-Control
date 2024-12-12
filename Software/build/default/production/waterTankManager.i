@@ -1906,19 +1906,13 @@ extern __bank0 __bit __timeout;
 
 # 1 "./virtualTimer.h" 1
 # 11 "./virtualTimer.h"
-extern unsigned int timerCounter;
-
-
-
+volatile unsigned int timerCounter;
 
 typedef struct {
     unsigned int targetTime;
-    unsigned int elapsedTime;
     char active;
-
-    char reached;
+    void (*callback)(void);
 } virtualTimer;
-
 
 
 void stopTimer (virtualTimer *timer);
@@ -1944,7 +1938,9 @@ typedef enum
 extern TankState tankState;
 extern TankState lastTankState;
 
-extern virtualTimer timer_WTANK_timeout;
+extern virtualTimer timer_WTANK_Timeout;
+
+extern __bit isFilling;
 
 
 void check_TankStatus(void);
@@ -1953,28 +1949,26 @@ void check_TankStatus(void);
 void run_waterTankLogic(void);
 
 
-void resetTankState(void);
-
-
 void startFilling(void);
 
 
 void stopFilling(void);
 
-void interrupt_stopFilling(void);
+void interrupt_WTANK_timeout(void);
 # 1 "waterTankManager.c" 2
 
 
-virtualTimer timer_WTANK_timeout =
+virtualTimer timer_WTANK_Timeout =
 {
-  .targetTime = 15000,
-  .elapsedTime = 0,
+  .targetTime = 30,
   .active = 0,
-  .reached = 0
+  .callback = interrupt_WTANK_timeout
 };
 
 TankState tankState = WTANK_MID;
 TankState lastTankState = WTANK_UNDEFINED;
+__bit isFilling = 0;
+
 
 void check_TankStatus(void)
 {
@@ -2004,6 +1998,7 @@ void check_TankStatus(void)
   return;
 }
 
+
 void run_waterTankLogic(void)
 {
 
@@ -2029,17 +2024,33 @@ void run_waterTankLogic(void)
 
   default:
     stopFilling();
-    PORTCbits.RC2 = 0;
   };
 }
 
+
 void startFilling(void)
 {
+  if(isFilling)
+    return;
+
+  isFilling = 1;
   PORTCbits.RC0 = 0;
-  startTimer(&timer_WTANK_timeout);
+  startTimer(&timer_WTANK_Timeout);
 };
+
+
 void stopFilling(void)
 {
+  if(!isFilling)
+    return;
+
+  isFilling = 0;
   PORTCbits.RC0 = 1;
-  stopTimer(&timer_WTANK_timeout);
+  stopTimer(&timer_WTANK_Timeout);
 };
+# 101 "waterTankManager.c"
+void interrupt_WTANK_timeout(void)
+{
+  stopFilling();
+  tankState = WTANK_ERROR;
+}

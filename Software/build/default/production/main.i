@@ -2061,7 +2061,7 @@ char *ctermid(char *);
 
 char *tempnam(const char *, const char *);
 # 11 "./config.h" 2
-# 21 "./config.h"
+# 20 "./config.h"
 #pragma config FOSC = HS
 #pragma config WDTE = ON
 #pragma config PWRTE = ON
@@ -2071,37 +2071,15 @@ char *tempnam(const char *, const char *);
 #pragma config WRT = OFF
 #pragma config CP = OFF
 
-void ADC_init() {
 
-   ADCON1bits.PCFG0=0;
-   ADCON1bits.PCFG1=0;
-   ADCON1bits.PCFG2=1;
-   ADCON1bits.PCFG3=1;
+int soilMoisture = 0;
+int temperature = 0;
+int light = 0;
 
+int old_soilMoisture = -1;
+int old_temperature = -1;
+int old_light = -1;
 
-   ADCON1bits.ADFM = 1;
-
-
-   ADCON0bits.ADCS0 = 0 ;
-   ADCON0bits.ADCS1 = 0 ;
-}
-
-int ADC_Read(unsigned char channel) {
-
-    ADCON0bits.CHS = channel;
-
-
-    _delay((unsigned long)((20)*(4000000/4000000.0)));
-
-
-    GO_nDONE = 1;
-
-
-    while (GO_nDONE);
-
-
-    return ((ADRESH << 8) + ADRESL);
-}
 
 void WDT_init()
 {
@@ -2120,16 +2098,20 @@ void timer1_1ms_init(void)
   T1CONbits.TMR1CS = 0;
 
 
+
+
+
   T1CONbits.T1CKPS0 = 1;
   T1CONbits.T1CKPS1 = 1;
 
 
-  TMR1H = 0xFF;
-  TMR1L = 0x83;
 
+    TMR1H = 0x0B;
+    TMR1L = 0xDB;
+# 75 "./config.h"
   T1CONbits.TMR1ON = 1;
 }
-# 110 "./config.h"
+# 99 "./config.h"
 void pins_init(unsigned char _TRISA, unsigned char _TRISB, unsigned char _TRISC, unsigned char _TRISD) {
   TRISA = _TRISA;
   TRISB = _TRISB;
@@ -2152,6 +2134,86 @@ void interruption_init(void)
   INTCONbits.PEIE = 1;
 
   PIE1bits.TMR1IE = 1;
+};
+
+void ADC_init() {
+
+   ADCON1bits.PCFG0=0;
+   ADCON1bits.PCFG1=0;
+   ADCON1bits.PCFG2=0;
+   ADCON1bits.PCFG3=0;
+
+
+   ADCON1bits.ADFM = 1;
+
+
+   ADCON0bits.ADCS0 = 0 ;
+   ADCON0bits.ADCS1 = 0 ;
+
+   ADCON0bits.ADON = 1;
+}
+
+int ADC_Read(unsigned char channel) {
+
+
+  ADCON0bits.CHS = channel;
+
+
+  _delay((unsigned long)((20)*(4000000/4000000.0)));
+
+  while (ADCON0bits.nDONE) {};
+
+
+  ADCON0bits.GO = 1;
+
+  while (ADCON0bits.nDONE)
+    {};
+
+  return((ADRESH<<8) + ADRESL);
+}
+
+
+long map(int x, int in_min, int in_max, int out_min, int out_max) {
+
+    long run = (long)in_max - (long)in_min;
+
+    if (run == 0)
+        return out_min;
+
+    long rise = (long)out_max - (long)out_min;
+    long delta = (long)x - (long)in_min;
+
+    return (delta * rise) / run + out_min;
+}
+
+void readSoilMoisture(void)
+{
+  soilMoisture = ADC_Read(0);
+  soilMoisture = (int)map(soilMoisture,0,1023,0,100);
+}
+
+
+
+
+
+
+
+void readTemperature(void)
+{
+  temperature = ADC_Read(1);
+  temperature = (int)map(temperature,0,1023,0,500);
+}
+
+void readLight(void)
+{
+  light = ADC_Read(2);
+}
+
+void ADC_readAll(void)
+{
+  readTemperature();
+  readSoilMoisture();
+  readLight();
 }
 # 8 "main.c" 2
 
@@ -2269,19 +2331,13 @@ void Lcd_Write_String(char *a)
 # 13 "./waterTankManager.h"
 # 1 "./virtualTimer.h" 1
 # 11 "./virtualTimer.h"
-extern unsigned int timerCounter;
-
-
-
+volatile unsigned int timerCounter;
 
 typedef struct {
     unsigned int targetTime;
-    unsigned int elapsedTime;
     char active;
-
-    char reached;
+    void (*callback)(void);
 } virtualTimer;
-
 
 
 void stopTimer (virtualTimer *timer);
@@ -2307,7 +2363,9 @@ typedef enum
 extern TankState tankState;
 extern TankState lastTankState;
 
-extern virtualTimer timer_WTANK_timeout;
+extern virtualTimer timer_WTANK_Timeout;
+
+extern __bit isFilling;
 
 
 void check_TankStatus(void);
@@ -2316,20 +2374,52 @@ void check_TankStatus(void);
 void run_waterTankLogic(void);
 
 
-void resetTankState(void);
-
-
 void startFilling(void);
 
 
 void stopFilling(void);
 
-void interrupt_stopFilling(void);
+void interrupt_WTANK_timeout(void);
 # 13 "./lcdFunctions.h" 2
 
+# 1 "./irrigation.h" 1
 
 
-const char* TankStateString[] =
+
+
+
+
+
+typedef enum
+{
+  IRRIG_UNDEFINED = -1,
+  IRRIG_ON,
+  IRRIG_OFF,
+  IRRIG_ERROR
+}IrrigationState;
+
+extern IrrigationState irrigationState;
+extern IrrigationState lastIrrigationState;
+
+extern virtualTimer timer_IRRIG_Timeout;
+
+
+extern unsigned char minHumidity;
+extern unsigned char idealHumidity;
+extern __bit isIrrigating;
+
+
+
+void run_IrrigationLogic(int soilMoistureValue);
+void interrupt_IRRIG_timeout(void);
+
+void startIrrigation(void);
+void stopIrrigation(void);
+# 14 "./lcdFunctions.h" 2
+
+
+
+char* TankStateString[] =
 {
   [WTANK_LOW] = "VAZIO",
   [WTANK_MID] = "MEIO",
@@ -2337,8 +2427,17 @@ const char* TankStateString[] =
   [WTANK_ERROR] = "ERRO",
 };
 
+char* IrrigationStateString[] =
+{
+  [IRRIG_ON] = "ON",
+  [IRRIG_OFF] = "OFF",
+  [IRRIG_ERROR] = "ERROR"
+};
 
+
+unsigned char lcd_maxIndex = 5;
 unsigned char lcd_index = 1;
+unsigned char lcd_lastIndex = 0;
 
 
 
@@ -2350,69 +2449,145 @@ unsigned char lastRightButtonState = 1;
 extern virtualTimer timer_lcdButtons;
 
 void print_TankState(void);
-void print_Index(void);
+void print_Irrigation(void);
+void print_ArtificialLight(void);
+void print_Temperature(void);
+
 void lcd_run(void);
 void lcd_turnRight(void);
 void lcd_turnLeft(void);
 void interrupt_checkButton(void);
 
+void draw_Index()
+{
+  char temp_index[3] = {lcd_index + '0' , '/' , lcd_maxIndex + '0' };
+  Lcd_Set_Cursor(2,14);
+  Lcd_Write_String(temp_index);
+}
 
 
 void print_TankState(void)
 {
 
-  if(tankState == lastTankState)
+  if(tankState == lastTankState && lcd_lastIndex == lcd_index)
     return;
 
   lastTankState = tankState;
 
   Lcd_Clear();
-  char buffer[20];
 
-  Lcd_Set_Cursor(1,1);
-  Lcd_Write_String("Tank State:");
+  Lcd_Set_Cursor(1,2);
+  Lcd_Write_String("ESTADO TANQUE");
 
-  sprintf(buffer, "%s" ,TankStateString[tankState]);
+  Lcd_Set_Cursor(2,6);
+  Lcd_Write_String( TankStateString[tankState] );
 
-  Lcd_Set_Cursor(2,1);
-  Lcd_Write_String(buffer);
+  draw_Index();
 }
 
-
-void print_Index(void)
+void print_Irrigation(void)
 {
+
+  if(irrigationState == lastIrrigationState && lcd_lastIndex == lcd_index)
+    return;
+
+  lastIrrigationState = irrigationState;
+
   Lcd_Clear();
-  char buffer[20];
 
-  Lcd_Set_Cursor(1,1);
-  sprintf(buffer, "%d", lcd_index);
+  Lcd_Set_Cursor(1,2);
+  Lcd_Write_String("IRRIGACAO:");
 
+  Lcd_Set_Cursor(2,4);
+  Lcd_Write_String( IrrigationStateString[irrigationState] );
+
+  draw_Index();
+}
+
+void print_SoilMoisture()
+{
+  if(soilMoisture == old_soilMoisture && lcd_lastIndex == lcd_index)
+    return;
+
+  old_soilMoisture = soilMoisture;
+
+  Lcd_Clear();
+
+  char buffer[16];
+
+
+  Lcd_Set_Cursor(1,2);
+  Lcd_Write_String("UMIDADE SOLO");
+
+  Lcd_Set_Cursor(2,6);
+  sprintf(buffer,"%d",soilMoisture);
   Lcd_Write_String(buffer);
+  Lcd_Write_Char('%');
+
+  draw_Index();
+}
+void print_ArtificialLight(void)
+{
+  if(light == old_light && lcd_lastIndex == lcd_index )
+    return;
+
+  old_light = light;
+
+  Lcd_Clear();
+
+  Lcd_Set_Cursor(1,2);
+  Lcd_Write_String("LUZ ARTIFICIAL");
+
+  Lcd_Set_Cursor(2,4);
+  if(PORTCbits.RC3 == 0)
+    Lcd_Write_String("LIGADA");
+  else
+    Lcd_Write_String("DESLIGADA");
+
+  draw_Index();
+}
+
+void print_Temperature()
+{
+  if(temperature == old_temperature && lcd_lastIndex == lcd_index)
+    return;
+
+  old_temperature = temperature;
+
+  Lcd_Clear();
+
+  char buffer[16];
+
+  Lcd_Set_Cursor(1,3);
+  Lcd_Write_String("TEMPERATURA:");
+
+  Lcd_Set_Cursor(2,7);
+
+  sprintf(buffer,"%d",temperature);
+  Lcd_Write_String(buffer);
+  Lcd_Write_Char((char)223);
+  Lcd_Write_Char('C');
+
+
+  draw_Index();
 }
 
 void lcd_debounceButtons()
 {
 
-    if (timer_lcdButtons.reached == 0) {
-        return;
-    }
+
+  if (PORTBbits.RB1 == 0 && lastLeftButtonState != 0) {
+      lcd_turnLeft();
+  }
 
 
-    timer_lcdButtons.reached = 0;
+  if (PORTBbits.RB2 == 0 && lastRightButtonState != 0) {
+      lcd_turnRight();
+  }
 
 
-    if (PORTBbits.RB1 == 0 && lastLeftButtonState != 0) {
-        lcd_turnLeft();
-    }
-
-
-    if (PORTBbits.RB2 == 0 && lastRightButtonState != 0) {
-        lcd_turnRight();
-    }
-
-
-    lastLeftButtonState = PORTBbits.RB1;
-    lastRightButtonState = PORTBbits.RB2;
+  lastLeftButtonState = PORTBbits.RB1;
+  lastRightButtonState = PORTBbits.RB2;
 }
 
 void lcd_run(void)
@@ -2426,26 +2601,27 @@ void lcd_run(void)
     print_TankState();
     break;
   case 2:
-
-    print_Index();
+    print_Irrigation();
     break;
   case 3:
-    print_Index();
+    print_SoilMoisture();
     break;
   case 4:
-    print_Index();
+    print_Temperature();
     break;
+  case 5:
+    print_ArtificialLight();
   default:
-    print_Index();
     break;
   };
-  return;
+
+  lcd_lastIndex = lcd_index;
 }
 
 void lcd_turnRight(void)
 {
 
-  if(lcd_index >= 4)
+  if(lcd_index >= lcd_maxIndex)
     lcd_index = 1;
   else
     lcd_index++;
@@ -2455,43 +2631,49 @@ void lcd_turnLeft(void)
 {
 
   if(lcd_index <= 1)
-    lcd_index = 4;
+    lcd_index = lcd_maxIndex;
   else
     lcd_index--;
 };
-
-virtualTimer timer_lcdButtons =
-{
-  .targetTime = 10,
-  .elapsedTime = 0,
-  .active = 1,
-  .reached = 0
-};
 # 10 "main.c" 2
 
+# 1 "./analogValues.h" 1
 
 
 
-# 1 "./irrigation.h" 1
-# 12 "./irrigation.h"
+
+
+
 typedef enum
 {
-  IRRIG_UNDEFINED = -1,
-  IRRIG_ON,
-  IRRIG_OFF,
-  IRRIG_ERROR
-}IrrigationState;
+  CH_SOILMOISTURE = 0,
+  CH_TEMPERATURE = 1,
+  CH_LIGHT = 2
+} AnalogicChannels;
 
-extern IrrigationState irrigationState;
-extern IrrigationState lastIrrigationState;
+extern int soilMoisture;
+extern int temperature;
+extern int light;
 
-extern virtualTimer timer_WTANK_timeout;
+void readTemperature(void);
 
-extern unsigned char temperature;
-extern unsigned char maxTemperature;
-extern __bit flag_airConditioner;
-# 14 "main.c" 2
+void readSoilMoisture(void);
 
+void readLight(void);
+# 11 "main.c" 2
+
+
+
+
+
+
+
+virtualTimer timer_ADCReadAll =
+{
+  .targetTime = 2,
+  .active = 1,
+  .callback = ADC_readAll
+};
 
 void __attribute__((picinterrupt(("")))) interruptionHandler(void)
 {
@@ -2506,16 +2688,18 @@ void __attribute__((picinterrupt(("")))) interruptionHandler(void)
     PIR1bits.TMR1IF = 0;
 
 
-    TMR1H = 0xFF;
-    TMR1L = 0x67;
+    TMR1L = 0xDC;
+    TMR1H = 0x0B;
 
-    runTimer(&timer_WTANK_timeout);
-    runTimer(&timer_lcdButtons);
+    timerCounter++;
   }
 }
 
 void main()
 {
+
+  pins_init(0xFF ,0xFF ,0x00 ,0x00);
+
 
 
   PORTCbits.RC0 = 1;
@@ -2523,24 +2707,42 @@ void main()
   PORTCbits.RC4 = 1;
   PORTCbits.RC2 = 1;
 
-  PORTCbits.RC3 = 0;
+  PORTCbits.RC3 = 1;
 
 
 
-  pins_init(0xFF ,0xFF ,0x00 ,0x00);
   WDT_init();
   interruption_init();
   timer1_1ms_init();
   ADC_init();
   Lcd_Init();
 
+
+  ADC_readAll();
+
   while(1)
   {
     __asm("clrwdt");
-
     run_waterTankLogic();
+    run_IrrigationLogic(soilMoisture);
     lcd_run();
 
+
+    runTimer(&timer_WTANK_Timeout);
+    runTimer(&timer_IRRIG_Timeout);
+    runTimer(&timer_ADCReadAll);
+
+
+
+    if(light >= 900)
+      PORTCbits.RC3 = 0;
+    else
+      PORTCbits.RC3 = 1;
+
+    if(temperature >= 30)
+      PORTCbits.RC4 = 0;
+    else
+      PORTCbits.RC4 = 1;
   }
 
   return;
