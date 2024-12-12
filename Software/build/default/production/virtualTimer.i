@@ -13,6 +13,7 @@ volatile unsigned int timerCounter;
 
 typedef struct {
     unsigned int targetTime;
+    unsigned int startTime;
     char active;
     void (*callback)(void);
 } virtualTimer;
@@ -36,18 +37,19 @@ void runTimer(virtualTimer *timer)
   if(timer->active == 0)
     return;
 
+  unsigned int elapsedTime = timerCounter - timer->startTime;
 
-  if(timerCounter >= timer->targetTime)
+
+
+  if(elapsedTime >= timer->targetTime)
   {
-
+    timer->startTime = timerCounter;
 
     if(timer->callback != 0)
       timer->callback();
-
-    return;
   }
 
-
+  return;
 }
 
 void startTimer(virtualTimer *timer)
@@ -55,6 +57,7 @@ void startTimer(virtualTimer *timer)
   if(timer->active)
     return;
 
+  timer->startTime = timerCounter;
   timer->active = 1;
 }
 

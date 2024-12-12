@@ -1,16 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F1011 `(v ~T0 @X0 0 tf ]
+[v F1012 `(v ~T0 @X0 0 tf ]
 "13 ./virtualTimer.h
 [; ;./virtualTimer.h: 13: typedef struct {
-[s S99 `ui 1 `uc 1 `*F1011 1 ]
-[n S99 . targetTime active callback ]
+[s S99 `ui 1 `ui 1 `uc 1 `*F1012 1 ]
+[n S99 . targetTime startTime active callback ]
 "43 ./waterTankManager.h
 [; ;./waterTankManager.h: 43: void interrupt_WTANK_timeout(void);
 [v _interrupt_WTANK_timeout `(v ~T0 @X0 0 ef ]
-"10 waterTankManager.c
-[; ;waterTankManager.c: 10: TankState tankState = WTANK_MID;
-[c E1021 -1 0 1 2 3 .. ]
-[n E1021 . WTANK_UNDEFINED WTANK_FULL WTANK_MID WTANK_LOW WTANK_ERROR  ]
+"9 waterTankManager.c
+[; ;waterTankManager.c: 9: TankState tankState = WTANK_MID;
+[c E1022 -1 0 1 2 3 .. ]
+[n E1022 . WTANK_UNDEFINED WTANK_FULL WTANK_MID WTANK_LOW WTANK_ERROR  ]
 "284 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 284:     struct {
 [s S14 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -28,11 +28,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "38
 [; ;./waterTankManager.h: 38: void startFilling(void);
 [v _startFilling `(v ~T0 @X0 0 ef ]
-"21 ./virtualTimer.h
-[; ;./virtualTimer.h: 21: void startTimer(virtualTimer *timer);
+"22 ./virtualTimer.h
+[; ;./virtualTimer.h: 22: void startTimer(virtualTimer *timer);
 [v _startTimer `(v ~T0 @X0 0 ef1`*S99 ]
-"20
-[; ;./virtualTimer.h: 20: void stopTimer (virtualTimer *timer);
+"21
+[; ;./virtualTimer.h: 21: void stopTimer (virtualTimer *timer);
 [v _stopTimer `(v ~T0 @X0 0 ef1`*S99 ]
 "54 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
@@ -224,240 +224,241 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 -> -> 30 `i `ui
+-> -> 0 `i `ui
 -> -> 0 `i `uc
 &U _interrupt_WTANK_timeout
 ..
 ..
 ]
-"10
-[; ;waterTankManager.c: 10: TankState tankState = WTANK_MID;
-[v _tankState `E1021 ~T0 @X0 1 e ]
+"9
+[; ;waterTankManager.c: 9: TankState tankState = WTANK_MID;
+[v _tankState `E1022 ~T0 @X0 1 e ]
 [i _tankState
-. `E1021 2
+. `E1022 2
+]
+"10
+[; ;waterTankManager.c: 10: TankState lastTankState = WTANK_UNDEFINED;
+[v _lastTankState `E1022 ~T0 @X0 1 e ]
+[i _lastTankState
+. `E1022 0
 ]
 "11
-[; ;waterTankManager.c: 11: TankState lastTankState = WTANK_UNDEFINED;
-[v _lastTankState `E1021 ~T0 @X0 1 e ]
-[i _lastTankState
-. `E1021 0
-]
-"12
-[; ;waterTankManager.c: 12: __bit isFilling = 0;
+[; ;waterTankManager.c: 11: __bit isFilling = 0;
 [v _isFilling `b ~T0 @X0 1 e ]
 [i _isFilling
 -> -> 0 `i `b
 ]
-"15
-[; ;waterTankManager.c: 15: void check_TankStatus(void)
+"14
+[; ;waterTankManager.c: 14: void check_TankStatus(void)
 [v _check_TankStatus `(v ~T0 @X0 1 ef ]
-"16
-[; ;waterTankManager.c: 16: {
+"15
+[; ;waterTankManager.c: 15: {
 {
 [e :U _check_TankStatus ]
 [f ]
-"18
-[; ;waterTankManager.c: 18:   unsigned char top = PORTCbits.RC6;
+"17
+[; ;waterTankManager.c: 17:   unsigned char top = PORTCbits.RC6;
 [v _top `uc ~T0 @X0 1 a ]
 [e = _top . . _PORTCbits 0 6 ]
-"19
-[; ;waterTankManager.c: 19:   unsigned char bot = PORTCbits.RC7;
+"18
+[; ;waterTankManager.c: 18:   unsigned char bot = PORTCbits.RC7;
 [v _bot `uc ~T0 @X0 1 a ]
 [e = _bot . . _PORTCbits 0 7 ]
+"20
+[; ;waterTankManager.c: 20:   if(tankState == WTANK_ERROR)
+[e $ ! == -> _tankState `i -> . `E1022 4 `i 101  ]
 "21
-[; ;waterTankManager.c: 21:   if(tankState == WTANK_ERROR)
-[e $ ! == -> _tankState `i -> . `E1021 4 `i 101  ]
-"22
-[; ;waterTankManager.c: 22:     tankState = WTANK_ERROR;
-[e = _tankState . `E1021 4 ]
+[; ;waterTankManager.c: 21:     tankState = WTANK_ERROR;
+[e = _tankState . `E1022 4 ]
 [e $U 102  ]
-"25
-[; ;waterTankManager.c: 25:   else if((top == 1 && bot == 0))
+"24
+[; ;waterTankManager.c: 24:   else if((top == 1 && bot == 0))
 [e :U 101 ]
 [e $ ! && == -> _top `i -> 1 `i == -> _bot `i -> 0 `i 103  ]
-"26
-[; ;waterTankManager.c: 26:     tankState = WTANK_ERROR;
-[e = _tankState . `E1021 4 ]
+"25
+[; ;waterTankManager.c: 25:     tankState = WTANK_ERROR;
+[e = _tankState . `E1022 4 ]
 [e $U 104  ]
-"29
-[; ;waterTankManager.c: 29:   else if(top == 0 && bot == 1)
+"28
+[; ;waterTankManager.c: 28:   else if(top == 0 && bot == 1)
 [e :U 103 ]
 [e $ ! && == -> _top `i -> 0 `i == -> _bot `i -> 1 `i 105  ]
-"30
-[; ;waterTankManager.c: 30:     tankState = WTANK_MID;
-[e = _tankState . `E1021 2 ]
+"29
+[; ;waterTankManager.c: 29:     tankState = WTANK_MID;
+[e = _tankState . `E1022 2 ]
 [e $U 106  ]
-"33
-[; ;waterTankManager.c: 33:   else if(top == 1 && bot == 1)
+"32
+[; ;waterTankManager.c: 32:   else if(top == 1 && bot == 1)
 [e :U 105 ]
 [e $ ! && == -> _top `i -> 1 `i == -> _bot `i -> 1 `i 107  ]
-"34
-[; ;waterTankManager.c: 34:     tankState = WTANK_FULL;
-[e = _tankState . `E1021 1 ]
+"33
+[; ;waterTankManager.c: 33:     tankState = WTANK_FULL;
+[e = _tankState . `E1022 1 ]
 [e $U 108  ]
-"37
-[; ;waterTankManager.c: 37:   else if(top == 0 && bot == 0)
+"36
+[; ;waterTankManager.c: 36:   else if(top == 0 && bot == 0)
 [e :U 107 ]
 [e $ ! && == -> _top `i -> 0 `i == -> _bot `i -> 0 `i 109  ]
-"38
-[; ;waterTankManager.c: 38:     tankState = WTANK_LOW;
-[e = _tankState . `E1021 3 ]
+"37
+[; ;waterTankManager.c: 37:     tankState = WTANK_LOW;
+[e = _tankState . `E1022 3 ]
 [e :U 109 ]
 [e :U 108 ]
 [e :U 106 ]
 [e :U 104 ]
 [e :U 102 ]
-"40
-[; ;waterTankManager.c: 40:   return;
+"39
+[; ;waterTankManager.c: 39:   return;
 [e $UE 100  ]
-"41
-[; ;waterTankManager.c: 41: }
+"40
+[; ;waterTankManager.c: 40: }
 [e :UE 100 ]
 }
-"44
-[; ;waterTankManager.c: 44: void run_waterTankLogic(void)
+"43
+[; ;waterTankManager.c: 43: void run_waterTankLogic(void)
 [v _run_waterTankLogic `(v ~T0 @X0 1 ef ]
-"45
-[; ;waterTankManager.c: 45: {
+"44
+[; ;waterTankManager.c: 44: {
 {
 [e :U _run_waterTankLogic ]
 [f ]
-"47
-[; ;waterTankManager.c: 47:   check_TankStatus();
+"46
+[; ;waterTankManager.c: 46:   check_TankStatus();
 [e ( _check_TankStatus ..  ]
-"49
-[; ;waterTankManager.c: 49:   switch (tankState)
+"48
+[; ;waterTankManager.c: 48:   switch (tankState)
 [e $U 112  ]
-"50
-[; ;waterTankManager.c: 50:   {
+"49
+[; ;waterTankManager.c: 49:   {
 {
-"51
-[; ;waterTankManager.c: 51:   case WTANK_ERROR:
+"50
+[; ;waterTankManager.c: 50:   case WTANK_ERROR:
 [e :U 113 ]
+"51
+[; ;waterTankManager.c: 51:     stopFilling();
+[e ( _stopFilling ..  ]
 "52
-[; ;waterTankManager.c: 52:     stopFilling();
-[e ( _stopFilling ..  ]
-"53
-[; ;waterTankManager.c: 53:     PORTCbits.RC2 = 0;
+[; ;waterTankManager.c: 52:     PORTCbits.RC2 = 0;
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"54
-[; ;waterTankManager.c: 54:     break;
+"53
+[; ;waterTankManager.c: 53:     break;
 [e $U 111  ]
-"56
-[; ;waterTankManager.c: 56:   case WTANK_LOW:
+"55
+[; ;waterTankManager.c: 55:   case WTANK_LOW:
 [e :U 114 ]
-"57
-[; ;waterTankManager.c: 57:     startFilling();
+"56
+[; ;waterTankManager.c: 56:     startFilling();
 [e ( _startFilling ..  ]
-"58
-[; ;waterTankManager.c: 58:     break;
+"57
+[; ;waterTankManager.c: 57:     break;
 [e $U 111  ]
-"60
-[; ;waterTankManager.c: 60:   case WTANK_FULL:
+"59
+[; ;waterTankManager.c: 59:   case WTANK_FULL:
 [e :U 115 ]
+"60
+[; ;waterTankManager.c: 60:     stopFilling();
+[e ( _stopFilling ..  ]
 "61
-[; ;waterTankManager.c: 61:     stopFilling();
-[e ( _stopFilling ..  ]
-"62
-[; ;waterTankManager.c: 62:     break;
+[; ;waterTankManager.c: 61:     break;
 [e $U 111  ]
-"64
-[; ;waterTankManager.c: 64:   case WTANK_MID:
+"63
+[; ;waterTankManager.c: 63:   case WTANK_MID:
 [e :U 116 ]
-"65
-[; ;waterTankManager.c: 65:     break;
+"64
+[; ;waterTankManager.c: 64:     break;
 [e $U 111  ]
-"67
-[; ;waterTankManager.c: 67:   default:
+"66
+[; ;waterTankManager.c: 66:   default:
 [e :U 117 ]
-"68
-[; ;waterTankManager.c: 68:     stopFilling();
+"67
+[; ;waterTankManager.c: 67:     stopFilling();
 [e ( _stopFilling ..  ]
-"69
-[; ;waterTankManager.c: 69:   };
+"68
+[; ;waterTankManager.c: 68:   };
 }
 [e $U 111  ]
 [e :U 112 ]
-[e [\ -> _tankState `i , $ . `E1021 4 113
- , $ . `E1021 3 114
- , $ . `E1021 1 115
- , $ . `E1021 2 116
+[e [\ -> _tankState `i , $ . `E1022 4 113
+ , $ . `E1022 3 114
+ , $ . `E1022 1 115
+ , $ . `E1022 2 116
  117 ]
 [e :U 111 ]
-"70
-[; ;waterTankManager.c: 70: }
+"69
+[; ;waterTankManager.c: 69: }
 [e :UE 110 ]
 }
-"73
-[; ;waterTankManager.c: 73: void startFilling(void)
+"72
+[; ;waterTankManager.c: 72: void startFilling(void)
 [v _startFilling `(v ~T0 @X0 1 ef ]
-"74
-[; ;waterTankManager.c: 74: {
+"73
+[; ;waterTankManager.c: 73: {
 {
 [e :U _startFilling ]
 [f ]
-"75
-[; ;waterTankManager.c: 75:   if(isFilling)
+"74
+[; ;waterTankManager.c: 74:   if(isFilling)
 [e $ ! _isFilling 119  ]
-"76
-[; ;waterTankManager.c: 76:     return;
+"75
+[; ;waterTankManager.c: 75:     return;
 [e $UE 118  ]
 [e :U 119 ]
-"78
-[; ;waterTankManager.c: 78:   isFilling = 1;
+"77
+[; ;waterTankManager.c: 77:   isFilling = 1;
 [e = _isFilling -> -> 1 `i `b ]
-"79
-[; ;waterTankManager.c: 79:   PORTCbits.RC0 = 0;
+"78
+[; ;waterTankManager.c: 78:   PORTCbits.RC0 = 0;
 [e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-"80
-[; ;waterTankManager.c: 80:   startTimer(&timer_WTANK_Timeout);
+"79
+[; ;waterTankManager.c: 79:   startTimer(&timer_WTANK_Timeout);
 [e ( _startTimer (1 &U _timer_WTANK_Timeout ]
-"81
-[; ;waterTankManager.c: 81: };
+"80
+[; ;waterTankManager.c: 80: };
 [e :UE 118 ]
 }
-"84
-[; ;waterTankManager.c: 84: void stopFilling(void)
+"83
+[; ;waterTankManager.c: 83: void stopFilling(void)
 [v _stopFilling `(v ~T0 @X0 1 ef ]
-"85
-[; ;waterTankManager.c: 85: {
+"84
+[; ;waterTankManager.c: 84: {
 {
 [e :U _stopFilling ]
 [f ]
-"86
-[; ;waterTankManager.c: 86:   if(!isFilling)
+"85
+[; ;waterTankManager.c: 85:   if(!isFilling)
 [e $ ! ! _isFilling 121  ]
-"87
-[; ;waterTankManager.c: 87:     return;
+"86
+[; ;waterTankManager.c: 86:     return;
 [e $UE 120  ]
 [e :U 121 ]
-"89
-[; ;waterTankManager.c: 89:   isFilling = 0;
+"88
+[; ;waterTankManager.c: 88:   isFilling = 0;
 [e = _isFilling -> -> 0 `i `b ]
-"90
-[; ;waterTankManager.c: 90:   PORTCbits.RC0 = 1;
+"89
+[; ;waterTankManager.c: 89:   PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"91
-[; ;waterTankManager.c: 91:   stopTimer(&timer_WTANK_Timeout);
+"90
+[; ;waterTankManager.c: 90:   stopTimer(&timer_WTANK_Timeout);
 [e ( _stopTimer (1 &U _timer_WTANK_Timeout ]
-"92
-[; ;waterTankManager.c: 92: };
+"91
+[; ;waterTankManager.c: 91: };
 [e :UE 120 ]
 }
-"101
-[; ;waterTankManager.c: 101: void interrupt_WTANK_timeout(void)
+"100
+[; ;waterTankManager.c: 100: void interrupt_WTANK_timeout(void)
 [v _interrupt_WTANK_timeout `(v ~T0 @X0 1 ef ]
-"102
-[; ;waterTankManager.c: 102: {
+"101
+[; ;waterTankManager.c: 101: {
 {
 [e :U _interrupt_WTANK_timeout ]
 [f ]
-"103
-[; ;waterTankManager.c: 103:   stopFilling();
+"102
+[; ;waterTankManager.c: 102:   stopFilling();
 [e ( _stopFilling ..  ]
+"103
+[; ;waterTankManager.c: 103:   tankState = WTANK_ERROR;
+[e = _tankState . `E1022 4 ]
 "104
-[; ;waterTankManager.c: 104:   tankState = WTANK_ERROR;
-[e = _tankState . `E1021 4 ]
-"105
-[; ;waterTankManager.c: 105: }
+[; ;waterTankManager.c: 104: }
 [e :UE 122 ]
 }

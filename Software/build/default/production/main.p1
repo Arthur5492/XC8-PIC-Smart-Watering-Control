@@ -156,24 +156,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _RD3 `Vb ~T0 @X0 0 e@67 ]
 "67 ./lcdFunctions.h
 [; ;./lcdFunctions.h: 67:   if(tankState == lastTankState && lcd_lastIndex == lcd_index)
-[c E1391 -1 0 1 2 3 .. ]
-[n E1391 . WTANK_UNDEFINED WTANK_FULL WTANK_MID WTANK_LOW WTANK_ERROR  ]
+[c E1392 -1 0 1 2 3 .. ]
+[n E1392 . WTANK_UNDEFINED WTANK_FULL WTANK_MID WTANK_LOW WTANK_ERROR  ]
 "24 ./waterTankManager.h
 [; ;./waterTankManager.h: 24: extern TankState tankState;
-[v _tankState `E1391 ~T0 @X0 0 e ]
+[v _tankState `E1392 ~T0 @X0 0 e ]
 "25
 [; ;./waterTankManager.h: 25: extern TankState lastTankState;
-[v _lastTankState `E1391 ~T0 @X0 0 e ]
+[v _lastTankState `E1392 ~T0 @X0 0 e ]
 "86 ./lcdFunctions.h
 [; ;./lcdFunctions.h: 86:   if(irrigationState == lastIrrigationState && lcd_lastIndex == lcd_index)
-[c E1407 -1 0 1 2 .. ]
-[n E1407 . IRRIG_UNDEFINED IRRIG_ON IRRIG_OFF IRRIG_ERROR  ]
+[c E1408 -1 0 1 2 .. ]
+[n E1408 . IRRIG_UNDEFINED IRRIG_ON IRRIG_OFF IRRIG_ERROR  ]
 "16 ./irrigation.h
 [; ;./irrigation.h: 16: extern IrrigationState irrigationState;
-[v _irrigationState `E1407 ~T0 @X0 0 e ]
+[v _irrigationState `E1408 ~T0 @X0 0 e ]
 "17
 [; ;./irrigation.h: 17: extern IrrigationState lastIrrigationState;
-[v _lastIrrigationState `E1407 ~T0 @X0 0 e ]
+[v _lastIrrigationState `E1408 ~T0 @X0 0 e ]
 "121 C:\Program Files\Microchip\xc8\v2.50\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.50\pic\include\c99\stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
@@ -205,11 +205,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "52
 [; ;./lcdFunctions.h: 52: void lcd_turnRight(void);
 [v _lcd_turnRight `(v ~T0 @X0 0 ef ]
-[v F1381 `(v ~T0 @X0 0 tf ]
+[v F1382 `(v ~T0 @X0 0 tf ]
 "13 ./virtualTimer.h
 [; ;./virtualTimer.h: 13: typedef struct {
-[s S141 `ui 1 `uc 1 `*F1381 1 ]
-[n S141 . targetTime active callback ]
+[s S141 `ui 1 `ui 1 `uc 1 `*F1382 1 ]
+[n S141 . targetTime startTime active callback ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 "538 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
@@ -224,6 +224,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 549: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
 [v _PIR1bits `VS24 ~T0 @X0 0 e@12 ]
 [p mainexit ]
+"22 ./virtualTimer.h
+[; ;./virtualTimer.h: 22: void startTimer(virtualTimer *timer);
+[v _startTimer `(v ~T0 @X0 0 ef1`*S141 ]
 "35 ./waterTankManager.h
 [; ;./waterTankManager.h: 35: void run_waterTankLogic(void);
 [v _run_waterTankLogic `(v ~T0 @X0 0 ef ]
@@ -233,8 +236,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 ./analogValues.h
 [; ;./analogValues.h: 14: extern int soilMoisture;
 [v _soilMoisture `i ~T0 @X0 0 e ]
-"27 ./virtualTimer.h
-[; ;./virtualTimer.h: 27: void runTimer(virtualTimer *timer);
+"28 ./virtualTimer.h
+[; ;./virtualTimer.h: 28: void runTimer(virtualTimer *timer);
 [v _runTimer `(v ~T0 @X0 0 ef1`*S141 ]
 "27 ./waterTankManager.h
 [; ;./waterTankManager.h: 27: extern virtualTimer timer_WTANK_Timeout;
@@ -1197,8 +1200,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _draw_Index ]
 [f ]
-[v F1443 `uc ~T0 @X0 -> 3 `i s ]
-[i F1443
+[v F1444 `uc ~T0 @X0 -> 3 `i s ]
+[i F1444
 :U ..
 "58
 [; ;./lcdFunctions.h: 58:   char temp_index[3] = {lcd_index + '0' , '/' , lcd_maxIndex + '0' };
@@ -1208,7 +1211,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _temp_index `uc ~T0 @X0 -> 3 `i a ]
-[e = _temp_index F1443 ]
+[e = _temp_index F1444 ]
 [e ; = *U + &U _temp_index * -> -> -> 0 `i `ui `ux -> -> # *U &U _temp_index `ui `ux -> + -> _lcd_index `ui -> 48 `ui `uc ; = *U + &U _temp_index * -> -> -> 1 `i `ui `ux -> -> # *U &U _temp_index `ui `ux -> -> 47 `ui `uc = *U + &U _temp_index * -> -> -> 2 `i `ui `ux -> -> # *U &U _temp_index `ui `ux -> + -> _lcd_maxIndex `ui -> 48 `ui `uc ]
 "59
 [; ;./lcdFunctions.h: 59:   Lcd_Set_Cursor(2,14);
@@ -1635,178 +1638,182 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 -> -> 2 `i `ui
--> -> 1 `i `uc
+-> -> 0 `i `ui
+-> -> 0 `i `uc
 &U _ADC_readAll
 ..
 ..
 ]
 [v $root$_interruptionHandler `(v ~T0 @X0 0 e ]
-"25
-[; ;main.c: 25: void __attribute__((picinterrupt(("")))) interruptionHandler(void)
+"24
+[; ;main.c: 24: void __attribute__((picinterrupt(("")))) interruptionHandler(void)
 [v _interruptionHandler `(v ~T1 @X0 1 ef ]
-"26
-[; ;main.c: 26: {
+"25
+[; ;main.c: 25: {
 {
 [e :U _interruptionHandler ]
 [f ]
-"27
-[; ;main.c: 27:   if(INTCONbits.INTF)
+"26
+[; ;main.c: 26:   if(INTCONbits.INTF)
 [e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 174  ]
-"28
-[; ;main.c: 28:   {
+"27
+[; ;main.c: 27:   {
 {
-"29
-[; ;main.c: 29:     INTCONbits.INTF = 0;
+"28
+[; ;main.c: 28:     INTCONbits.INTF = 0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+"29
+[; ;main.c: 29:     tankState = WTANK_ERROR;
+[e = _tankState . `E1392 4 ]
 "30
-[; ;main.c: 30:     tankState = WTANK_ERROR;
-[e = _tankState . `E1391 4 ]
+[; ;main.c: 30:     irrigationState = IRRIG_ERROR;
+[e = _irrigationState . `E1408 3 ]
 "31
-[; ;main.c: 31:     irrigationState = IRRIG_ERROR;
-[e = _irrigationState . `E1407 3 ]
-"32
-[; ;main.c: 32:   }
+[; ;main.c: 31:   }
 }
 [e $U 175  ]
-"33
-[; ;main.c: 33:   else if(PIR1bits.TMR1IF)
+"32
+[; ;main.c: 32:   else if(PIR1bits.TMR1IF)
 [e :U 174 ]
 [e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 176  ]
-"34
-[; ;main.c: 34:   {
+"33
+[; ;main.c: 33:   {
 {
-"35
-[; ;main.c: 35:     PIR1bits.TMR1IF = 0;
+"34
+[; ;main.c: 34:     PIR1bits.TMR1IF = 0;
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-"38
-[; ;main.c: 38:     TMR1L = 0xDC;
+"37
+[; ;main.c: 37:     TMR1L = 0xDC;
 [e = _TMR1L -> -> 220 `i `uc ]
-"39
-[; ;main.c: 39:     TMR1H = 0x0B;
+"38
+[; ;main.c: 38:     TMR1H = 0x0B;
 [e = _TMR1H -> -> 11 `i `uc ]
-"41
-[; ;main.c: 41:     timerCounter++;
+"40
+[; ;main.c: 40:     timerCounter++;
 [e ++ _timerCounter -> -> 1 `i `Vui ]
-"42
-[; ;main.c: 42:   }
+"41
+[; ;main.c: 41:   }
 }
 [e :U 176 ]
 [e :U 175 ]
-"43
-[; ;main.c: 43: }
+"42
+[; ;main.c: 42: }
 [e :UE 173 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"45
-[; ;main.c: 45: void main()
+"44
+[; ;main.c: 44: void main()
 [v _main `(v ~T0 @X0 1 ef ]
-"46
-[; ;main.c: 46: {
+"45
+[; ;main.c: 45: {
 {
 [e :U _main ]
 [f ]
-"48
-[; ;main.c: 48:   pins_init(0xFF ,0xFF ,0x00 ,0x00);
+"47
+[; ;main.c: 47:   pins_init(0xFF ,0xFF ,0x00 ,0x00);
 [e ( _pins_init (4 , , , -> -> 255 `i `uc -> -> 255 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-"52
-[; ;main.c: 52:   PORTCbits.RC0 = 1;
+"51
+[; ;main.c: 51:   PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"53
-[; ;main.c: 53:   PORTCbits.RC1 = 1;
+"52
+[; ;main.c: 52:   PORTCbits.RC1 = 1;
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"54
-[; ;main.c: 54:   PORTCbits.RC4 = 1;
+"53
+[; ;main.c: 53:   PORTCbits.RC4 = 1;
 [e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
-"55
-[; ;main.c: 55:   PORTCbits.RC2 = 1;
+"54
+[; ;main.c: 54:   PORTCbits.RC2 = 1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"57
-[; ;main.c: 57:   PORTCbits.RC3 = 1;
+"56
+[; ;main.c: 56:   PORTCbits.RC3 = 1;
 [e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"61
-[; ;main.c: 61:   WDT_init();
+"60
+[; ;main.c: 60:   WDT_init();
 [e ( _WDT_init ..  ]
-"62
-[; ;main.c: 62:   interruption_init();
+"61
+[; ;main.c: 61:   interruption_init();
 [e ( _interruption_init ..  ]
-"63
-[; ;main.c: 63:   timer1_1ms_init();
+"62
+[; ;main.c: 62:   timer1_1ms_init();
 [e ( _timer1_1ms_init ..  ]
-"64
-[; ;main.c: 64:   ADC_init();
+"63
+[; ;main.c: 63:   ADC_init();
 [e ( _ADC_init ..  ]
-"65
-[; ;main.c: 65:   Lcd_Init();
+"64
+[; ;main.c: 64:   Lcd_Init();
 [e ( _Lcd_Init ..  ]
-"68
-[; ;main.c: 68:   ADC_readAll();
+"67
+[; ;main.c: 67:   ADC_readAll();
 [e ( _ADC_readAll ..  ]
-"70
-[; ;main.c: 70:   while(1)
-[e :U 179 ]
+"69
+[; ;main.c: 69:   startTimer(&timer_ADCReadAll);
+[e ( _startTimer (1 &U _timer_ADCReadAll ]
 "71
-[; ;main.c: 71:   {
-{
+[; ;main.c: 71:   while(1)
+[e :U 179 ]
 "72
-[; ;main.c: 72:     __asm("clrwdt");
-[; <" clrwdt ;# ">
+[; ;main.c: 72:   {
+{
 "73
-[; ;main.c: 73:     run_waterTankLogic();
-[e ( _run_waterTankLogic ..  ]
+[; ;main.c: 73:     __asm("clrwdt");
+[; <" clrwdt ;# ">
 "74
-[; ;main.c: 74:     run_IrrigationLogic(soilMoisture);
-[e ( _run_IrrigationLogic (1 _soilMoisture ]
+[; ;main.c: 74:     run_waterTankLogic();
+[e ( _run_waterTankLogic ..  ]
 "75
-[; ;main.c: 75:     lcd_run();
+[; ;main.c: 75:     run_IrrigationLogic(soilMoisture);
+[e ( _run_IrrigationLogic (1 _soilMoisture ]
+"76
+[; ;main.c: 76:     lcd_run();
 [e ( _lcd_run ..  ]
-"78
-[; ;main.c: 78:     runTimer(&timer_WTANK_Timeout);
-[e ( _runTimer (1 &U _timer_WTANK_Timeout ]
 "79
-[; ;main.c: 79:     runTimer(&timer_IRRIG_Timeout);
-[e ( _runTimer (1 &U _timer_IRRIG_Timeout ]
+[; ;main.c: 79:     runTimer(&timer_WTANK_Timeout);
+[e ( _runTimer (1 &U _timer_WTANK_Timeout ]
 "80
-[; ;main.c: 80:     runTimer(&timer_ADCReadAll);
+[; ;main.c: 80:     runTimer(&timer_IRRIG_Timeout);
+[e ( _runTimer (1 &U _timer_IRRIG_Timeout ]
+"81
+[; ;main.c: 81:     runTimer(&timer_ADCReadAll);
 [e ( _runTimer (1 &U _timer_ADCReadAll ]
-"84
-[; ;main.c: 84:     if(light >= 900)
-[e $ ! >= _light -> 900 `i 181  ]
 "85
-[; ;main.c: 85:       PORTCbits.RC3 = 0;
+[; ;main.c: 85:     if(light >= 900)
+[e $ ! >= _light -> 900 `i 181  ]
+"86
+[; ;main.c: 86:       PORTCbits.RC3 = 0;
 [e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
 [e $U 182  ]
-"86
-[; ;main.c: 86:     else
-[e :U 181 ]
 "87
-[; ;main.c: 87:       PORTCbits.RC3 = 1;
+[; ;main.c: 87:     else
+[e :U 181 ]
+"88
+[; ;main.c: 88:       PORTCbits.RC3 = 1;
 [e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
 [e :U 182 ]
-"89
-[; ;main.c: 89:     if(temperature >= 30)
-[e $ ! >= _temperature -> 30 `i 183  ]
 "90
-[; ;main.c: 90:       PORTCbits.RC4 = 0;
+[; ;main.c: 90:     if(temperature >= 30)
+[e $ ! >= _temperature -> 30 `i 183  ]
+"91
+[; ;main.c: 91:       PORTCbits.RC4 = 0;
 [e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
 [e $U 184  ]
-"91
-[; ;main.c: 91:     else
-[e :U 183 ]
 "92
-[; ;main.c: 92:       PORTCbits.RC4 = 1;
+[; ;main.c: 92:     else
+[e :U 183 ]
+"93
+[; ;main.c: 93:       PORTCbits.RC4 = 1;
 [e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
 [e :U 184 ]
-"93
-[; ;main.c: 93:   }
+"94
+[; ;main.c: 94:   }
 }
 [e :U 178 ]
 [e $U 179  ]
 [e :U 180 ]
-"95
-[; ;main.c: 95:   return;
-[e $UE 177  ]
 "96
-[; ;main.c: 96: }
+[; ;main.c: 96:   return;
+[e $UE 177  ]
+"97
+[; ;main.c: 97: }
 [e :UE 177 ]
 }
 [p f _sprintf 8388736 ]

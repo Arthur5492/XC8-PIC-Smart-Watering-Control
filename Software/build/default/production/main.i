@@ -2335,6 +2335,7 @@ volatile unsigned int timerCounter;
 
 typedef struct {
     unsigned int targetTime;
+    unsigned int startTime;
     char active;
     void (*callback)(void);
 } virtualTimer;
@@ -2671,7 +2672,6 @@ void readLight(void);
 virtualTimer timer_ADCReadAll =
 {
   .targetTime = 2,
-  .active = 1,
   .callback = ADC_readAll
 };
 
@@ -2719,6 +2719,8 @@ void main()
 
 
   ADC_readAll();
+
+  startTimer(&timer_ADCReadAll);
 
   while(1)
   {

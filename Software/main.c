@@ -15,6 +15,7 @@
 #include "waterTankManager.h"
 #include "irrigation.h" 
 
+//Virtual Timer, saiba mais acessando "virtualTimer.h"
 virtualTimer timer_ADCReadAll =
 {
   .targetTime = 2,

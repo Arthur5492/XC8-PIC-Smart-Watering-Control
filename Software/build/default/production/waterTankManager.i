@@ -1910,6 +1910,7 @@ volatile unsigned int timerCounter;
 
 typedef struct {
     unsigned int targetTime;
+    unsigned int startTime;
     char active;
     void (*callback)(void);
 } virtualTimer;
@@ -1961,7 +1962,6 @@ void interrupt_WTANK_timeout(void);
 virtualTimer timer_WTANK_Timeout =
 {
   .targetTime = 30,
-  .active = 0,
   .callback = interrupt_WTANK_timeout
 };
 
@@ -2048,7 +2048,7 @@ void stopFilling(void)
   PORTCbits.RC0 = 1;
   stopTimer(&timer_WTANK_Timeout);
 };
-# 101 "waterTankManager.c"
+# 100 "waterTankManager.c"
 void interrupt_WTANK_timeout(void)
 {
   stopFilling();

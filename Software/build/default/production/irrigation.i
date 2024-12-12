@@ -20,6 +20,7 @@ volatile unsigned int timerCounter;
 
 typedef struct {
     unsigned int targetTime;
+    unsigned int startTime;
     char active;
     void (*callback)(void);
 } virtualTimer;
@@ -1995,7 +1996,6 @@ void stopIrrigation(void);
 virtualTimer timer_IRRIG_Timeout =
 {
   .targetTime = 20,
-  .active = 0,
   .callback = interrupt_IRRIG_timeout
 };
 

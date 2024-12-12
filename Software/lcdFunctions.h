@@ -2,6 +2,7 @@
  * @file pins.h
  * @brief Definicoes de mapeamento de pinos do microcontrolador.
  * @details Contem macros para facilitar o acesso e a manipulacao dos pinos de entrada, saida e do display LCD.
+ * @warning Nao consegui criar um lcdFunctions.h pois a lib lcd.h nao tem um .c, causando problemas que deixaram tudo mais dificil
  */
 
 #ifndef LCDFUNCTIONS_H

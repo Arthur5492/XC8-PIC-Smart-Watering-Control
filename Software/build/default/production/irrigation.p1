@@ -1,16 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F7 `(v ~T0 @X0 0 tf ]
+[v F8 `(v ~T0 @X0 0 tf ]
 "13 ./virtualTimer.h
 [; ;./virtualTimer.h: 13: typedef struct {
-[s S1 `ui 1 `uc 1 `*F7 1 ]
-[n S1 . targetTime active callback ]
+[s S1 `ui 1 `ui 1 `uc 1 `*F8 1 ]
+[n S1 . targetTime startTime active callback ]
 "29 ./irrigation.h
 [; ;./irrigation.h: 29: void interrupt_IRRIG_timeout(void);
 [v _interrupt_IRRIG_timeout `(v ~T0 @X0 0 ef ]
-"10 irrigation.c
-[; ;irrigation.c: 10: IrrigationState irrigationState = IRRIG_OFF;
-[c E1037 -1 0 1 2 .. ]
-[n E1037 . IRRIG_UNDEFINED IRRIG_ON IRRIG_OFF IRRIG_ERROR  ]
+"9 irrigation.c
+[; ;irrigation.c: 9: IrrigationState irrigationState = IRRIG_OFF;
+[c E1038 -1 0 1 2 .. ]
+[n E1038 . IRRIG_UNDEFINED IRRIG_ON IRRIG_OFF IRRIG_ERROR  ]
 "32 ./irrigation.h
 [; ;./irrigation.h: 32: void stopIrrigation(void);
 [v _stopIrrigation `(v ~T0 @X0 0 ef ]
@@ -25,21 +25,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "295
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 295: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
 [v _PORTCbits `VS14 ~T0 @X0 0 e@7 ]
-"27 irrigation.c
-[; ;irrigation.c: 27:   else if(tankState == WTANK_LOW || tankState == WTANK_ERROR)
-[c E1021 -1 0 1 2 3 .. ]
-[n E1021 . WTANK_UNDEFINED WTANK_FULL WTANK_MID WTANK_LOW WTANK_ERROR  ]
+"26 irrigation.c
+[; ;irrigation.c: 26:   else if(tankState == WTANK_LOW || tankState == WTANK_ERROR)
+[c E1022 -1 0 1 2 3 .. ]
+[n E1022 . WTANK_UNDEFINED WTANK_FULL WTANK_MID WTANK_LOW WTANK_ERROR  ]
 "24 ./waterTankManager.h
 [; ;./waterTankManager.h: 24: extern TankState tankState;
-[v _tankState `E1021 ~T0 @X0 0 e ]
+[v _tankState `E1022 ~T0 @X0 0 e ]
 "31 ./irrigation.h
 [; ;./irrigation.h: 31: void startIrrigation(void);
 [v _startIrrigation `(v ~T0 @X0 0 ef ]
-"21 ./virtualTimer.h
-[; ;./virtualTimer.h: 21: void startTimer(virtualTimer *timer);
+"22 ./virtualTimer.h
+[; ;./virtualTimer.h: 22: void startTimer(virtualTimer *timer);
 [v _startTimer `(v ~T0 @X0 0 ef1`*S1 ]
-"20
-[; ;./virtualTimer.h: 20: void stopTimer (virtualTimer *timer);
+"21
+[; ;./virtualTimer.h: 21: void stopTimer (virtualTimer *timer);
 [v _stopTimer `(v ~T0 @X0 0 ef1`*S1 ]
 "11 ./virtualTimer.h
 [; ;./virtualTimer.h: 11: volatile unsigned int timerCounter;
@@ -231,178 +231,179 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 -> -> 20 `i `ui
+-> -> 0 `i `ui
 -> -> 0 `i `uc
 &U _interrupt_IRRIG_timeout
 ..
 ..
 ]
-"10
-[; ;irrigation.c: 10: IrrigationState irrigationState = IRRIG_OFF;
-[v _irrigationState `E1037 ~T0 @X0 1 e ]
+"9
+[; ;irrigation.c: 9: IrrigationState irrigationState = IRRIG_OFF;
+[v _irrigationState `E1038 ~T0 @X0 1 e ]
 [i _irrigationState
-. `E1037 2
+. `E1038 2
 ]
-"11
-[; ;irrigation.c: 11: IrrigationState lastIrrigationState = IRRIG_UNDEFINED;
-[v _lastIrrigationState `E1037 ~T0 @X0 1 e ]
+"10
+[; ;irrigation.c: 10: IrrigationState lastIrrigationState = IRRIG_UNDEFINED;
+[v _lastIrrigationState `E1038 ~T0 @X0 1 e ]
 [i _lastIrrigationState
-. `E1037 0
+. `E1038 0
 ]
-"13
-[; ;irrigation.c: 13: unsigned char minHumidity = 30;
+"12
+[; ;irrigation.c: 12: unsigned char minHumidity = 30;
 [v _minHumidity `uc ~T0 @X0 1 e ]
 [i _minHumidity
 -> -> 30 `i `uc
 ]
-"14
-[; ;irrigation.c: 14: unsigned char idealHumidity = 50;
+"13
+[; ;irrigation.c: 13: unsigned char idealHumidity = 50;
 [v _idealHumidity `uc ~T0 @X0 1 e ]
 [i _idealHumidity
 -> -> 50 `i `uc
 ]
-"15
-[; ;irrigation.c: 15: __bit isIrrigating = 0;
+"14
+[; ;irrigation.c: 14: __bit isIrrigating = 0;
 [v _isIrrigating `b ~T0 @X0 1 e ]
 [i _isIrrigating
 -> -> 0 `i `b
 ]
-"18
-[; ;irrigation.c: 18: void run_IrrigationLogic(int sMoistureValue)
+"17
+[; ;irrigation.c: 17: void run_IrrigationLogic(int sMoistureValue)
 [v _run_IrrigationLogic `(v ~T0 @X0 1 ef1`i ]
-"19
-[; ;irrigation.c: 19: {
+"18
+[; ;irrigation.c: 18: {
 {
 [e :U _run_IrrigationLogic ]
-"18
-[; ;irrigation.c: 18: void run_IrrigationLogic(int sMoistureValue)
+"17
+[; ;irrigation.c: 17: void run_IrrigationLogic(int sMoistureValue)
 [v _sMoistureValue `i ~T0 @X0 1 r1 ]
-"19
-[; ;irrigation.c: 19: {
+"18
+[; ;irrigation.c: 18: {
 [f ]
+"20
+[; ;irrigation.c: 20:   if(irrigationState == IRRIG_ERROR)
+[e $ ! == -> _irrigationState `i -> . `E1038 3 `i 101  ]
 "21
-[; ;irrigation.c: 21:   if(irrigationState == IRRIG_ERROR)
-[e $ ! == -> _irrigationState `i -> . `E1037 3 `i 101  ]
-"22
-[; ;irrigation.c: 22:   {
+[; ;irrigation.c: 21:   {
 {
-"23
-[; ;irrigation.c: 23:     stopIrrigation();
+"22
+[; ;irrigation.c: 22:     stopIrrigation();
 [e ( _stopIrrigation ..  ]
-"24
-[; ;irrigation.c: 24:     PORTCbits.RC2 = 0;
+"23
+[; ;irrigation.c: 23:     PORTCbits.RC2 = 0;
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"25
-[; ;irrigation.c: 25:   }
+"24
+[; ;irrigation.c: 24:   }
 }
 [e $U 102  ]
-"27
-[; ;irrigation.c: 27:   else if(tankState == WTANK_LOW || tankState == WTANK_ERROR)
+"26
+[; ;irrigation.c: 26:   else if(tankState == WTANK_LOW || tankState == WTANK_ERROR)
 [e :U 101 ]
-[e $ ! || == -> _tankState `i -> . `E1021 3 `i == -> _tankState `i -> . `E1021 4 `i 103  ]
-"28
-[; ;irrigation.c: 28:   stopIrrigation();
+[e $ ! || == -> _tankState `i -> . `E1022 3 `i == -> _tankState `i -> . `E1022 4 `i 103  ]
+"27
+[; ;irrigation.c: 27:   stopIrrigation();
 [e ( _stopIrrigation ..  ]
 [e $U 104  ]
-"30
-[; ;irrigation.c: 30:   else if(sMoistureValue <= minHumidity)
+"29
+[; ;irrigation.c: 29:   else if(sMoistureValue <= minHumidity)
 [e :U 103 ]
 [e $ ! <= _sMoistureValue -> _minHumidity `i 105  ]
-"31
-[; ;irrigation.c: 31:     startIrrigation();
+"30
+[; ;irrigation.c: 30:     startIrrigation();
 [e ( _startIrrigation ..  ]
 [e $U 106  ]
-"33
-[; ;irrigation.c: 33:   else if(sMoistureValue >= idealHumidity)
+"32
+[; ;irrigation.c: 32:   else if(sMoistureValue >= idealHumidity)
 [e :U 105 ]
 [e $ ! >= _sMoistureValue -> _idealHumidity `i 107  ]
-"34
-[; ;irrigation.c: 34:     stopIrrigation();
+"33
+[; ;irrigation.c: 33:     stopIrrigation();
 [e ( _stopIrrigation ..  ]
 [e :U 107 ]
 [e :U 106 ]
 [e :U 104 ]
 [e :U 102 ]
-"35
-[; ;irrigation.c: 35: }
+"34
+[; ;irrigation.c: 34: }
 [e :UE 100 ]
 }
-"37
-[; ;irrigation.c: 37: void startIrrigation()
+"36
+[; ;irrigation.c: 36: void startIrrigation()
 [v _startIrrigation `(v ~T0 @X0 1 ef ]
-"38
-[; ;irrigation.c: 38: {
+"37
+[; ;irrigation.c: 37: {
 {
 [e :U _startIrrigation ]
 [f ]
-"39
-[; ;irrigation.c: 39:   if(isIrrigating)
+"38
+[; ;irrigation.c: 38:   if(isIrrigating)
 [e $ ! _isIrrigating 109  ]
-"40
-[; ;irrigation.c: 40:     return;
+"39
+[; ;irrigation.c: 39:     return;
 [e $UE 108  ]
 [e :U 109 ]
-"42
-[; ;irrigation.c: 42:   PORTCbits.RC1 = 0;
+"41
+[; ;irrigation.c: 41:   PORTCbits.RC1 = 0;
 [e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
+"42
+[; ;irrigation.c: 42:   irrigationState = IRRIG_ON;
+[e = _irrigationState . `E1038 1 ]
 "43
-[; ;irrigation.c: 43:   irrigationState = IRRIG_ON;
-[e = _irrigationState . `E1037 1 ]
-"44
-[; ;irrigation.c: 44:   isIrrigating = 1;
+[; ;irrigation.c: 43:   isIrrigating = 1;
 [e = _isIrrigating -> -> 1 `i `b ]
-"45
-[; ;irrigation.c: 45:   startTimer(&timer_IRRIG_Timeout);
+"44
+[; ;irrigation.c: 44:   startTimer(&timer_IRRIG_Timeout);
 [e ( _startTimer (1 &U _timer_IRRIG_Timeout ]
-"46
-[; ;irrigation.c: 46: }
+"45
+[; ;irrigation.c: 45: }
 [e :UE 108 ]
 }
-"48
-[; ;irrigation.c: 48: void stopIrrigation()
+"47
+[; ;irrigation.c: 47: void stopIrrigation()
 [v _stopIrrigation `(v ~T0 @X0 1 ef ]
-"49
-[; ;irrigation.c: 49: {
+"48
+[; ;irrigation.c: 48: {
 {
 [e :U _stopIrrigation ]
 [f ]
-"50
-[; ;irrigation.c: 50:   if(!isIrrigating)
+"49
+[; ;irrigation.c: 49:   if(!isIrrigating)
 [e $ ! ! _isIrrigating 111  ]
-"51
-[; ;irrigation.c: 51:     return;
+"50
+[; ;irrigation.c: 50:     return;
 [e $UE 110  ]
 [e :U 111 ]
-"53
-[; ;irrigation.c: 53:   PORTCbits.RC1 = 1;
+"52
+[; ;irrigation.c: 52:   PORTCbits.RC1 = 1;
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"54
-[; ;irrigation.c: 54:   isIrrigating = 0;
+"53
+[; ;irrigation.c: 53:   isIrrigating = 0;
 [e = _isIrrigating -> -> 0 `i `b ]
+"54
+[; ;irrigation.c: 54:   irrigationState = IRRIG_OFF;
+[e = _irrigationState . `E1038 2 ]
 "55
-[; ;irrigation.c: 55:   irrigationState = IRRIG_OFF;
-[e = _irrigationState . `E1037 2 ]
-"56
-[; ;irrigation.c: 56:   stopTimer(&timer_IRRIG_Timeout);
+[; ;irrigation.c: 55:   stopTimer(&timer_IRRIG_Timeout);
 [e ( _stopTimer (1 &U _timer_IRRIG_Timeout ]
-"57
-[; ;irrigation.c: 57: }
+"56
+[; ;irrigation.c: 56: }
 [e :UE 110 ]
 }
-"59
-[; ;irrigation.c: 59: void interrupt_IRRIG_timeout(void)
+"58
+[; ;irrigation.c: 58: void interrupt_IRRIG_timeout(void)
 [v _interrupt_IRRIG_timeout `(v ~T0 @X0 1 ef ]
-"60
-[; ;irrigation.c: 60: {
+"59
+[; ;irrigation.c: 59: {
 {
 [e :U _interrupt_IRRIG_timeout ]
 [f ]
-"61
-[; ;irrigation.c: 61:   stopIrrigation();
+"60
+[; ;irrigation.c: 60:   stopIrrigation();
 [e ( _stopIrrigation ..  ]
+"61
+[; ;irrigation.c: 61:   irrigationState = IRRIG_ERROR;
+[e = _irrigationState . `E1038 3 ]
 "62
-[; ;irrigation.c: 62:   irrigationState = IRRIG_ERROR;
-[e = _irrigationState . `E1037 3 ]
-"63
-[; ;irrigation.c: 63: }
+[; ;irrigation.c: 62: }
 [e :UE 112 ]
 }
