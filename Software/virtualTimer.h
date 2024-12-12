@@ -11,7 +11,8 @@
 volatile unsigned int timerCounter;
 
 typedef struct {
-    unsigned int targetTime;    // Intervalo desejado (em ms)
+    unsigned int targetTime;    // Intervalo desejado, cada unidade vale 500ms (targetTime * 500ms)
+    unsigned int startTime;    // Tempo que o virtual timer sincronizou com a variavel incrementada na ISR
     char active;              // Flag para ativar/desativar timer
     void (*callback)(void);       // Ponteiro para a funcao de callback
 } virtualTimer;

@@ -3,7 +3,6 @@
 virtualTimer timer_WTANK_Timeout = 
 {
   .targetTime = 30,
-  .active   = 0,
   .callback = interrupt_WTANK_timeout
 };
 

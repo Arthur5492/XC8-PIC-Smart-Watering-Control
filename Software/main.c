@@ -18,7 +18,6 @@
 virtualTimer timer_ADCReadAll =
 {
   .targetTime = 2,
-  .active = 1,
   .callback = ADC_readAll
 };
 
@@ -30,7 +29,7 @@ void __interrupt() interruptionHandler(void)
     tankState = WTANK_ERROR;
     irrigationState = IRRIG_ERROR;
   }
-  else if(PIR1bits.TMR1IF)// 0,5s Interrupcao de timer 1, configurado para 
+  else if(PIR1bits.TMR1IF)// 0,5s Interrupcao de timer 1
   {
     PIR1bits.TMR1IF = 0;
     
@@ -66,6 +65,8 @@ void main()
   
   //Ler Sensores Analogicos antes de entrar no loop(pois ADC_readAll so eh executado no loop apos 1s por estar em um virtualTimer)
   ADC_readAll();
+  
+  startTimer(&timer_ADCReadAll);
   
   while(1)
   {

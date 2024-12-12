@@ -7,18 +7,19 @@ void runTimer(virtualTimer *timer)
   if(timer->active == 0)
     return;
   
+  unsigned int elapsedTime = timerCounter - timer->startTime;
+  
+  
   //Se tempo definido foi alcancado
-  if(timerCounter >= timer->targetTime)
+  if(elapsedTime  >= timer->targetTime)
   {
-//    timer->elapsedTime = 0;
+    timer->startTime = timerCounter; // Reinicia o timer
     
     if(timer->callback != 0)
       timer->callback();
-    
-    return;
   }
   
-//  timer->elapsedTime++;
+  return;
 }
 
 void startTimer(virtualTimer *timer)
@@ -26,7 +27,8 @@ void startTimer(virtualTimer *timer)
   if(timer->active)
     return;
   
-  timer->active = 1;
+  timer->startTime = timerCounter; // Salva o tempo inicial
+  timer->active = 1; // Ativa timer
 }
   
 

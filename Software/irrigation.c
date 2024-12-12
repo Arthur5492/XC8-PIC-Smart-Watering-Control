@@ -3,7 +3,6 @@
 virtualTimer timer_IRRIG_Timeout = 
 {
   .targetTime = 20,
-  .active = 0,
   .callback = interrupt_IRRIG_timeout
 };
 
