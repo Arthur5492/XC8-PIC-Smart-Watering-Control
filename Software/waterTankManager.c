@@ -49,7 +49,7 @@ void run_waterTankLogic(void)
   {
   case WTANK_ERROR: //Para de encher e aciona alarme
     stopFilling();
-    pin_alarm = 0;
+//    pin_alarm = 0;
     break;
      
   case WTANK_LOW: //Comeca a encher e inicia o timeout

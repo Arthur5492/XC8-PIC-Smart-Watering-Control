@@ -8,7 +8,6 @@
 #include "config.h"
 #include "pins.h"
 #include "lcdFunctions.h"
-#include "analogValues.h"
 
 #include "virtualTimer.h"
 
@@ -22,13 +21,24 @@ virtualTimer timer_ADCReadAll =
   .callback = ADC_readAll
 };
 
+//Flag que aciona estado de emergencia desativando todas as saidas
+__bit flag_emergencyButton = 0;
+
 void __interrupt() interruptionHandler(void)
 {
-  if(INTCONbits.INTF) //Testanado flag int RB0
+  if(INTCONbits.INTF) //Botao de emergencia na interrupcao externa RB0, desliga todos os dispositivos e para o sistema
   {
     INTCONbits.INTF = 0;
-    tankState = WTANK_ERROR;
-    irrigationState = IRRIG_ERROR;
+    flag_emergencyButton = 1;
+    
+    pin_solenoid        = 1; 
+    pin_waterPump       = 1; 
+    pin_airConditioner  = 1;
+    pin_alarm           = 1;
+    pin_artificialLight = 1;
+    //Ativa alarme
+    pin_alarm           = 0;
+    
   }
   else if(PIR1bits.TMR1IF)// 0,5s Interrupcao de timer 1
   {
@@ -71,7 +81,16 @@ void main()
   
   while(1)
   {
-    CLRWDT();    
+    CLRWDT();
+     
+    //Para o sistema caso botao de emergencia seja acionado
+    if(flag_emergencyButton == 1)
+    {
+      print_Emergency();
+      continue;
+    }
+      
+    
     run_waterTankLogic();
     run_IrrigationLogic(soilMoisture);
     lcd_run();

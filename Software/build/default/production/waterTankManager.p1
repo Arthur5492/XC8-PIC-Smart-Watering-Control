@@ -337,9 +337,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51
 [; ;waterTankManager.c: 51:     stopFilling();
 [e ( _stopFilling ..  ]
-"52
-[; ;waterTankManager.c: 52:     PORTCbits.RC2 = 0;
-[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
 "53
 [; ;waterTankManager.c: 53:     break;
 [e $U 111  ]

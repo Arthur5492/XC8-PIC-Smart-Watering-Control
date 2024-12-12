@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F877A ]
 [d frameptr 0 ]
-"67 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
+"70 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
 [e E1392 . `c
 WTANK_UNDEFINED -1
 WTANK_FULL 0
@@ -11,7 +11,7 @@ WTANK_MID 1
 WTANK_LOW 2
 WTANK_ERROR 3
 ]
-"86
+"89
 [e E1408 . `c
 IRRIG_UNDEFINED -1
 IRRIG_ON 0
@@ -49,19 +49,19 @@ WTANK_ERROR 3
 [v _pins_init pins_init `(v  1 e 1 0 ]
 "111
 [v _interruption_init interruption_init `(v  1 e 1 0 ]
-"123
+"124
 [v _ADC_init ADC_init `(v  1 e 1 0 ]
-"140
+"141
 [v _ADC_Read ADC_Read `(i  1 e 2 0 ]
-"160
+"161
 [v _map map `(l  1 e 4 0 ]
-"173
+"174
 [v _readSoilMoisture readSoilMoisture `(v  1 e 1 0 ]
-"185
+"186
 [v _readTemperature readTemperature `(v  1 e 1 0 ]
-"191
+"192
 [v _readLight readLight `(v  1 e 1 0 ]
-"196
+"197
 [v _ADC_readAll ADC_readAll `(v  1 e 1 0 ]
 "12 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcd.h
 [v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
@@ -77,26 +77,28 @@ WTANK_ERROR 3
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
 "105
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
-"56 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
+"59 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
 [v _draw_Index draw_Index `(v  1 e 1 0 ]
-"64
+"67
 [v _print_TankState print_TankState `(v  1 e 1 0 ]
-"83
+"86
 [v _print_Irrigation print_Irrigation `(v  1 e 1 0 ]
-"102
+"105
 [v _print_SoilMoisture print_SoilMoisture `(v  1 e 1 0 ]
-"124
+"127
 [v _print_ArtificialLight print_ArtificialLight `(v  1 e 1 0 ]
-"145
+"148
 [v _print_Temperature print_Temperature `(v  1 e 1 0 ]
-"170
+"173
 [v _lcd_debounceButtons lcd_debounceButtons `(v  1 e 1 0 ]
-"188
+"191
 [v _lcd_run lcd_run `(v  1 e 1 0 ]
-"216
+"219
 [v _lcd_turnRight lcd_turnRight `(v  1 e 1 0 ]
-"225
+"228
 [v _lcd_turnLeft lcd_turnLeft `(v  1 e 1 0 ]
+"238
+[v _print_Emergency print_Emergency `(v  1 e 1 0 ]
 "1 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\aldiv.c
@@ -135,9 +137,9 @@ WTANK_ERROR 3
 [v _stopIrrigation stopIrrigation `(v  1 e 1 0 ]
 "58
 [v _interrupt_IRRIG_timeout interrupt_IRRIG_timeout `(v  1 e 1 0 ]
-"24 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software\main.c
+"27 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software\main.c
 [v _interruptionHandler interruptionHandler `II(v  1 e 1 0 ]
-"44
+"55
 [v _main main `(v  1 e 1 0 ]
 "5 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software\virtualTimer.c
 [v _runTimer runTimer `(v  1 e 1 0 ]
@@ -167,17 +169,17 @@ WTANK_ERROR 3
 [v _old_temperature old_temperature `i  1 e 2 0 ]
 "36
 [v _old_light old_light `i  1 e 2 0 ]
-"17 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
+"18 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
 [v _TankStateString TankStateString `[4]*.24uc  1 e 4 0 ]
-"25
+"26
 [v _IrrigationStateString IrrigationStateString `[3]*.24uc  1 e 3 0 ]
-"34
-[v _lcd_index lcd_index `uc  1 e 1 0 ]
 "35
+[v _lcd_index lcd_index `uc  1 e 1 0 ]
+"36
 [v _lcd_lastIndex lcd_lastIndex `uc  1 e 1 0 ]
-"41
-[v _lastLeftButtonState lastLeftButtonState `uc  1 e 1 0 ]
 "42
+[v _lastLeftButtonState lastLeftButtonState `uc  1 e 1 0 ]
+"43
 [v _lastRightButtonState lastRightButtonState `uc  1 e 1 0 ]
 "11 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/virtualTimer.h
 [v _timerCounter timerCounter `VEui  1 e 2 0 ]
@@ -372,6 +374,8 @@ WTANK_ERROR 3
 [v _isIrrigating isIrrigating `b  1 e 0 0 ]
 "18 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software\main.c
 [v _timer_ADCReadAll timer_ADCReadAll `S319  1 e 6 0 ]
+"25
+[v _flag_emergencyButton flag_emergencyButton `b  1 e 0 0 ]
 "3 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software\waterTankManager.c
 [v _timer_WTANK_Timeout timer_WTANK_Timeout `S319  1 e 6 0 ]
 "9
@@ -380,10 +384,10 @@ WTANK_ERROR 3
 [v _lastTankState lastTankState `E1392  1 e 1 0 ]
 "11
 [v _isFilling isFilling `b  1 e 0 0 ]
-"44 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software\main.c
+"55 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"97
+"117
 } 0
 "51 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
 [v _timer1_1ms_init timer1_1ms_init `(v  1 e 1 0 ]
@@ -442,10 +446,10 @@ WTANK_ERROR 3
 {
 "62
 } 0
-"196 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
+"197 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
 [v _ADC_readAll ADC_readAll `(v  1 e 1 0 ]
 {
-"201
+"202
 } 0
 "100 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software\waterTankManager.c
 [v _interrupt_WTANK_timeout interrupt_WTANK_timeout `(v  1 e 1 0 ]
@@ -469,32 +473,32 @@ WTANK_ERROR 3
 [v stopTimer@timer timer `*.39S319  1 p 2 2 ]
 "41
 } 0
-"185 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
+"186 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
 [v _readTemperature readTemperature `(v  1 e 1 0 ]
 {
-"189
+"190
 } 0
-"173
+"174
 [v _readSoilMoisture readSoilMoisture `(v  1 e 1 0 ]
 {
-"177
+"178
 } 0
-"160
+"161
 [v _map map `(l  1 e 4 0 ]
 {
-"162
+"163
 [v map@run run `l  1 a 4 46 ]
-"168
+"169
 [v map@delta delta `l  1 a 4 42 ]
-"167
+"168
 [v map@rise rise `l  1 a 4 38 ]
-"160
+"161
 [v map@x x `i  1 p 2 20 ]
 [v map@in_min in_min `i  1 p 2 22 ]
 [v map@in_max in_max `i  1 p 2 24 ]
 [v map@out_min out_min `i  1 p 2 26 ]
 [v map@out_max out_max `i  1 p 2 28 ]
-"171
+"172
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
@@ -519,21 +523,26 @@ WTANK_ERROR 3
 [v ___aldiv@dividend dividend `l  1 p 4 9 ]
 "41
 } 0
-"191 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
+"192 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
 [v _readLight readLight `(v  1 e 1 0 ]
 {
-"194
+"195
 } 0
-"140
+"141
 [v _ADC_Read ADC_Read `(i  1 e 2 0 ]
 {
 [v ADC_Read@channel channel `uc  1 p 1 wreg ]
 [v ADC_Read@channel channel `uc  1 p 1 wreg ]
-"143
+"144
 [v ADC_Read@channel channel `uc  1 p 1 5 ]
-"157
+"158
 } 0
-"99
+"238 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
+[v _print_Emergency print_Emergency `(v  1 e 1 0 ]
+{
+"248
+} 0
+"99 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
 [v _pins_init pins_init `(v  1 e 1 0 ]
 {
 [v pins_init@_TRISA _TRISA `uc  1 p 1 wreg ]
@@ -544,37 +553,37 @@ WTANK_ERROR 3
 [v pins_init@_TRISA _TRISA `uc  1 p 1 5 ]
 "109
 } 0
-"188 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
+"191 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
 [v _lcd_run lcd_run `(v  1 e 1 0 ]
 {
-"214
+"217
 } 0
-"145
+"148
 [v _print_Temperature print_Temperature `(v  1 e 1 0 ]
 {
-"154
+"157
 [v print_Temperature@buffer buffer `[16]uc  1 a 16 44 ]
-"168
+"171
 } 0
-"64
+"67
 [v _print_TankState print_TankState `(v  1 e 1 0 ]
 {
-"81
+"84
 } 0
-"102
+"105
 [v _print_SoilMoisture print_SoilMoisture `(v  1 e 1 0 ]
 {
-"111
+"114
 [v print_SoilMoisture@buffer buffer `[16]uc  1 a 16 44 ]
-"123
+"126
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S1159 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
+[u S1161 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
 "13
-[s S1162 _IO_FILE 11 `S1159 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S1162  1 a 11 33 ]
+[s S1164 _IO_FILE 11 `S1161 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S1164  1 a 11 33 ]
 "12
 [v sprintf@ap ap `[1]*.4v  1 a 1 32 ]
 "9
@@ -587,9 +596,9 @@ WTANK_ERROR 3
 {
 "1820
 [v vfprintf@cfmt cfmt `*.24uc  1 a 1 26 ]
-[s S1194 _IO_FILE 0 ]
+[s S1196 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.39S1194  1 p 2 22 ]
+[v vfprintf@fp fp `*.39S1196  1 p 2 22 ]
 [v vfprintf@fmt fmt `*.24DCuc  1 p 1 24 ]
 [v vfprintf@ap ap `*.4*.4v  1 p 1 25 ]
 "1840
@@ -597,17 +606,17 @@ WTANK_ERROR 3
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S1207 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S1209 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S1207  1 a 4 17 ]
+[v vfpfcnvrt@convarg convarg `S1209  1 a 4 17 ]
 "1179
 [v vfpfcnvrt@c c `uc  1 a 1 21 ]
 [v vfpfcnvrt@cp cp `*.24uc  1 a 1 16 ]
 "1180
 [v vfpfcnvrt@done done `a  1 a 1 15 ]
-[s S1194 _IO_FILE 0 ]
+[s S1196 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.39S1194  1 p 2 9 ]
+[v vfpfcnvrt@fp fp `*.39S1196  1 p 2 9 ]
 [v vfpfcnvrt@fmt fmt `*.4*.24uc  1 p 1 11 ]
 [v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 12 ]
 "1814
@@ -616,9 +625,9 @@ WTANK_ERROR 3
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 2 ]
-[u S1159 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
-[s S1162 _IO_FILE 11 `S1159 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S1162  1 p 2 4 ]
+[u S1161 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
+[s S1164 _IO_FILE 11 `S1161 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S1164  1 p 2 4 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\putch.c
@@ -656,22 +665,22 @@ WTANK_ERROR 3
 [v ___awdiv@dividend dividend `i  1 p 2 4 ]
 "41
 } 0
-"83 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
+"86 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
 [v _print_Irrigation print_Irrigation `(v  1 e 1 0 ]
 {
-"100
+"103
 } 0
-"124
+"127
 [v _print_ArtificialLight print_ArtificialLight `(v  1 e 1 0 ]
 {
-"143
+"146
 } 0
-"56
+"59
 [v _draw_Index draw_Index `(v  1 e 1 0 ]
 {
-"58
-[v draw_Index@temp_index temp_index `[3]uc  1 a 3 5 ]
 "61
+[v draw_Index@temp_index temp_index `[3]uc  1 a 3 5 ]
+"64
 } 0
 "105 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcd.h
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
@@ -715,25 +724,25 @@ WTANK_ERROR 3
 {
 "47
 } 0
-"170 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
+"173 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/lcdFunctions.h
 [v _lcd_debounceButtons lcd_debounceButtons `(v  1 e 1 0 ]
 {
-"186
+"189
 } 0
-"216
+"219
 [v _lcd_turnRight lcd_turnRight `(v  1 e 1 0 ]
 {
-"223
+"226
 } 0
-"225
+"228
 [v _lcd_turnLeft lcd_turnLeft `(v  1 e 1 0 ]
 {
-"232
+"235
 } 0
 "111 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
 [v _interruption_init interruption_init `(v  1 e 1 0 ]
 {
-"121
+"122
 } 0
 "39
 [v _WDT_init WDT_init `(v  1 e 1 0 ]
@@ -763,13 +772,13 @@ WTANK_ERROR 3
 [v Lcd_Port@a a `uc  1 p 1 2 ]
 "33
 } 0
-"123 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
+"124 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software/config.h
 [v _ADC_init ADC_init `(v  1 e 1 0 ]
 {
-"138
+"139
 } 0
-"24 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software\main.c
+"27 C:\Users\Arthur\Documents\Microcontroladores\PIC16F877A\xc8_trabalho_final\Software\main.c
 [v _interruptionHandler interruptionHandler `II(v  1 e 1 0 ]
 {
-"42
+"53
 } 0

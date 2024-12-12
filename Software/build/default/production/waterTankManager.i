@@ -2008,7 +2008,7 @@ void run_waterTankLogic(void)
   {
   case WTANK_ERROR:
     stopFilling();
-    PORTCbits.RC2 = 0;
+
     break;
 
   case WTANK_LOW:

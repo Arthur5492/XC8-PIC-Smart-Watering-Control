@@ -6,5 +6,4 @@ lcdFunctions.h  \
 lcd.h  \
 waterTankManager.h  \
 virtualTimer.h  \
-irrigation.h  \
-analogValues.h 
+irrigation.h 

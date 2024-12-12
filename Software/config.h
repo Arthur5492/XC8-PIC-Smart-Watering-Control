@@ -111,9 +111,10 @@ void pins_init(unsigned char _TRISA, unsigned char _TRISB, unsigned char _TRISC,
 void interruption_init(void)
 {
   INTCONbits.GIE=1;           //int global
+  
+  INTCONbits.INTE = 1;        //int extern from rb0 - se estiver com pull up ativo, colocar INTDG EM 1, para posedge
   OPTION_REGbits.INTEDG = 1;  // 0: negedge 1:posedge
   
-  INTCONbits.INTE = 1;        //int extern from rb0
   
   INTCONbits.PEIE = 1;        //int Perifericals 
   

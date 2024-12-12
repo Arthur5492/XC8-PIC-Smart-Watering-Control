@@ -54,6 +54,8 @@ void lcd_turnRight(void);
 void lcd_turnLeft(void);
 void interrupt_checkButton(void);
 
+void print_Emergency(void);
+
 void draw_Index()
 { 
   char temp_index[3] = {lcd_index + '0' , '/' , lcd_maxIndex + '0' };
@@ -231,5 +233,18 @@ void lcd_turnLeft(void)
   else
     lcd_index--;
 };
+
+
+void print_Emergency(void)
+{
+  Lcd_Clear();
+  Lcd_Set_Cursor(1,5);
+  Lcd_Write_String("EMERGENCY");
+  Lcd_Set_Cursor(2,6);
+  Lcd_Write_String("STATE!!");
+  __delay_ms(700);
+  Lcd_Clear();
+  __delay_ms(500);
+}
 
 #endif

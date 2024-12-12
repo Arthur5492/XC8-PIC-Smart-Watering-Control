@@ -2127,9 +2127,10 @@ void pins_init(unsigned char _TRISA, unsigned char _TRISB, unsigned char _TRISC,
 void interruption_init(void)
 {
   INTCONbits.GIE=1;
-  OPTION_REGbits.INTEDG = 1;
 
   INTCONbits.INTE = 1;
+  OPTION_REGbits.INTEDG = 1;
+
 
   INTCONbits.PEIE = 1;
 
@@ -2221,7 +2222,7 @@ void ADC_readAll(void)
 # 9 "main.c" 2
 
 # 1 "./lcdFunctions.h" 1
-# 10 "./lcdFunctions.h"
+# 11 "./lcdFunctions.h"
 # 1 "./lcd.h" 1
 # 12 "./lcd.h"
 void Lcd_Port(char a)
@@ -2323,7 +2324,7 @@ void Lcd_Write_String(char *a)
  for(i=0;a[i]!='\0';i++)
     Lcd_Write_Char(a[i]);
 }
-# 10 "./lcdFunctions.h" 2
+# 11 "./lcdFunctions.h" 2
 
 
 
@@ -2381,7 +2382,7 @@ void startFilling(void);
 void stopFilling(void);
 
 void interrupt_WTANK_timeout(void);
-# 13 "./lcdFunctions.h" 2
+# 14 "./lcdFunctions.h" 2
 
 # 1 "./irrigation.h" 1
 
@@ -2416,7 +2417,7 @@ void interrupt_IRRIG_timeout(void);
 
 void startIrrigation(void);
 void stopIrrigation(void);
-# 14 "./lcdFunctions.h" 2
+# 15 "./lcdFunctions.h" 2
 
 
 
@@ -2458,6 +2459,8 @@ void lcd_run(void);
 void lcd_turnRight(void);
 void lcd_turnLeft(void);
 void interrupt_checkButton(void);
+
+void print_Emergency(void);
 
 void draw_Index()
 {
@@ -2636,32 +2639,21 @@ void lcd_turnLeft(void)
   else
     lcd_index--;
 };
+
+
+void print_Emergency(void)
+{
+  Lcd_Clear();
+  Lcd_Set_Cursor(1,5);
+  Lcd_Write_String("EMERGENCY");
+  Lcd_Set_Cursor(2,6);
+  Lcd_Write_String("STATE!!");
+  _delay((unsigned long)((700)*(4000000/4000.0)));
+  Lcd_Clear();
+  _delay((unsigned long)((500)*(4000000/4000.0)));
+}
 # 10 "main.c" 2
 
-# 1 "./analogValues.h" 1
-
-
-
-
-
-
-typedef enum
-{
-  CH_SOILMOISTURE = 0,
-  CH_TEMPERATURE = 1,
-  CH_LIGHT = 2
-} AnalogicChannels;
-
-extern int soilMoisture;
-extern int temperature;
-extern int light;
-
-void readTemperature(void);
-
-void readSoilMoisture(void);
-
-void readLight(void);
-# 11 "main.c" 2
 
 
 
@@ -2675,13 +2667,24 @@ virtualTimer timer_ADCReadAll =
   .callback = ADC_readAll
 };
 
+
+__bit flag_emergencyButton = 0;
+
 void __attribute__((picinterrupt(("")))) interruptionHandler(void)
 {
   if(INTCONbits.INTF)
   {
     INTCONbits.INTF = 0;
-    tankState = WTANK_ERROR;
-    irrigationState = IRRIG_ERROR;
+    flag_emergencyButton = 1;
+
+    PORTCbits.RC0 = 1;
+    PORTCbits.RC1 = 1;
+    PORTCbits.RC4 = 1;
+    PORTCbits.RC2 = 1;
+    PORTCbits.RC3 = 1;
+
+    PORTCbits.RC2 = 0;
+
   }
   else if(PIR1bits.TMR1IF)
   {
@@ -2725,6 +2728,15 @@ void main()
   while(1)
   {
     __asm("clrwdt");
+
+
+    if(flag_emergencyButton == 1)
+    {
+      print_Emergency();
+      continue;
+    }
+
+
     run_waterTankLogic();
     run_IrrigationLogic(soilMoisture);
     lcd_run();

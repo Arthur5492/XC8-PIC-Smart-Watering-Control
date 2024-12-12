@@ -2013,7 +2013,7 @@ void run_IrrigationLogic(int sMoistureValue)
   if(irrigationState == IRRIG_ERROR)
   {
     stopIrrigation();
-    PORTCbits.RC2 = 0;
+
   }
 
   else if(tankState == WTANK_LOW || tankState == WTANK_ERROR)

@@ -20,7 +20,7 @@ void run_IrrigationLogic(int sMoistureValue)
   if(irrigationState == IRRIG_ERROR) //Erro de timeoout
   {
     stopIrrigation();
-    pin_alarm = 0; //Liga alarme
+//    pin_alarm = 0; //Liga alarme
   }
   
   else if(tankState == WTANK_LOW || tankState == WTANK_ERROR) //Caso Tanque de agua esteja vazio ou com erro

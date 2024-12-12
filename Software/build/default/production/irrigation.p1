@@ -14,6 +14,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32 ./irrigation.h
 [; ;./irrigation.h: 32: void stopIrrigation(void);
 [v _stopIrrigation `(v ~T0 @X0 0 ef ]
+"26 irrigation.c
+[; ;irrigation.c: 26:   else if(tankState == WTANK_LOW || tankState == WTANK_ERROR)
+[c E1022 -1 0 1 2 3 .. ]
+[n E1022 . WTANK_UNDEFINED WTANK_FULL WTANK_MID WTANK_LOW WTANK_ERROR  ]
+"24 ./waterTankManager.h
+[; ;./waterTankManager.h: 24: extern TankState tankState;
+[v _tankState `E1022 ~T0 @X0 0 e ]
+"31 ./irrigation.h
+[; ;./irrigation.h: 31: void startIrrigation(void);
+[v _startIrrigation `(v ~T0 @X0 0 ef ]
 "284 C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 284:     struct {
 [s S15 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -25,16 +35,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "295
 [; ;C:/Users/Arthur/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 295: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
 [v _PORTCbits `VS14 ~T0 @X0 0 e@7 ]
-"26 irrigation.c
-[; ;irrigation.c: 26:   else if(tankState == WTANK_LOW || tankState == WTANK_ERROR)
-[c E1022 -1 0 1 2 3 .. ]
-[n E1022 . WTANK_UNDEFINED WTANK_FULL WTANK_MID WTANK_LOW WTANK_ERROR  ]
-"24 ./waterTankManager.h
-[; ;./waterTankManager.h: 24: extern TankState tankState;
-[v _tankState `E1022 ~T0 @X0 0 e ]
-"31 ./irrigation.h
-[; ;./irrigation.h: 31: void startIrrigation(void);
-[v _startIrrigation `(v ~T0 @X0 0 ef ]
 "22 ./virtualTimer.h
 [; ;./virtualTimer.h: 22: void startTimer(virtualTimer *timer);
 [v _startTimer `(v ~T0 @X0 0 ef1`*S1 ]
@@ -289,9 +289,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22
 [; ;irrigation.c: 22:     stopIrrigation();
 [e ( _stopIrrigation ..  ]
-"23
-[; ;irrigation.c: 23:     PORTCbits.RC2 = 0;
-[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
 "24
 [; ;irrigation.c: 24:   }
 }
