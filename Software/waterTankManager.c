@@ -3,7 +3,6 @@
 virtualTimer timer_WTANK_Timeout = 
 {
   .targetTime = 30,
-  .elapsedTime  = 0,
   .active   = 0,
   .callback = interrupt_WTANK_timeout
 };
@@ -12,6 +11,7 @@ TankState tankState = WTANK_MID;
 TankState lastTankState = WTANK_UNDEFINED;
 __bit isFilling = 0;
 
+//Verifica com base nos sensores de nivel de agua o status do tanque de agua
 void check_TankStatus(void)
 {
   
@@ -40,6 +40,7 @@ void check_TankStatus(void)
   return;
 }
 
+//Executa a logica de enchimento de tanque baseado no estado atual do tanque
 void run_waterTankLogic(void)
 {
     
@@ -68,6 +69,7 @@ void run_waterTankLogic(void)
   }; 
 }
 
+//Liga solenoide
 void startFilling(void) 
 {
   if(isFilling)
@@ -77,6 +79,8 @@ void startFilling(void)
   pin_solenoid = 0; 
   startTimer(&timer_WTANK_Timeout);
 };
+
+//Desliga solenoide
 void stopFilling(void)  
 {
   if(!isFilling)
@@ -87,10 +91,12 @@ void stopFilling(void)
   stopTimer(&timer_WTANK_Timeout);
 };
 
-/** nn precisei mais.
- * Boa pratica ter uma funcao exclusiva para interrupcao e
- * Caso chamar uma funcao que altera uma variavel global(sem reentrancia), seja usada tanto na main quanto em uma interrupcao, o compilador xc8 duplica a funcao
+/** Nao estou mais executando essa funcao no ISR, mas quando estava aprendi sobre isso:
+ * Boa pratica ter uma funcao exclusiva para interrupcao pois
+ * caso uma funcao que altera uma variavel global(sem reentrancia), seja usada na main E na interrupcao, o compilador xc8 duplica a funcao e da warning
  * saiba mais em: https://cwe.mitre.org/data/definitions/479.html#:~:text=Non-reentrant%20functions%20are%20functions,without%20resulting%20in%20memory%20corruption.
+ * 
+ * Agora ela eh executada no loop pelo seu respectivo virtualTimer
 */
 void interrupt_WTANK_timeout(void)
 {

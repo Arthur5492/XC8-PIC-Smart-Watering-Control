@@ -13,32 +13,32 @@
 #include "virtualTimer.h"
 
 #include "waterTankManager.h"
-#include "irrigation.h"
+#include "irrigation.h" 
 
 virtualTimer timer_ADCReadAll =
 {
   .targetTime = 2,
-  .elapsedTime = 0,
   .active = 1,
   .callback = ADC_readAll
 };
 
 void __interrupt() interruptionHandler(void)
 {
-  if(INTCONbits.INTF) //RB0 
+  if(INTCONbits.INTF) //Testanado flag int RB0
   {
     INTCONbits.INTF = 0;
     tankState = WTANK_ERROR;
+    irrigationState = IRRIG_ERROR;
   }
-  else if(PIR1bits.TMR1IF)//Timer 1
+  else if(PIR1bits.TMR1IF)// 0,5s Interrupcao de timer 1, configurado para 
   {
     PIR1bits.TMR1IF = 0;
     
-    //    Reseta timer ao valor desejado
+    //0,5s - reseta registradores do timer1 para valor desejado
     TMR1L = 0xDC;          //carga do valor inicial no contador (65536-62500)
-    TMR1H = 0x0B;          //3036. Quando estourar contou 62500, passou 0,5s
+    TMR1H = 0x0B;          //3036. Quando estourar, contou 62500, passou 0,5s
     
-    timerCounter++;
+    timerCounter++; //Counter que todos os virtualTimers verificam
   }
 }
 
@@ -63,6 +63,8 @@ void main()
   timer1_1ms_init();
   ADC_init();
   Lcd_Init();
+  
+  //Ler Sensores Analogicos antes de entrar no loop(pois ADC_readAll so eh executado no loop apos 1s por estar em um virtualTimer)
   ADC_readAll();
   
   while(1)
@@ -72,19 +74,17 @@ void main()
     run_IrrigationLogic(soilMoisture);
     lcd_run();
     
+    //timers rodando constatemente e executando suas funcoes de callback quando chegam no tempo definido
     runTimer(&timer_WTANK_Timeout);
     runTimer(&timer_IRRIG_Timeout);
     runTimer(&timer_ADCReadAll);
     
     
-    
+    //Logicas simples
     if(light >= 900) //Valor ADC que indica baixa luz
       pin_artificialLight = 0;
     else
       pin_artificialLight = 1;
-    
-
-      
     
     if(temperature >= 30) //graus Celsius
       pin_airConditioner = 0;

@@ -46,22 +46,31 @@ void    WDT_init() // 8 bits, 18 - 2304 ms
   OPTION_REGbits.PS2 = 1;
 
   CLRWDT();  
-}
+} 
 
 void timer1_1ms_init(void) //16 bits 
 { 
   T1CONbits.TMR1CS = 0;   //Clock Source -> 0: Internal Clk / 1: External clk
 
+  
+  
+  
   //Pre Scaler 2 bits 1:1 to 1:8 -> max time = 8us*65535 = 0,524s 
   T1CONbits.T1CKPS0 = 1;  
   T1CONbits.T1CKPS1 = 1;  
-
+  
+  /// 500MS CONFIG carrega 3036 para registrador dos timers
+  // Para 500ms com pre scaler de 1:8 -> 500.000us/ 8us = 62500, entao subtraimos 65535 - 62500 e obtemos o valor necessario para comecar o timer
+    TMR1H = 0x0B;          //carga do valor inicial no contador (65535-62500) - 3035
+    TMR1L = 0xDB;          //Quando estourar contou 62500, passou 0,5s
+  
+  
+  /// 1 MILISSECOND CONFIG
   // 1000us/8us = 125, thus, start timer value at 65536 - 125 = 65411, so starts at 65411
 //  TMR1H = 0xFF; //Most significative
 //  TMR1L = 0x83; //Less significative  
-  
-  TMR1L = 0xDC;          //carga do valor inicial no contador (65536-62500)
-  TMR1H = 0x0B;          //3036. Quando estourar contou 62500, passou 0,5s
+    
+    
   
   T1CONbits.TMR1ON = 1;   //turn on timer
 }

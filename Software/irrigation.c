@@ -3,7 +3,6 @@
 virtualTimer timer_IRRIG_Timeout = 
 {
   .targetTime = 20,
-  .elapsedTime = 0,
   .active = 0,
   .callback = interrupt_IRRIG_timeout
 };
@@ -15,18 +14,23 @@ unsigned char minHumidity = 30;
 unsigned char idealHumidity = 50;
 __bit isIrrigating = 0;
 
+//Executa a logica para irrigar, caso passe todas as checagens e a humidade esteja baixa, irrigue
 void run_IrrigationLogic(int sMoistureValue)
 {
-  if(tankState == WTANK_LOW || tankState == WTANK_ERROR)
-    stopIrrigation();
   
-  else if(irrigationState == IRRIG_ERROR)
+  if(irrigationState == IRRIG_ERROR) //Erro de timeoout
+  {
     stopIrrigation();
+    pin_alarm = 0; //Liga alarme
+  }
   
-  else if(sMoistureValue <= minHumidity)
+  else if(tankState == WTANK_LOW || tankState == WTANK_ERROR) //Caso Tanque de agua esteja vazio ou com erro
+  stopIrrigation();
+    
+  else if(sMoistureValue <= minHumidity) //Se umidade esta abaixo, liga
     startIrrigation();
   
-  else if(sMoistureValue >= idealHumidity)
+  else if(sMoistureValue >= idealHumidity) //Se chegou na umidade ideal, desliga
     stopIrrigation();
 }
 

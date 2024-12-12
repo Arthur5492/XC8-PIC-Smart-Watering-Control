@@ -34,9 +34,6 @@ void check_TankStatus(void);
 //Executa a logica de enchimento de tanque baseado no estado atual do tanque
 void run_waterTankLogic(void);
 
-//Reseta estado do tanque para valor default
-void resetTankState(void);
-
 //Liga solenoide
 void startFilling(void);
 

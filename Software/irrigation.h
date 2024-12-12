@@ -19,8 +19,8 @@ extern IrrigationState lastIrrigationState;
 extern virtualTimer timer_IRRIG_Timeout;
 
 //PARAMETERS
-extern unsigned char minHumidity;
-extern unsigned char idealHumidity;
+extern unsigned char minHumidity; //Caso chegue nesse valor, irrigacao precisa ser feita
+extern unsigned char idealHumidity; //Umidade ideal
 extern __bit isIrrigating;
 //
 
