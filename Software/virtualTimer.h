@@ -16,7 +16,6 @@ typedef struct {
     void (*callback)(void);       // Ponteiro para a funcao de callback
 } virtualTimer;
 
-
 //ativa ou desativa timer
 void stopTimer (virtualTimer *timer);
 void startTimer(virtualTimer *timer);
