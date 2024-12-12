@@ -1,4 +1,4 @@
-# XC8-PIC-Smart-Watering-Control
+# XC8-PIC-Smart-Watering-Control - Arthur Fernandes e Ananda Muxfdeldt
 Simulation of a Smart Watering control for gardens using a PIC16F877A with XC8 and Proteus for simulation
 
 ## Hardware:
